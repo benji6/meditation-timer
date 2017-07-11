@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "webpack",
     "start": "live-server .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/benji6/meditation-timer/issues"
   },
-  "homepage": "https://github.com/benji6/meditation-timer#readme"
+  "homepage": "https://github.com/benji6/meditation-timer#readme",
+  "devDependencies": {
+    "webpack": "^3.2.0"
+  }
 }
