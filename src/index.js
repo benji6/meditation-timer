@@ -1,3 +1,6 @@
+import NoSleep from 'nosleep.js'
+
+var noSleep = new NoSleep();
 var isRunning = false
 var controls = document.querySelector('.js-controls')
 var display = document.querySelector('.js-display')
@@ -7,6 +10,7 @@ var timeOutputEl = document.querySelector('.js-time-output')
 var timeInput = document.querySelector('.js-time-input')
 
 startButton.onclick = function () {
+  noSleep.enable()
   var duration = Number(timeInput.value) * 1000 * 60
   var t0 = Date.now()
   var displayTime
@@ -32,4 +36,5 @@ stopButton.onclick = function () {
   isRunning = false
   display.style.display = 'none'
   controls.style.display = 'block'
+  noSleep.disable()
 }
