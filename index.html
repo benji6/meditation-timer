@@ -6,12 +6,35 @@
   <script async defer src="dist/index.js"></script>
   <style>
     body {
-      background: #175784;
-      background-image: linear-gradient(30deg, #22fff5 0%, #175784 100%);
       color:#fff;
       font-family: sans-serif;
       height: 100%;
       margin: 0;
+    }
+
+    .gradient-top {
+      background: #53d1ff;
+      background-image: linear-gradient(160deg, #2c31d4 0%, #53d1ff 100%);
+    }
+
+    .gradient-bottom {
+      background: #2c31d4;
+      background-image: linear-gradient(30deg, #2c31d4 0%, #ff3f3f 100%);
+    }
+
+    .gradient-bottom,
+    .gradient-top {
+      bottom: 0;
+      left: 0;
+      position: fixed;
+      right: 0;
+      top: 0;
+      transition: opacity 1s;
+      z-index: -1;
+    }
+
+    .gradient-bottom--hidden {
+      opacity: 0;
     }
 
     .heading {
@@ -62,10 +85,12 @@
   </style>
 </head>
 <body>
+  <div class="gradient-top"></div>
+  <div class="gradient-bottom"></div>
   <header>
     <h1 class="heading">Meditation Timer</h1>
   </header>
-  <main>
+  <main class="main">
     <div class="js-controls">
       <input class="js-time-input time-input" type="number" value="10">
       <button class="js-start-button start-button">Start</button>

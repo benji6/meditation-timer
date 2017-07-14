@@ -81,9 +81,11 @@ var startButton = document.querySelector('.js-start-button')
 var stopButton = document.querySelector('.js-stop-button')
 var timeOutputEl = document.querySelector('.js-time-output')
 var timeInput = document.querySelector('.js-time-input')
+var gradientBottom = document.querySelector('.gradient-bottom')
 
 startButton.onclick = function () {
   noSleep.enable()
+  gradientBottom.classList.add('gradient-bottom--hidden')
   var duration = Number(timeInput.value) * 1000 * 60
   var t0 = Date.now()
   var displayTime
@@ -107,6 +109,7 @@ startButton.onclick = function () {
 
 stopButton.onclick = function () {
   isRunning = false
+  gradientBottom.classList.remove('gradient-bottom--hidden')
   display.style.display = 'none'
   controls.style.display = 'block'
   noSleep.disable()
