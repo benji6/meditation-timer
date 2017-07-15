@@ -1,40 +1,42 @@
 import NoSleep from 'nosleep.js'
 
-var noSleep = new NoSleep();
-var isRunning = false
-var controls = document.querySelector('.js-controls')
-var display = document.querySelector('.js-display')
-var startButton = document.querySelector('.js-start-button')
-var stopButton = document.querySelector('.js-stop-button')
-var timeOutputEl = document.querySelector('.js-time-output')
-var timeInput = document.querySelector('.js-time-input')
-var gradientBottom = document.querySelector('.gradient-bottom')
+const noSleep = new NoSleep()
+let isRunning = false
+const controls = document.querySelector('.js-controls')
+const display = document.querySelector('.js-display')
+const startButton = document.querySelector('.js-start-button')
+const stopButton = document.querySelector('.js-stop-button')
+const timeOutputEl = document.querySelector('.js-time-output')
+const timeInput = document.querySelector('.js-time-input')
+const gradientBottom = document.querySelector('.gradient-bottom')
 
-startButton.onclick = function () {
+startButton.onclick = () => {
   noSleep.enable()
   gradientBottom.classList.add('gradient-bottom--hidden')
-  var duration = Number(timeInput.value) * 1000 * 60
-  var t0 = Date.now()
-  var displayTime
+  const duration = Number(timeInput.value) * 1000 * 60
+  const t0 = Date.now()
+  let displayTime
   display.style.display = 'block'
   controls.style.display = 'none'
   isRunning = true
 
-  requestAnimationFrame(function renderLoop () {
+  const renderLoop = () => {
     if (!isRunning) return
     requestAnimationFrame(renderLoop)
-    var newDisplayTime = Math.round((duration + t0 - Date.now()) / 1000)
+    const newDisplayTime = Math.round((duration + t0 - Date.now()) / 1000)
     if (newDisplayTime === displayTime) return
     if (newDisplayTime === 0) isRunning = false
     displayTime = newDisplayTime
     timeOutputEl.innerText =
-      ('0' + Math.floor(displayTime / 60)).slice(-2)
-      + ':'
-      + ('0' + displayTime % 60).slice(-2)
-  })
+      ('0' + Math.floor(displayTime / 60)).slice(-2) +
+      ':' +
+      ('0' + displayTime % 60).slice(-2)
+  }
+
+  requestAnimationFrame(renderLoop)
 }
 
-stopButton.onclick = function () {
+stopButton.onclick = () => {
   isRunning = false
   gradientBottom.classList.remove('gradient-bottom--hidden')
   display.style.display = 'none'

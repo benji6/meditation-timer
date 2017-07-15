@@ -65,56 +65,57 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_nosleep_js__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_nosleep_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_nosleep_js__);
 
 
-var noSleep = new __WEBPACK_IMPORTED_MODULE_0_nosleep_js___default.a();
-var isRunning = false
-var controls = document.querySelector('.js-controls')
-var display = document.querySelector('.js-display')
-var startButton = document.querySelector('.js-start-button')
-var stopButton = document.querySelector('.js-stop-button')
-var timeOutputEl = document.querySelector('.js-time-output')
-var timeInput = document.querySelector('.js-time-input')
-var gradientBottom = document.querySelector('.gradient-bottom')
+var _nosleep = __webpack_require__(1);
+
+var _nosleep2 = _interopRequireDefault(_nosleep);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var noSleep = new _nosleep2.default();
+var isRunning = false;
+var controls = document.querySelector('.js-controls');
+var display = document.querySelector('.js-display');
+var startButton = document.querySelector('.js-start-button');
+var stopButton = document.querySelector('.js-stop-button');
+var timeOutputEl = document.querySelector('.js-time-output');
+var timeInput = document.querySelector('.js-time-input');
+var gradientBottom = document.querySelector('.gradient-bottom');
 
 startButton.onclick = function () {
-  noSleep.enable()
-  gradientBottom.classList.add('gradient-bottom--hidden')
-  var duration = Number(timeInput.value) * 1000 * 60
-  var t0 = Date.now()
-  var displayTime
-  display.style.display = 'block'
-  controls.style.display = 'none'
-  isRunning = true
+  noSleep.enable();
+  gradientBottom.classList.add('gradient-bottom--hidden');
+  var duration = Number(timeInput.value) * 1000 * 60;
+  var t0 = Date.now();
+  var displayTime = void 0;
+  display.style.display = 'block';
+  controls.style.display = 'none';
+  isRunning = true;
 
-  requestAnimationFrame(function renderLoop () {
-    if (!isRunning) return
-    requestAnimationFrame(renderLoop)
-    var newDisplayTime = Math.round((duration + t0 - Date.now()) / 1000)
-    if (newDisplayTime === displayTime) return
-    if (newDisplayTime === 0) isRunning = false
-    displayTime = newDisplayTime
-    timeOutputEl.innerText =
-      ('0' + Math.floor(displayTime / 60)).slice(-2)
-      + ':'
-      + ('0' + displayTime % 60).slice(-2)
-  })
-}
+  var renderLoop = function renderLoop() {
+    if (!isRunning) return;
+    requestAnimationFrame(renderLoop);
+    var newDisplayTime = Math.round((duration + t0 - Date.now()) / 1000);
+    if (newDisplayTime === displayTime) return;
+    if (newDisplayTime === 0) isRunning = false;
+    displayTime = newDisplayTime;
+    timeOutputEl.innerText = ('0' + Math.floor(displayTime / 60)).slice(-2) + ':' + ('0' + displayTime % 60).slice(-2);
+  };
+
+  requestAnimationFrame(renderLoop);
+};
 
 stopButton.onclick = function () {
-  isRunning = false
-  gradientBottom.classList.remove('gradient-bottom--hidden')
-  display.style.display = 'none'
-  controls.style.display = 'block'
-  noSleep.disable()
-}
-
+  isRunning = false;
+  gradientBottom.classList.remove('gradient-bottom--hidden');
+  display.style.display = 'none';
+  controls.style.display = 'block';
+  noSleep.disable();
+};
 
 /***/ }),
 /* 1 */
