@@ -5,11 +5,22 @@
   <title>Mediation Timer</title>
   <script async defer src="index.js"></script>
   <style>
+    :root {
+      --font-color: #fafeff;
+      --green: #06bb2d;
+      --green-dark: green;
+    }
+
     body {
-      color:#fff;
+      color: var(--font-color);
       font-family: sans-serif;
       height: 100%;
       margin: 0;
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
     }
 
     .controls--hidden {
@@ -41,8 +52,9 @@
 
     .header {
       background: #0e0e35;
+      box-shadow: 0 0 1rem #0e0e35;
       line-height: 2;
-      margin: 0;
+      margin-bottom: 1.5rem;
       text-align: center;
     }
 
@@ -54,16 +66,19 @@
       display: none;
     }
 
-    .start-button {
-      background: #06bb2d;
+    .timer-button {
+      background: var(--green);
       border-radius: 1rem;
       border: none;
-      color: #fff;
+      box-shadow: 0.1rem 0.1rem 0.5rem var(--green-dark);
+      color: var(--font-color);
       cursor: pointer;
       display: block;
+      flex: 1 1 8rem;
+      font-size: 1rem;
       font-weight: bold;
-      margin: 1rem auto 0;
-      padding: 1rem;
+      height: 4rem;
+      margin: 1rem;
     }
 
     .pause-button,
@@ -72,7 +87,7 @@
       background: #bb0606;
       border-radius: 1rem;
       border: none;
-      color: #fff;
+      color: var(--font-color);
       cursor: pointer;
       display: block;
       font-weight: bold;
@@ -97,11 +112,6 @@
       font-size: 5rem;
       text-align: center;
     }
-
-    .time-input {
-      display: block;
-      margin: 1rem auto;
-    }
   </style>
 </head>
 <body>
@@ -112,8 +122,12 @@
   </header>
   <main class="main">
     <div class="controls">
-      <input class="time-input" type="number" value="10">
-      <button class="start-button">Start</button>
+      <button class="timer-button" data-time="5">5 mins</button>
+      <button class="timer-button" data-time="10">10 mins</button>
+      <button class="timer-button" data-time="15">15 mins</button>
+      <button class="timer-button" data-time="20">20 mins</button>
+      <button class="timer-button" data-time="25">25 mins</button>
+      <button class="timer-button" data-time="30">30 mins</button>
     </div>
     <div class="display display--hidden">
       <div class="time-output"></div>

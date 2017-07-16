@@ -6,10 +6,7 @@ const controls = document.querySelector('.controls')
 const display = document.querySelector('.display')
 const pauseButton = document.querySelector('.pause-button')
 const playButton = document.querySelector('.play-button')
-const startButton = document.querySelector('.start-button')
-const stopButton = document.querySelector('.stop-button')
 const timeOutputEl = document.querySelector('.time-output')
-const timeInput = document.querySelector('.time-input')
 const gradientBottom = document.querySelector('.gradient-bottom')
 
 let isRunning = false
@@ -45,15 +42,17 @@ const startTimer = ({duration = displayTime * 1000, startTime}) => {
   requestAnimationFrame(renderLoop)
 }
 
-startButton.onclick = () => {
-  gradientBottom.classList.add('gradient-bottom--hidden')
-  display.classList.remove('display--hidden')
-  controls.classList.add('controls--hidden')
+for (const el of document.querySelectorAll('.timer-button')) {
+  el.onclick = () => {
+    gradientBottom.classList.add('gradient-bottom--hidden')
+    display.classList.remove('display--hidden')
+    controls.classList.add('controls--hidden')
 
-  startTimer({
-    duration: Number(timeInput.value) * 1000 * 60,
-    startTime: Date.now(),
-  })
+    startTimer({
+      duration: Number(el.getAttribute('data-time')) * 1000 * 60,
+      startTime: Date.now(),
+    })
+  }
 }
 
 pauseButton.onclick = () => {
@@ -68,7 +67,7 @@ playButton.onclick = () => {
   playButton.classList.add('play-button--hidden')
 }
 
-stopButton.onclick = () => {
+document.querySelector('.stop-button').onclick = () => {
   stopTimer()
   gradientBottom.classList.remove('gradient-bottom--hidden')
   display.classList.add('display--hidden')
