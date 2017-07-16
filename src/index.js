@@ -73,5 +73,7 @@ stopButton.onclick = () => {
   gradientBottom.classList.remove('gradient-bottom--hidden')
   display.classList.add('display--hidden')
   controls.classList.remove('controls--hidden')
+  pauseButton.classList.remove('pause-button--hidden')
+  playButton.classList.add('play-button--hidden')
   noSleep.disable()
 }
