@@ -12,14 +12,16 @@
       margin: 0;
     }
 
+    .controls--hidden {
+      display: none;
+    }
+
     .gradient-top {
-      background: #53d1ff;
-      background-image: linear-gradient(160deg, #2c31d4 0%, #53d1ff 100%);
+      background-image: linear-gradient(150deg, #2c31d4 0%, #1c2092 100%);
     }
 
     .gradient-bottom {
-      background: #2c31d4;
-      background-image: linear-gradient(30deg, #2c31d4 0%, #ff3f3f 100%);
+      background-image: linear-gradient(150deg, #2c31d4 0%, #53d1ff 100%);
     }
 
     .gradient-bottom,
@@ -37,20 +39,19 @@
       opacity: 0;
     }
 
-    .heading {
-      background: #143a44;
-      font-size: 1.75rem;
+    .header {
+      background: #0e0e35;
       line-height: 2;
       margin: 0;
       text-align: center;
     }
 
-    .display {
+    .display--hidden {
       display: none;
     }
 
     .start-button {
-      background: #245a34;
+      background: #06bb2d;
       border-radius: 1rem;
       border: none;
       color: #fff;
@@ -61,6 +62,8 @@
       padding: 1rem;
     }
 
+    .pause-button,
+    .play-button,
     .stop-button {
       background: #bb0606;
       border-radius: 1rem;
@@ -71,6 +74,19 @@
       font-weight: bold;
       margin: 1rem auto 0;
       padding: 1rem;
+    }
+
+    .pause-button:disabled {
+      background: gray;
+    }
+
+    .play-button {
+      background: #05ad2a;
+    }
+
+    .pause-button--hidden,
+    .play-button--hidden {
+      display: none;
     }
 
     .time-output {
@@ -87,17 +103,19 @@
 <body>
   <div class="gradient-top"></div>
   <div class="gradient-bottom"></div>
-  <header>
-    <h1 class="heading">Meditation Timer</h1>
+  <header class="header">
+    <h1>Meditation Timer</h1>
   </header>
   <main class="main">
-    <div class="js-controls">
-      <input class="js-time-input time-input" type="number" value="10">
-      <button class="js-start-button start-button">Start</button>
+    <div class="controls">
+      <input class="time-input" type="number" value="10">
+      <button class="start-button">Start</button>
     </div>
-    <div class="display js-display">
-      <div class="js-time-output time-output"></div>
-      <button class="js-stop-button stop-button">STOP</button>
+    <div class="display display--hidden">
+      <div class="time-output"></div>
+      <button class="pause-button">PAUSE</button>
+      <button class="play-button play-button--hidden">PLAY</button>
+      <button class="stop-button">STOP</button>
     </div>
   </main>
 </body>

@@ -1,45 +1,77 @@
 import NoSleep from 'nosleep.js'
 
 const noSleep = new NoSleep()
-let isRunning = false
-const controls = document.querySelector('.js-controls')
-const display = document.querySelector('.js-display')
-const startButton = document.querySelector('.js-start-button')
-const stopButton = document.querySelector('.js-stop-button')
-const timeOutputEl = document.querySelector('.js-time-output')
-const timeInput = document.querySelector('.js-time-input')
+
+const controls = document.querySelector('.controls')
+const display = document.querySelector('.display')
+const pauseButton = document.querySelector('.pause-button')
+const playButton = document.querySelector('.play-button')
+const startButton = document.querySelector('.start-button')
+const stopButton = document.querySelector('.stop-button')
+const timeOutputEl = document.querySelector('.time-output')
+const timeInput = document.querySelector('.time-input')
 const gradientBottom = document.querySelector('.gradient-bottom')
 
-startButton.onclick = () => {
+let isRunning = false
+
+const stopTimer = () => {
+  isRunning = false
+  noSleep.disable()
+}
+
+let displayTime
+
+const startTimer = ({duration = displayTime * 1000, startTime}) => {
   noSleep.enable()
-  gradientBottom.classList.add('gradient-bottom--hidden')
-  const duration = Number(timeInput.value) * 1000 * 60
-  const t0 = Date.now()
-  let displayTime
-  display.style.display = 'block'
-  controls.style.display = 'none'
   isRunning = true
+  pauseButton.disabled = false
 
   const renderLoop = () => {
     if (!isRunning) return
     requestAnimationFrame(renderLoop)
-    const newDisplayTime = Math.round((duration + t0 - Date.now()) / 1000)
+    const newDisplayTime = Math.round((duration + startTime - Date.now()) / 1000)
     if (newDisplayTime === displayTime) return
-    if (newDisplayTime === 0) isRunning = false
+    if (newDisplayTime === 0) {
+      stopTimer()
+      pauseButton.disabled = true
+    }
     displayTime = newDisplayTime
     timeOutputEl.innerText =
-      ('0' + Math.floor(displayTime / 60)).slice(-2) +
-      ':' +
-      ('0' + displayTime % 60).slice(-2)
+    ('0' + Math.floor(displayTime / 60)).slice(-2) +
+    ':' +
+    ('0' + displayTime % 60).slice(-2)
   }
 
   requestAnimationFrame(renderLoop)
 }
 
+startButton.onclick = () => {
+  gradientBottom.classList.add('gradient-bottom--hidden')
+  display.classList.remove('display--hidden')
+  controls.classList.add('controls--hidden')
+
+  startTimer({
+    duration: Number(timeInput.value) * 1000 * 60,
+    startTime: Date.now(),
+  })
+}
+
+pauseButton.onclick = () => {
+  stopTimer()
+  pauseButton.classList.add('pause-button--hidden')
+  playButton.classList.remove('play-button--hidden')
+}
+
+playButton.onclick = () => {
+  startTimer({startTime: Date.now()})
+  pauseButton.classList.remove('pause-button--hidden')
+  playButton.classList.add('play-button--hidden')
+}
+
 stopButton.onclick = () => {
-  isRunning = false
+  stopTimer()
   gradientBottom.classList.remove('gradient-bottom--hidden')
-  display.style.display = 'none'
-  controls.style.display = 'block'
+  display.classList.add('display--hidden')
+  controls.classList.remove('controls--hidden')
   noSleep.disable()
 }
