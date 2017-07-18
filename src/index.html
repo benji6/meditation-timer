@@ -9,6 +9,7 @@
       --font-color: #fafeff;
       --green: #06bb2d;
       --green-dark: green;
+      --spacing-medium: 1.2rem;
     }
 
     body {
@@ -21,6 +22,9 @@
     .controls {
       display: flex;
       flex-wrap: wrap;
+      margin: 0 auto;
+      padding: 0 calc(var(--spacing-medium) / 2);
+      max-width: 35rem;
     }
 
     .controls--hidden {
@@ -28,7 +32,7 @@
     }
 
     .gradient-top {
-      background-image: linear-gradient(150deg, #2c31d4 0%, #1c2092 100%);
+      background-image: linear-gradient(150deg, #2c31d4 0%, #131665 100%);
     }
 
     .gradient-bottom {
@@ -78,7 +82,7 @@
       font-size: 1rem;
       font-weight: bold;
       height: 4rem;
-      margin: 1rem;
+      margin: calc(var(--spacing-medium) / 2);
     }
 
     .pause-button,
@@ -91,8 +95,8 @@
       cursor: pointer;
       display: block;
       font-weight: bold;
-      margin: 1rem auto 0;
-      padding: 1rem;
+      margin: var(--spacing-medium) auto 0;
+      padding: var(--spacing-medium);
     }
 
     .pause-button:disabled {
