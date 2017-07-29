@@ -1,8 +1,9 @@
+const BabiliPlugin = require('babili-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const webpack = require('webpack')
 const path = require('path')
 
-module.exports = {
+const config = {
   devServer: {
     contentBase: path.join(__dirname, 'src'),
   },
@@ -30,3 +31,9 @@ module.exports = {
     new webpack.optimize.ModuleConcatenationPlugin(),
   ],
 }
+
+if (process.env.NODE_ENV === 'production') {
+  config.plugins.push(new BabiliPlugin())
+}
+
+module.exports = config
