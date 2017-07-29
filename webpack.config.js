@@ -1,7 +1,8 @@
 const BabiliPlugin = require('babili-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const webpack = require('webpack')
+const minify = require('html-minifier').minify
 const path = require('path')
+const webpack = require('webpack')
 
 const config = {
   devServer: {
@@ -13,9 +14,7 @@ const config = {
       {
         exclude: /node_modules/,
         test: /\.js$/,
-        use: {
-          loader: 'babel-loader',
-        },
+        use: {loader: 'babel-loader'},
       },
     ],
   },
@@ -26,7 +25,15 @@ const config = {
   plugins: [
     new CopyWebpackPlugin([
       {from: 'src/index.css'},
-      {from: 'src/index.html'},
+      {
+        from: 'src/index.html',
+        transform: content => minify(content.toString(), {
+          collapseBooleanAttributes: true,
+          collapseWhitespace: true,
+          sortAttributes: true,
+          sortClassName: true,
+        }),
+      },
     ]),
     new webpack.optimize.ModuleConcatenationPlugin(),
   ],
