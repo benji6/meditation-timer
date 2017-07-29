@@ -2,12 +2,11 @@ import NoSleep from 'nosleep.js'
 
 const noSleep = new NoSleep()
 
-const controls = document.querySelector('.controls')
+const timersEl = document.querySelector('.timers')
 const display = document.querySelector('.display')
-const pauseButton = document.querySelector('.pause-button')
-const playButton = document.querySelector('.play-button')
 const timeOutputEl = document.querySelector('.time-output')
 const gradientBottom = document.querySelector('.gradient-bottom')
+const playPauseEl = document.querySelector('.play-pause')
 
 let isRunning = false
 
@@ -21,7 +20,7 @@ let displayTime
 const startTimer = ({duration = displayTime * 1000, startTime}) => {
   noSleep.enable()
   isRunning = true
-  pauseButton.disabled = false
+  playPauseEl.disabled = false
 
   const renderLoop = () => {
     if (!isRunning) return
@@ -30,7 +29,7 @@ const startTimer = ({duration = displayTime * 1000, startTime}) => {
     if (newDisplayTime === displayTime) return
     if (newDisplayTime === 0) {
       stopTimer()
-      pauseButton.disabled = true
+      playPauseEl.disabled = true
     }
     displayTime = newDisplayTime
     timeOutputEl.innerText =
@@ -46,7 +45,7 @@ for (const el of document.querySelectorAll('.timer-button')) {
   el.onclick = () => {
     gradientBottom.classList.add('gradient-bottom--hidden')
     display.classList.remove('display--hidden')
-    controls.classList.add('controls--hidden')
+    timersEl.classList.add('timers--hidden')
 
     startTimer({
       duration: Number(el.getAttribute('data-time')) * 1000 * 60,
@@ -55,24 +54,21 @@ for (const el of document.querySelectorAll('.timer-button')) {
   }
 }
 
-pauseButton.onclick = () => {
-  stopTimer()
-  pauseButton.classList.add('pause-button--hidden')
-  playButton.classList.remove('play-button--hidden')
-}
-
-playButton.onclick = () => {
-  startTimer({startTime: Date.now()})
-  pauseButton.classList.remove('pause-button--hidden')
-  playButton.classList.add('play-button--hidden')
+playPauseEl.onclick = () => {
+  if (playPauseEl.classList.contains('play-pause--playing')) {
+    stopTimer()
+    playPauseEl.classList.remove('play-pause--playing')
+  } else {
+    startTimer({startTime: Date.now()})
+    playPauseEl.classList.add('play-pause--playing')
+  }
 }
 
 document.querySelector('.stop-button').onclick = () => {
   stopTimer()
+  playPauseEl.classList.add('play-pause--playing')
   gradientBottom.classList.remove('gradient-bottom--hidden')
   display.classList.add('display--hidden')
-  controls.classList.remove('controls--hidden')
-  pauseButton.classList.remove('pause-button--hidden')
-  playButton.classList.add('play-button--hidden')
+  timersEl.classList.remove('timers--hidden')
   noSleep.disable()
 }

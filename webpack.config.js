@@ -23,7 +23,10 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
   },
   plugins: [
-    new CopyWebpackPlugin([{from: 'src/index.html'}]),
+    new CopyWebpackPlugin([
+      {from: 'src/index.css'},
+      {from: 'src/index.html'},
+    ]),
     new webpack.optimize.ModuleConcatenationPlugin(),
   ],
 }

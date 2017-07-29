@@ -1,0 +1,146 @@
+:root {
+  --blue: #2c31d4;
+  --blue-dark: #0e0e35;
+  --gray: #6e6e6e;
+  --green-dark: #207826;
+  --green: #06bb2d;
+  --orange: #d19000;
+  --red: #bb0606;
+  --white: #fafeff;
+
+  --spacing-medium: 1.2rem;
+
+  --transition-base: 250ms;
+  --transition-slow: 1s;
+}
+
+body {
+  color: var(--white);
+  font-family: sans-serif;
+  height: 100%;
+  margin: 0;
+  user-select: none;
+}
+
+.controls {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 8rem;
+}
+.controls > :not(:last-child) {
+  margin-right: 1rem;
+}
+
+.timers {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding: 0 calc(var(--spacing-medium) / 2);
+  max-width: 35rem;
+}
+
+.timers--hidden {
+  display: none;
+}
+
+.gradient-top {
+  background-image: linear-gradient(150deg, var(--blue) 0%, #131665 100%);
+}
+
+.gradient-bottom {
+  background-image: linear-gradient(150deg, var(--blue) 0%, #53d1ff 100%);
+}
+
+.gradient-bottom,
+.gradient-top {
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transition: opacity var(--transition-slow);
+  z-index: -1;
+}
+
+.gradient-bottom--hidden {
+  opacity: 0;
+}
+
+.header {
+  background: var(--blue-dark);
+  box-shadow: 0 0 1rem var(--blue-dark);
+  line-height: 2;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.header__heading {
+  margin: 0;
+}
+
+.display--hidden {
+  display: none;
+}
+
+.play-pause {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  stroke: var(--green);
+  text-align: center;
+  width: 5rem;
+  height: 5rem;
+  transition: stroke var(--transition-base);
+}
+.play-pause:disabled {
+  stroke: var(--gray);
+}
+.play-pause--playing {
+  stroke: var(--orange);
+}
+.play-pause__pause {
+  display: none;
+}
+.play-pause__play {
+  display: inline;
+}
+.play-pause--playing .play-pause__play {
+  display: none;
+}
+.play-pause--playing .play-pause__pause {
+  display: inline;
+}
+
+.timer-button {
+  background: var(--green);
+  border-radius: 1rem;
+  border: none;
+  box-shadow: 0.1rem 0.1rem 0.5rem var(--green-dark);
+  color: var(--white);
+  cursor: pointer;
+  display: block;
+  flex: 1 1 8rem;
+  font-size: 1rem;
+  font-weight: bold;
+  height: 4rem;
+  margin: calc(var(--spacing-medium) / 2);
+}
+
+.stop-button {
+  background: var(--red);
+  border-radius: 1rem;
+  border: none;
+  color: var(--white);
+  cursor: pointer;
+  display: block;
+  font-weight: bold;
+  padding: var(--spacing-medium);
+}
+
+.time-output {
+  font-size: 5rem;
+  margin-top: 8rem;
+  text-align: center;
+}

@@ -5,119 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   <title>Mediation Timer</title>
   <script async defer src="index.js"></script>
-  <style>
-    :root {
-      --font-color: #fafeff;
-      --green: #06bb2d;
-      --green-dark: green;
-      --spacing-medium: 1.2rem;
-    }
-
-    body {
-      color: var(--font-color);
-      font-family: sans-serif;
-      height: 100%;
-      margin: 0;
-    }
-
-    .controls {
-      display: flex;
-      flex-wrap: wrap;
-      margin: 0 auto;
-      padding: 0 calc(var(--spacing-medium) / 2);
-      max-width: 35rem;
-    }
-
-    .controls--hidden {
-      display: none;
-    }
-
-    .gradient-top {
-      background-image: linear-gradient(150deg, #2c31d4 0%, #131665 100%);
-    }
-
-    .gradient-bottom {
-      background-image: linear-gradient(150deg, #2c31d4 0%, #53d1ff 100%);
-    }
-
-    .gradient-bottom,
-    .gradient-top {
-      bottom: 0;
-      left: 0;
-      position: fixed;
-      right: 0;
-      top: 0;
-      transition: opacity 1s;
-      z-index: -1;
-    }
-
-    .gradient-bottom--hidden {
-      opacity: 0;
-    }
-
-    .header {
-      background: #0e0e35;
-      box-shadow: 0 0 1rem #0e0e35;
-      line-height: 2;
-      margin-bottom: 1.5rem;
-      text-align: center;
-    }
-
-    .header__heading {
-      margin: 0;
-    }
-
-    .display--hidden {
-      display: none;
-    }
-
-    .timer-button {
-      background: var(--green);
-      border-radius: 1rem;
-      border: none;
-      box-shadow: 0.1rem 0.1rem 0.5rem var(--green-dark);
-      color: var(--font-color);
-      cursor: pointer;
-      display: block;
-      flex: 1 1 8rem;
-      font-size: 1rem;
-      font-weight: bold;
-      height: 4rem;
-      margin: calc(var(--spacing-medium) / 2);
-    }
-
-    .pause-button,
-    .play-button,
-    .stop-button {
-      background: #bb0606;
-      border-radius: 1rem;
-      border: none;
-      color: var(--font-color);
-      cursor: pointer;
-      display: block;
-      font-weight: bold;
-      margin: var(--spacing-medium) auto 0;
-      padding: var(--spacing-medium);
-    }
-
-    .pause-button:disabled {
-      background: gray;
-    }
-
-    .play-button {
-      background: #05ad2a;
-    }
-
-    .pause-button--hidden,
-    .play-button--hidden {
-      display: none;
-    }
-
-    .time-output {
-      font-size: 5rem;
-      text-align: center;
-    }
-  </style>
+  <link href="index.css" rel="stylesheet">
 </head>
 <body>
   <div class="gradient-top"></div>
@@ -126,19 +14,30 @@
     <h1 class="header__heading">Meditation Timer</h1>
   </header>
   <main class="main">
-    <div class="controls">
-      <button class="timer-button" data-time="5">5 mins</button>
-      <button class="timer-button" data-time="10">10 mins</button>
-      <button class="timer-button" data-time="15">15 mins</button>
-      <button class="timer-button" data-time="20">20 mins</button>
-      <button class="timer-button" data-time="25">25 mins</button>
-      <button class="timer-button" data-time="30">30 mins</button>
+    <div class="timers">
+      <button aria-label="select 5 minutes timer" class="timer-button" data-time="5">5 mins</button>
+      <button aria-label="select 10 minutes timer" class="timer-button" data-time="10">10 mins</button>
+      <button aria-label="select 15 minutes timer" class="timer-button" data-time="15">15 mins</button>
+      <button aria-label="select 20 minutes timer" class="timer-button" data-time="20">20 mins</button>
+      <button aria-label="select 25 minutes timer" class="timer-button" data-time="25">25 mins</button>
+      <button aria-label="select 35 minutes timer" class="timer-button" data-time="30">30 mins</button>
     </div>
     <div class="display display--hidden">
       <div class="time-output"></div>
-      <button class="pause-button">PAUSE</button>
-      <button class="play-button play-button--hidden">PLAY</button>
-      <button class="stop-button">STOP</button>
+      <div class="controls">
+        <button aria-label="toggle between paused and playing (playing is the initial state)" class="play-pause play-pause--playing" disabled>
+          <svg class="play-pause__play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+            <polygon points="10 8 16 12 10 16 10 8" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          </svg>
+          <svg class="play-pause__pause" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+            <line x1="10" y1="15" x2="10" y2="9" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+            <line x1="14" y1="15" x2="14" y2="9" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          </svg>
+        </button>
+        <button aria-label="stop the timer" class="stop-button">STOP</button>
+      </div>
     </div>
   </main>
 </body>
