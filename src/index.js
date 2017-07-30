@@ -26,7 +26,7 @@ const startTimer = ({duration = displayTime * 1000, startTime}) => {
   const renderLoop = () => {
     if (!isRunning) return
     requestAnimationFrame(renderLoop)
-    let newDisplayTime = Math.round((duration + startTime - Date.now()))
+    let newDisplayTime = Math.round((duration + startTime - Date.now()) / 1000)
     if (newDisplayTime === displayTime) return
     if (newDisplayTime <= 0) {
       newDisplayTime = 0
@@ -51,7 +51,7 @@ for (const el of document.querySelectorAll('.timer-button')) {
     timersEl.classList.add('timers--hidden')
 
     startTimer({
-      duration: Number(el.getAttribute('data-time')) * 1000 * 60 / 1000,
+      duration: Number(el.getAttribute('data-time')) * 1000 * 60,
       startTime: Date.now(),
     })
   }
