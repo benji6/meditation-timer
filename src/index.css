@@ -45,6 +45,9 @@ body {
   height: 4rem;
   transition: stroke var(--transition-base);
 }
+.control-button > * {
+  display: block;
+}
 .control-button:disabled {
   stroke: var(--gray);
 }
@@ -61,13 +64,13 @@ body {
   display: none;
 }
 .control-button__play {
-  display: inline;
+  display: block;
 }
 .control-button--pause .control-button__play {
   display: none;
 }
 .control-button--pause .control-button__pause {
-  display: inline;
+  display: block;
 }
 
 .controls {
