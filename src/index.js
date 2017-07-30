@@ -1,5 +1,5 @@
 import NoSleep from 'nosleep.js'
-import {startBell} from './bell'
+import {startBell, stopBell} from './bell'
 
 const noSleep = new NoSleep()
 
@@ -26,9 +26,10 @@ const startTimer = ({duration = displayTime * 1000, startTime}) => {
   const renderLoop = () => {
     if (!isRunning) return
     requestAnimationFrame(renderLoop)
-    const newDisplayTime = Math.round((duration + startTime - Date.now()) / 1000)
+    let newDisplayTime = Math.round((duration + startTime - Date.now()))
     if (newDisplayTime === displayTime) return
-    if (newDisplayTime === 0) {
+    if (newDisplayTime <= 0) {
+      newDisplayTime = 0
       stopTimer()
       playPauseEl.disabled = true
       startBell()
@@ -50,7 +51,7 @@ for (const el of document.querySelectorAll('.timer-button')) {
     timersEl.classList.add('timers--hidden')
 
     startTimer({
-      duration: Number(el.getAttribute('data-time')) * 1000 * 60,
+      duration: Number(el.getAttribute('data-time')) * 1000 * 60 / 1000,
       startTime: Date.now(),
     })
   }
@@ -70,6 +71,7 @@ playPauseEl.onclick = () => {
 
 document.querySelector('.control-button--stop').onclick = () => {
   stopTimer()
+  stopBell()
   playPauseEl.classList.remove('control-button--play')
   playPauseEl.classList.add('control-button--pause')
   gradientBottom.classList.remove('gradient--bottom--hidden')
