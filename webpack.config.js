@@ -34,6 +34,7 @@ const config = {
           sortClassName: true,
         }),
       },
+      {from: 'src/meditation-bell.mp3'},
     ]),
     new webpack.optimize.ModuleConcatenationPlugin(),
   ],
