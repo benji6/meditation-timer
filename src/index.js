@@ -1,4 +1,5 @@
 import NoSleep from 'nosleep.js'
+import {startBell} from './bell'
 
 const noSleep = new NoSleep()
 
@@ -30,6 +31,7 @@ const startTimer = ({duration = displayTime * 1000, startTime}) => {
     if (newDisplayTime === 0) {
       stopTimer()
       playPauseEl.disabled = true
+      startBell()
     }
     displayTime = newDisplayTime
     timeOutputEl.innerText =
@@ -48,7 +50,7 @@ for (const el of document.querySelectorAll('.timer-button')) {
     timersEl.classList.add('timers--hidden')
 
     startTimer({
-      duration: Number(el.getAttribute('data-time')) * 1000 * 60,
+      duration: Number(el.getAttribute('data-time')) * 1000 * 60 / 100,
       startTime: Date.now(),
     })
   }
