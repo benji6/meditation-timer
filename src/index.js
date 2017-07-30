@@ -68,6 +68,7 @@ playPauseEl.onclick = () => {
 
 document.querySelector('.control-button--stop').onclick = () => {
   stopTimer()
+  playPauseEl.classList.remove('control-button--play')
   playPauseEl.classList.add('control-button--pause')
   gradientBottom.classList.remove('gradient--bottom--hidden')
   display.classList.add('display--hidden')
