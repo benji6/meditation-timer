@@ -6,7 +6,7 @@ const timersEl = document.querySelector('.timers')
 const display = document.querySelector('.display')
 const timeOutputEl = document.querySelector('.time-output')
 const gradientBottom = document.querySelector('.gradient-bottom')
-const playPauseEl = document.querySelector('.play-pause')
+const playPauseEl = document.querySelector('.control-button--pause')
 
 let isRunning = false
 
@@ -55,18 +55,20 @@ for (const el of document.querySelectorAll('.timer-button')) {
 }
 
 playPauseEl.onclick = () => {
-  if (playPauseEl.classList.contains('play-pause--playing')) {
+  if (playPauseEl.classList.contains('control-button--pause')) {
     stopTimer()
-    playPauseEl.classList.remove('play-pause--playing')
+    playPauseEl.classList.remove('control-button--pause')
+    playPauseEl.classList.add('control-button--play')
   } else {
     startTimer({startTime: Date.now()})
-    playPauseEl.classList.add('play-pause--playing')
+    playPauseEl.classList.remove('control-button--play')
+    playPauseEl.classList.add('control-button--pause')
   }
 }
 
-document.querySelector('.stop-button').onclick = () => {
+document.querySelector('.control-button--stop').onclick = () => {
   stopTimer()
-  playPauseEl.classList.add('play-pause--playing')
+  playPauseEl.classList.add('control-button--pause')
   gradientBottom.classList.remove('gradient-bottom--hidden')
   display.classList.add('display--hidden')
   timersEl.classList.remove('timers--hidden')

@@ -35,10 +35,43 @@ body {
   user-select: none;
 }
 
+.control-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  text-align: center;
+  width: 4rem;
+  height: 4rem;
+  transition: stroke var(--transition-base);
+}
+.control-button:disabled {
+  stroke: var(--gray);
+}
+.control-button--pause {
+  stroke: var(--orange);
+}
+.control-button--play {
+  stroke: var(--green);
+}
+.control-button--stop {
+  stroke: var(--red);
+}
+.control-button__pause {
+  display: none;
+}
+.control-button__play {
+  display: inline;
+}
+.control-button--pause .control-button__play {
+  display: none;
+}
+.control-button--pause .control-button__pause {
+  display: inline;
+}
+
 .controls {
   align-items: center;
-  background: var(--blue-dark);
-  box-shadow: 0 0 var(--spacing-small) var(--shadow-base);
   display: flex;
   justify-content: center;
   padding: var(--spacing-small) 0;
@@ -108,36 +141,6 @@ body {
   display: none;
 }
 
-.play-pause {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  stroke: var(--green);
-  text-align: center;
-  width: 5rem;
-  height: 5rem;
-  transition: stroke var(--transition-base);
-}
-.play-pause:disabled {
-  stroke: var(--gray);
-}
-.play-pause--playing {
-  stroke: var(--orange);
-}
-.play-pause__pause {
-  display: none;
-}
-.play-pause__play {
-  display: inline;
-}
-.play-pause--playing .play-pause__play {
-  display: none;
-}
-.play-pause--playing .play-pause__pause {
-  display: inline;
-}
-
 .timer-button {
   background: var(--green);
   border-radius: 1rem;
@@ -151,17 +154,6 @@ body {
   font-weight: bold;
   height: 4rem;
   margin: calc(var(--spacing-base) / 2);
-}
-
-.stop-button {
-  background: var(--red);
-  border-radius: 1rem;
-  border: none;
-  color: var(--white);
-  cursor: pointer;
-  display: block;
-  font-weight: bold;
-  padding: var(--spacing-base);
 }
 
 .time-output {

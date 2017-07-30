@@ -25,18 +25,23 @@
     <div class="display display--hidden">
       <div class="time-output"></div>
       <div class="controls">
-        <button aria-label="toggle between paused and playing (playing is the initial state)" class="play-pause play-pause--playing" disabled>
-          <svg class="play-pause__play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <button aria-label="toggle between paused and playing (playing is the initial state)" class="control-button control-button--pause" disabled>
+          <svg class="control-button__play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <circle cx="12" cy="12" r="10" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
             <polygon points="10 8 16 12 10 16 10 8" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
           </svg>
-          <svg class="play-pause__pause" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <svg class="control-button__pause" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <circle cx="12" cy="12" r="10" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
             <line x1="10" y1="15" x2="10" y2="9" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
             <line x1="14" y1="15" x2="14" y2="9" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
           </svg>
         </button>
-        <button aria-label="stop the timer" class="stop-button">STOP</button>
+        <button aria-label="stop the timer" class="control-button control-button--stop">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+            <rect x="9" y="9" width="6" height="6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          </svg>
+        </butto>
       </div>
     </div>
   </main>
