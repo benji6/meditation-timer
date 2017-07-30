@@ -1,7 +1,6 @@
 :root {
   --blue: #2c31d4;
-  --blue-dark: #071538;
-  --blue-navy: #0e0e35;
+  --blue-dark: #0e0e35; /* theme-color */
   --gray: #6e6e6e;
   --green-dark: #207826;
   --green: #06bb2d;
@@ -122,7 +121,7 @@ body {
 }
 
 .header {
-  background: var(--blue-navy);
+  background: var(--blue-dark);
   box-shadow: 0 0 var(--spacing-base) var(--shadow-dark);
   padding: var(--spacing-small) 0;
   text-align: center;
