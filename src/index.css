@@ -124,7 +124,7 @@ body {
 .header {
   background: var(--blue-navy);
   box-shadow: 0 0 var(--spacing-base) var(--shadow-dark);
-  padding: var(--spacing-base) 0;
+  padding: var(--spacing-small) 0;
   text-align: center;
 }
 
