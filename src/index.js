@@ -5,7 +5,7 @@ const noSleep = new NoSleep()
 const timersEl = document.querySelector('.timers')
 const display = document.querySelector('.display')
 const timeOutputEl = document.querySelector('.time-output')
-const gradientBottom = document.querySelector('.gradient-bottom')
+const gradientBottom = document.querySelector('.gradient--bottom')
 const playPauseEl = document.querySelector('.control-button--pause')
 
 let isRunning = false
@@ -43,7 +43,7 @@ const startTimer = ({duration = displayTime * 1000, startTime}) => {
 
 for (const el of document.querySelectorAll('.timer-button')) {
   el.onclick = () => {
-    gradientBottom.classList.add('gradient-bottom--hidden')
+    gradientBottom.classList.add('gradient--bottom--hidden')
     display.classList.remove('display--hidden')
     timersEl.classList.add('timers--hidden')
 
@@ -69,7 +69,7 @@ playPauseEl.onclick = () => {
 document.querySelector('.control-button--stop').onclick = () => {
   stopTimer()
   playPauseEl.classList.add('control-button--pause')
-  gradientBottom.classList.remove('gradient-bottom--hidden')
+  gradientBottom.classList.remove('gradient--bottom--hidden')
   display.classList.add('display--hidden')
   timersEl.classList.remove('timers--hidden')
   noSleep.disable()
