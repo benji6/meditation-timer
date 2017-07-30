@@ -50,7 +50,7 @@ for (const el of document.querySelectorAll('.timer-button')) {
     timersEl.classList.add('timers--hidden')
 
     startTimer({
-      duration: Number(el.getAttribute('data-time')) * 1000 * 60 / 100,
+      duration: Number(el.getAttribute('data-time')) * 1000 * 60,
       startTime: Date.now(),
     })
   }
