@@ -215,6 +215,12 @@ body {
   font-weight: bold;
   height: 4rem;
   margin: calc(var(--spacing-base) / 2);
+  outline: 0;
+  transition: background-color var(--transition-base);
+}
+.timer-button:focus,
+.timer-button:hover {
+  background: var(--green-light);
 }
 
 .time-output {
