@@ -46,6 +46,7 @@ html {
 
 body {
   color: var(--white);
+  cursor: default;
   display: flex;
   flex-direction: column;
   font-family: sans-serif;
@@ -58,12 +59,12 @@ body {
   background: none;
   border: none;
   cursor: pointer;
+  height: 4rem;
   outline: 0;
   padding: 0;
   text-align: center;
-  width: 4rem;
-  height: 4rem;
   transition: stroke var(--transition-base);
+  width: 4rem;
 }
 .control-button > * {
   display: block;
@@ -119,8 +120,8 @@ body {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  position: relative;
   overflow-x: hidden;
+  position: relative;
 }
 
 .display {
@@ -225,8 +226,8 @@ body {
 
 .time-output {
   align-items: center;
-  font-size: var(--font-size-x-large);
   display: flex;
-  justify-content: center;
   flex-grow: 1;
+  font-size: var(--font-size-x-large);
+  justify-content: center;
 }
