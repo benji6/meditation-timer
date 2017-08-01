@@ -23,6 +23,23 @@
   --transition-slow: 1s;
 }
 
+@keyframes slide-right {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100vw);
+  }
+}
+@keyframes slide-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100vw);
+  }
+}
+
 html {
   height: 100%;
 }
@@ -103,18 +120,56 @@ body {
   flex-direction: column;
   flex-grow: 1;
   position: relative;
+  overflow-x: hidden;
+}
+
+.display {
+  animation-duration: var(--transition-base);
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.display--hidden {
+  display: none;
+}
+.display--transition-in {
+  animation-direction: reverse;
+  animation-name: slide-right;
+}
+.display--transition-out {
+  animation-name: slide-right;
 }
 
 .timers {
+  animation-duration: var(--transition-base);
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
   display: flex;
   flex-wrap: wrap;
+  left: 0;
   margin: 0 auto;
-  padding: var(--spacing-base) calc(var(--spacing-base) / 2) 0;
   max-width: 35rem;
+  padding: var(--spacing-base) calc(var(--spacing-base) / 2) 0;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
-
 .timers--hidden {
   display: none;
+}
+.timers--transition-in {
+  animation-direction: reverse;
+  animation-name: slide-left;
+}
+.timers--transition-out {
+  animation-name: slide-left;
 }
 
 .gradient {
@@ -145,15 +200,6 @@ body {
 
 .header__heading {
   margin: 0;
-}
-
-.display {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-}
-.display--hidden {
-  display: none;
 }
 
 .timer-button {

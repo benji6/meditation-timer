@@ -9,6 +9,23 @@ const timeOutputEl = document.querySelector('.time-output')
 const gradientBottom = document.querySelector('.gradient--bottom')
 const playPauseEl = document.querySelector('.control-button--pause')
 
+display.addEventListener('animationend', () => {
+  if (display.classList.contains('display--transition-out')) {
+    display.classList.add('display--hidden')
+    display.classList.remove('display--transition-out')
+  } else {
+    display.classList.remove('display--transition-in')
+  }
+})
+timersEl.addEventListener('animationend', () => {
+  if (timersEl.classList.contains('timers--transition-out')) {
+    timersEl.classList.add('timers--hidden')
+    timersEl.classList.remove('timers--transition-out')
+  } else {
+    timersEl.classList.remove('timers--transition-in')
+  }
+})
+
 let isRunning = false
 
 const stopTimer = () => {
@@ -48,7 +65,8 @@ for (const el of document.querySelectorAll('.timer-button')) {
   el.onclick = () => {
     gradientBottom.classList.add('gradient--bottom--hidden')
     display.classList.remove('display--hidden')
-    timersEl.classList.add('timers--hidden')
+    timersEl.classList.add('timers--transition-out')
+    display.classList.add('display--transition-in')
 
     startTimer({
       duration: Number(el.getAttribute('data-time')) * 1000 * 60,
@@ -75,7 +93,8 @@ document.querySelector('.control-button--stop').onclick = () => {
   playPauseEl.classList.remove('control-button--play')
   playPauseEl.classList.add('control-button--pause')
   gradientBottom.classList.remove('gradient--bottom--hidden')
-  display.classList.add('display--hidden')
   timersEl.classList.remove('timers--hidden')
+  display.classList.add('display--transition-out')
+  timersEl.classList.add('timers--transition-in')
   noSleep.disable()
 }
