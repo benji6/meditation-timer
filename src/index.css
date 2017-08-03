@@ -2,8 +2,8 @@
   --blue: #2c31d4;
   --blue-dark: #0e0e35; /* theme-color */
   --gray: #6e6e6e;
-  --green-dark: #207826;
   --green: #06bb2d;
+  --green-dark: #207826;
   --green-light: #5dff80;
   --orange: #d19000;
   --orange-light: #ffcc5b;
@@ -13,6 +13,8 @@
 
   --shadow-base: rgba(0, 0, 0, 0.5);
   --shadow-dark: rgba(0, 0, 0, 0.75);
+
+  --border-radius: 0.05rem;
 
   --font-size-x-large: 6rem;
 
@@ -154,9 +156,10 @@ body {
   animation-timing-function: ease-in-out;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   left: 0;
   margin: 0 auto;
-  max-width: 35rem;
+  max-width: 20rem;
   padding: var(--spacing-base) calc(var(--spacing-base) / 2) 0;
   position: absolute;
   right: 0;
@@ -204,18 +207,20 @@ body {
 }
 
 .timer-button {
+  --size: 5rem;
+
   background: var(--green);
-  border-radius: 1rem;
-  border: none;
+  border-radius: 50%;
+  border: var(--border-radius) solid var(--green-dark);
   box-shadow: 0.1rem 0.1rem 0.5rem var(--shadow-base);
   color: var(--white);
   cursor: pointer;
   display: block;
-  flex: 1 1 8rem;
+  flex: 0 1 var(--size);
   font-size: 1rem;
   font-weight: bold;
-  height: 4rem;
-  margin: calc(var(--spacing-base) / 2);
+  height: var(--size);
+  margin: calc(var(--spacing-small) / 2);
   outline: 0;
   transition: background-color var(--transition-base);
 }
