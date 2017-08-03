@@ -69,9 +69,6 @@ body {
 .control-button > * {
   display: block;
 }
-.control-button:disabled {
-  stroke: var(--gray);
-}
 .control-button--pause {
   stroke: var(--orange);
 }
@@ -104,6 +101,9 @@ body {
 }
 .control-button--pause .control-button__pause {
   display: block;
+}
+.control-button:disabled {
+  stroke: var(--gray);
 }
 
 .controls {
