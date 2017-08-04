@@ -1,5 +1,6 @@
 import NoSleep from 'nosleep.js'
 import {startBell, stopBell} from './bell'
+import './index.css'
 
 const noSleep = new NoSleep()
 
