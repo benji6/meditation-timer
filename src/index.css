@@ -1,7 +1,9 @@
 :root {
-  --blue: #2c31d4;
+  --blue: #121558;
   --blue-dark: #0e0e35; /* theme-color */
+  --blue-light: #3ecbff; /* theme-color */
   --gray: #6e6e6e;
+  --gray-dark: #111;
   --green: #06bb2d;
   --green-dark: #207826;
   --green-light: #5dff80;
@@ -186,13 +188,13 @@ body {
   z-index: -1;
 }
 .gradient--bottom {
-  background-image: linear-gradient(150deg, var(--blue) 0%, #53d1ff 100%);
+  background-image: linear-gradient(145deg, var(--blue), var(--blue-light));
 }
 .gradient--bottom--hidden {
   opacity: 0;
 }
 .gradient--top {
-  background-image: linear-gradient(150deg, var(--blue) 0%, #121558 100%);
+  background-image: linear-gradient(145deg, var(--gray-dark), var(--blue));
 }
 
 .header {
