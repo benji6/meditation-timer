@@ -9,6 +9,7 @@
   background: none;
   border-radius: 50%;
   border: var(--border-width) solid var(--white);
+  box-shadow: 0 0 var(--spacing-small) var(--white);
   color: var(--white);
   cursor: pointer;
   display: block;
@@ -18,11 +19,10 @@
   height: var(--size);
   margin: 0 calc(var(--spacing-small) / 2) var(--spacing-base);
   outline: 0;
-  box-shadow: 0 0 var(--spacing-small) var(--white);
+  transform: translateY(-100vh);
   transition: background-color var(--timing-base),
     box-shadow var(--timing-base),
     color var(--timing-base);
-  transform: translateY(-100vh);
 }
 .timer-button:focus,
 .timer-button:hover {

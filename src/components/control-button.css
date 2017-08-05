@@ -1,4 +1,10 @@
 .control-button {
+  animation-delay: var(--timing-base);
+  animation-direction: reverse;
+  animation-duration: var(--timing-base);
+  animation-fill-mode: forwards;
+  animation-name: slide-down;
+  animation-timing-function: ease-in-out;
   background: none;
   border: none;
   cursor: pointer;
@@ -6,9 +12,12 @@
   outline: 0;
   padding: 0;
   text-align: center;
+  transform: translateY(100vh);
   transition: stroke var(--timing-base);
   width: 4rem;
 }
+.control-button:nth-child(1) { animation-delay: var(--timing-fast) }
+.control-button:nth-child(2) { animation-delay: calc(var(--timing-fast) * 2) }
 .control-button > * {
   display: block;
   stroke-width: calc(var(--border-width) / 2);
