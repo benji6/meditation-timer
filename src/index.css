@@ -21,8 +21,8 @@
   --spacing-small: 0.75rem;
   --spacing-base: 1.2rem;
 
-  --transition-base: 250ms;
-  --transition-slow: 1s;
+  --timing-base: 250ms;
+  --timing-slow: 1s;
 }
 
 @keyframes slide-right {
@@ -76,7 +76,7 @@ body {
 }
 
 .display {
-  animation-duration: var(--transition-base);
+  animation-duration: var(--timing-base);
   animation-fill-mode: forwards;
   animation-timing-function: ease-in-out;
   bottom: 0;
@@ -100,7 +100,7 @@ body {
 }
 
 .timers {
-  animation-duration: var(--transition-base);
+  animation-duration: var(--timing-base);
   animation-fill-mode: forwards;
   animation-timing-function: ease-in-out;
   display: flex;

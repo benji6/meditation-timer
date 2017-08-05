@@ -4,7 +4,7 @@
   position: absolute;
   right: 0;
   top: 0;
-  transition: opacity var(--transition-slow);
+  transition: opacity var(--timing-slow);
   z-index: -1;
 }
 .gradient--bottom {
