@@ -1,6 +1,10 @@
 .timer-button {
   --size: 5rem;
 
+  animation-duration: var(--timing-base);
+  animation-fill-mode: forwards;
+  animation-name: slide-down;
+  animation-timing-function: ease-in-out;
   background: none;
   border-radius: 50%;
   border: var(--border-width) solid var(--white);
@@ -17,6 +21,7 @@
   transition: background-color var(--timing-base),
     box-shadow var(--timing-base),
     color var(--timing-base);
+  transform: translateY(-100vh);
 }
 .timer-button:focus,
 .timer-button:hover {
@@ -24,3 +29,10 @@
   background: var(--white);
   color: var(--blue-dark);
 }
+
+.timer-button:nth-child(1) { animation-delay: var(--timing-fast) }
+.timer-button:nth-child(2) { animation-delay: calc(var(--timing-fast) * 2) }
+.timer-button:nth-child(3) { animation-delay: calc(var(--timing-fast) * 3) }
+.timer-button:nth-child(4) { animation-delay: calc(var(--timing-fast) * 4) }
+.timer-button:nth-child(5) { animation-delay: calc(var(--timing-fast) * 5) }
+.timer-button:nth-child(6) { animation-delay: calc(var(--timing-fast) * 6) }

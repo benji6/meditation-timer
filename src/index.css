@@ -21,16 +21,17 @@
   --spacing-small: 0.75rem;
   --spacing-base: 1.2rem;
 
+  --timing-fast: 50ms;
   --timing-base: 250ms;
   --timing-slow: 1s;
 }
 
-@keyframes slide-right {
+@keyframes slide-down {
   from {
-    transform: translateX(0);
+    transform: translateY(-100vh);
   }
   to {
-    transform: translateX(100vw);
+    transform: translateY(0);
   }
 }
 @keyframes slide-left {
@@ -39,6 +40,14 @@
   }
   to {
     transform: translateX(-100vw);
+  }
+}
+@keyframes slide-right {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100vw);
   }
 }
 
