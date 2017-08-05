@@ -1,9 +1,10 @@
 .timer-button {
   --size: 5rem;
 
+  animation-direction: reverse;
   animation-duration: var(--timing-base);
   animation-fill-mode: forwards;
-  animation-name: slide-down;
+  animation-name: slide-up;
   animation-timing-function: ease-in-out;
   background: none;
   border-radius: 50%;
