@@ -1,0 +1,22 @@
+.timer-button {
+  --size: 5rem;
+
+  background: none;
+  border-radius: 50%;
+  border: var(--border-width) solid var(--white);
+  color: var(--white);
+  cursor: pointer;
+  display: block;
+  flex: 0 1 var(--size);
+  font-size: 1rem;
+  font-weight: bold;
+  height: var(--size);
+  margin-bottom: var(--spacing-small);
+  outline: 0;
+  transition: background-color var(--transition-base);
+}
+.timer-button:focus,
+.timer-button:hover {
+  background: var(--white);
+  color: var(--blue-dark);
+}

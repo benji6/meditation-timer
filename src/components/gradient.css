@@ -1,0 +1,18 @@
+.gradient {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: opacity var(--transition-slow);
+  z-index: -1;
+}
+.gradient--bottom {
+  background-image: linear-gradient(145deg, var(--blue-light), var(--pink));
+}
+.gradient--bottom--hidden {
+  opacity: 0;
+}
+.gradient--top {
+  background-image: linear-gradient(145deg, var(--blue), var(--blue-dark));
+}

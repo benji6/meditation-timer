@@ -1,0 +1,51 @@
+.control-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  height: 4rem;
+  outline: 0;
+  padding: 0;
+  text-align: center;
+  transition: stroke var(--transition-base);
+  width: 4rem;
+}
+.control-button > * {
+  display: block;
+  stroke-width: calc(var(--border-width) / 2);
+}
+.control-button--pause {
+  stroke: var(--orange);
+}
+.control-button--pause:focus,
+.control-button--pause:hover {
+  stroke: var(--orange-light);
+}
+.control-button--play {
+  stroke: var(--green);
+}
+.control-button--play:focus,
+.control-button--play:hover {
+  stroke: var(--green-light);
+}
+.control-button--stop {
+  stroke: var(--red);
+}
+.control-button--stop:focus,
+.control-button--stop:hover {
+  stroke: var(--red-light);
+}
+.control-button__pause {
+  display: none;
+}
+.control-button__play {
+  display: block;
+}
+.control-button--pause .control-button__play {
+  display: none;
+}
+.control-button--pause .control-button__pause {
+  display: block;
+}
+.control-button:disabled {
+  stroke: var(--gray);
+}

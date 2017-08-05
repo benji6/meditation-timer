@@ -1,0 +1,10 @@
+.header {
+  background: var(--blue-dark);
+  box-shadow: 0 0 var(--spacing-base) var(--shadow-dark);
+  padding: var(--spacing-small) 0;
+  text-align: center;
+}
+
+.header__heading {
+  margin: 0;
+}

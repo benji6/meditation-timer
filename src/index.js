@@ -1,12 +1,17 @@
 import NoSleep from 'nosleep.js'
 import {startBell, stopBell} from './bell'
 import './index.css'
+import './components/control-button.css'
+import './components/gradient.css'
+import './components/header.css'
+import './components/time-display.css'
+import './components/timer-button.css'
 
 const noSleep = new NoSleep()
 
 const timersEl = document.querySelector('.timers')
 const display = document.querySelector('.display')
-const timeOutputEl = document.querySelector('.time-output')
+const timeOutputEl = document.querySelector('.time-display')
 const gradientBottom = document.querySelector('.gradient--bottom')
 const playPauseEl = document.querySelector('.control-button--pause')
 
