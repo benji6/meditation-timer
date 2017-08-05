@@ -1,6 +1,6 @@
-const audioContext = new AudioContext
+const audioContext = window.AudioContext && new AudioContext
 
-const bufferPromise = fetch('meditation-bell.mp3')
+const bufferPromise = audioContext && fetch('meditation-bell.mp3')
   .then(response => response.arrayBuffer())
   .then(data => audioContext.decodeAudioData(data))
   .catch(err => console.error('meditation-bell error:', err)) // eslint-disable-line no-console
@@ -15,7 +15,7 @@ export const stopBell = () => {
   }
 }
 
-export const startBell = () => bufferPromise
+export const startBell = () => bufferPromise && bufferPromise
   .then(buffer => {
     stopBell()
     bufferSource = audioContext.createBufferSource()
