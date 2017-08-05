@@ -10,7 +10,12 @@ const isProduction = process.env.NODE_ENV === 'production'
 const cssRuleUse = isProduction
   ? ExtractTextPlugin.extract({
     fallback: 'style-loader',
-    use: 'css-loader',
+    use: {
+      loader: 'css-loader',
+      options: {
+        minimize: true,
+      },
+    },
   })
   : ['style-loader', 'css-loader']
 
@@ -38,7 +43,6 @@ const config = {
   },
   plugins: [
     new CopyWebpackPlugin([
-      {from: 'src/index.css'},
       {
         from: 'src/index.html',
         transform: content => {
