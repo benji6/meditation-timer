@@ -1,3 +1,4 @@
+import Hammer from 'hammerjs'
 import NoSleep from 'nosleep.js'
 import {startBell, stopBell} from './bell'
 import './index.css'
@@ -93,7 +94,7 @@ playPauseEl.onclick = () => {
   }
 }
 
-document.querySelector('.control-button--stop').onclick = () => {
+const handleStop = () => {
   stopTimer()
   stopBell()
   playPauseEl.classList.remove('control-button--play')
@@ -104,3 +105,13 @@ document.querySelector('.control-button--stop').onclick = () => {
   timersEl.classList.add('timers--transition-in')
   noSleep.disable()
 }
+
+document.querySelector('.control-button--stop').onclick = handleStop
+
+const mc = new Hammer.Manager(document.querySelector('.time-display'), {
+  recognizers: [
+    [Hammer.Swipe, {direction: Hammer.DIRECTION_RIGHT}],
+  ],
+})
+
+mc.on('swiperight', handleStop)

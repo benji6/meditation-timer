@@ -34,6 +34,7 @@
     "webpack-dev-server": "^2.6.1"
   },
   "dependencies": {
+    "hammerjs": "^2.0.8",
     "nosleep.js": "^0.7.0"
   }
 }
