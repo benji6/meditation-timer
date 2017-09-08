@@ -1,7 +1,9 @@
 const BabiliPlugin = require('babili-webpack-plugin')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const minify = require('html-minifier').minify
+const OfflinePlugin = require('offline-plugin')
 const path = require('path')
 const webpack = require('webpack')
 
@@ -60,13 +62,23 @@ const config = {
       },
       {from: 'src/meditation-bell.mp3'},
     ]),
-    new webpack.optimize.ModuleConcatenationPlugin(),
+    new webpack.EnvironmentPlugin({
+      NODE_ENV: null,
+    }),
+    new webpack.optimize.ModuleConcatenationPlugin,
   ],
 }
 
 if (isProduction) {
+  config.plugins.unshift(new CleanWebpackPlugin('dist'))
   config.plugins.unshift(new ExtractTextPlugin('index.css'))
-  config.plugins.push(new BabiliPlugin())
+  config.plugins.push(new BabiliPlugin)
+  config.plugins.push(new OfflinePlugin({
+    AppCache: false,
+    ServiceWorker: {
+      minify: true,
+    },
+  }))
 }
 
 module.exports = config

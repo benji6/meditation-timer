@@ -1,5 +1,6 @@
 import Hammer from 'hammerjs'
 import NoSleep from 'nosleep.js'
+import * as OfflinePluginRuntime from 'offline-plugin/runtime'
 import {startBell, stopBell} from './bell'
 import './index.css'
 import './components/control-button.css'
@@ -115,3 +116,7 @@ const mc = new Hammer.Manager(document.querySelector('.time-display'), {
 })
 
 mc.on('swiperight', handleStop)
+
+if (process.env.NODE_ENV === 'production') {
+  OfflinePluginRuntime.install()
+}
