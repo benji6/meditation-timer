@@ -60,7 +60,7 @@ const config = {
           )
         },
       },
-      {from: 'src/meditation-bell.mp3'},
+      {from: 'src/assets', to: 'assets'},
     ]),
     new webpack.EnvironmentPlugin({
       NODE_ENV: null,
