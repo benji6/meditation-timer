@@ -4,7 +4,7 @@
   "icons": [{
     "src": "assets/icon.svg",
     "type": "image/svg+xml",
-    "sizes": "192x192"
+    "sizes": "any"
   }],
   "lang": "en",
   "name": "Meditation Timer",
