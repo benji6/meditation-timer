@@ -7,6 +7,13 @@ const OfflinePlugin = require('offline-plugin')
 const path = require('path')
 const webpack = require('webpack')
 
+const htmlMinifierOpts = {
+  collapseBooleanAttributes: true,
+  collapseWhitespace: true,
+  sortAttributes: true,
+  sortClassName: true,
+}
+
 const isProduction = process.env.NODE_ENV === 'production'
 
 const cssRuleUse = isProduction
@@ -44,24 +51,28 @@ const config = {
     path: path.resolve(__dirname, 'dist'),
   },
   plugins: [
-    new CopyWebpackPlugin([
-      {
-        from: 'src/index.html',
-        transform: content => {
-          if (!isProduction) return content
-          return minify(
-            content.toString().replace('<!-- css-tag -->', '<link href="index.css" rel="stylesheet">'),
-            {
-              collapseBooleanAttributes: true,
-              collapseWhitespace: true,
-              sortAttributes: true,
-              sortClassName: true,
-            }
-          )
-        },
+    new CopyWebpackPlugin([{
+      from: 'src/assets',
+      to: 'assets',
+      transform: (content, path) => {
+        if (isProduction && path.endsWith('.svg')) {
+          return minify(content.toString(), htmlMinifierOpts)
+        }
+        return content
       },
-      {from: 'src/assets', to: 'assets'},
-    ]),
+    }, {
+      from: 'src/index.html',
+      transform: content => {
+        if (!isProduction) return content
+        return minify(
+          content.toString().replace('<!-- css-tag -->', '<link href="index.css" rel="stylesheet">'),
+          htmlMinifierOpts
+        )
+      },
+    }, {
+      from: 'src/manifest.json',
+      transform: content => isProduction ? JSON.stringify(JSON.parse(content.toString())) : content,
+    }]),
     new webpack.EnvironmentPlugin({
       NODE_ENV: null,
     }),

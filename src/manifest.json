@@ -1,0 +1,14 @@
+{
+  "background_color": "#111e7a",
+  "display": "standalone",
+  "icons": [{
+    "src": "assets/icon.svg",
+    "type": "image/svg+xml",
+    "sizes": "192x192"
+  }],
+  "lang": "en",
+  "name": "Meditation Timer",
+  "short_name": "Meditate",
+  "start_url": "/",
+  "theme-color": "#0d0d2b"
+}

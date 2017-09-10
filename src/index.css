@@ -1,7 +1,7 @@
 :root {
-  --blue: #111e7a;
-  --blue-dark: #0d0d2b; /* theme-color */
-  --blue-light: #3ecbff;
+  --blue: #111e7a; /* background_color (manifest) */
+  --blue-dark: #0d0d2b; /* theme-color (manifest, meta tag & logo.svg)*/
+  --blue-light: #3ecbff; /* (logo.svg) */
   --gray: #6e6e6e;
   --green: #06bb2d;
   --green-light: #5dff80;
