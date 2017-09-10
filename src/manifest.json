@@ -10,5 +10,5 @@
   "name": "Meditation Timer",
   "short_name": "Meditate",
   "start_url": "/",
-  "theme-color": "#0d0d2b"
+  "theme_color": "#0d0d2b"
 }
