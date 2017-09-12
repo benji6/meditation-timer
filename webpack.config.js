@@ -1,4 +1,4 @@
-const BabiliPlugin = require('babili-webpack-plugin')
+const MinifyJS = require('babel-minify-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
@@ -83,7 +83,7 @@ const config = {
 if (isProduction) {
   config.plugins.unshift(new CleanWebpackPlugin('dist'))
   config.plugins.unshift(new ExtractTextPlugin('index.css'))
-  config.plugins.push(new BabiliPlugin)
+  config.plugins.push(new MinifyJS)
   config.plugins.push(new OfflinePlugin({
     AppCache: false,
     ServiceWorker: {
