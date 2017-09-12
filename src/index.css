@@ -1,5 +1,5 @@
 :root {
-  --blue: #111e7a; /* background_color (manifest) */
+  --blue: #111e7a;
   --blue-dark: #0d0d2b; /* theme-color (manifest, meta tag & logo.svg)*/
   --blue-light: #3ecbff; /* (logo.svg) */
   --gray: #6e6e6e;
@@ -11,6 +11,7 @@
   --red: #bb0606;
   --red-light: #ff5d5d;
   --white: #fafeff;
+  --black: #040407; /* background_color (manifest) */
 
   --shadow-dark: rgba(0, 0, 0, 0.75);
 
