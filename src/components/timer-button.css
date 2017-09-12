@@ -24,11 +24,13 @@
     box-shadow var(--timing-base),
     color var(--timing-base);
 }
-.timer-button:focus,
-.timer-button:hover {
-  box-shadow: none;
-  background: var(--white);
-  color: var(--blue-dark);
+@media (min-width: 768px) {
+  .timer-button:focus,
+  .timer-button:hover {
+    box-shadow: none;
+    background: var(--white);
+    color: var(--blue-dark);
+  }
 }
 
 .timer-button:nth-child(1) { animation-delay: var(--timing-fast) }

@@ -22,26 +22,35 @@
   display: block;
   stroke-width: calc(var(--border-width) / 2);
 }
+
 .control-button--pause {
   stroke: var(--orange);
 }
-.control-button--pause:focus,
-.control-button--pause:hover {
-  stroke: var(--orange-light);
+@media (min-width: 768px) {
+  .control-button--pause:focus,
+  .control-button--pause:hover {
+    stroke: var(--orange-light);
+  }
 }
+
 .control-button--play {
   stroke: var(--green);
 }
-.control-button--play:focus,
-.control-button--play:hover {
-  stroke: var(--green-light);
+@media (min-width: 768px) {
+  .control-button--play:focus,
+  .control-button--play:hover {
+    stroke: var(--green-light);
+  }
 }
+
 .control-button--stop {
   stroke: var(--red);
 }
-.control-button--stop:focus,
-.control-button--stop:hover {
-  stroke: var(--red-light);
+@media (min-width: 768px) {
+  .control-button--stop:focus,
+  .control-button--stop:hover {
+    stroke: var(--red-light);
+  }
 }
 .control-button__pause {
   display: none;
