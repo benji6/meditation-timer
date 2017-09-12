@@ -14,6 +14,7 @@
   text-align: center;
   transform: translateY(100vh);
   transition: stroke var(--timing-base);
+  -webkit-tap-highlight-color: transparent;
   width: 4rem;
 }
 .control-button:nth-child(1) { animation-delay: var(--timing-fast) }

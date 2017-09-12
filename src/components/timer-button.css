@@ -23,6 +23,7 @@
   transition: background-color var(--timing-base),
     box-shadow var(--timing-base),
     color var(--timing-base);
+  -webkit-tap-highlight-color: transparent;
 }
 @media (min-width: 768px) {
   .timer-button:focus,
