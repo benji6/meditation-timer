@@ -6,11 +6,14 @@
   animation-name: slide-down;
   animation-timing-function: ease-in-out;
   background: none;
-  border: none;
+  border-radius: 50%;
+  border: var(--border-width) solid var(--white);
+  box-shadow: 0 0 var(--spacing-small) var(--white);
   cursor: pointer;
   height: 4rem;
   outline: 0;
   padding: 0;
+  stroke: var(--white);
   text-align: center;
   transform: translateY(100vh);
   transition: stroke var(--timing-base);
@@ -24,35 +27,6 @@
   stroke-width: calc(var(--border-width) / 2);
 }
 
-.control-button--pause {
-  stroke: var(--orange);
-}
-@media (min-width: 768px) {
-  .control-button--pause:focus,
-  .control-button--pause:hover {
-    stroke: var(--orange-light);
-  }
-}
-
-.control-button--play {
-  stroke: var(--green);
-}
-@media (min-width: 768px) {
-  .control-button--play:focus,
-  .control-button--play:hover {
-    stroke: var(--green-light);
-  }
-}
-
-.control-button--stop {
-  stroke: var(--red);
-}
-@media (min-width: 768px) {
-  .control-button--stop:focus,
-  .control-button--stop:hover {
-    stroke: var(--red-light);
-  }
-}
 .control-button__pause {
   display: none;
 }
@@ -66,5 +40,7 @@
   display: block;
 }
 .control-button:disabled {
+  border-color: var(--gray);
+  box-shadow: none;
   stroke: var(--gray);
 }

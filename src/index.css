@@ -3,13 +3,7 @@
   --blue-dark: #0d0d2b; /* theme-color (manifest, meta tag & logo.svg)*/
   --blue-light: #3ecbff; /* (logo.svg) */
   --gray: #6e6e6e;
-  --green: #06bb2d;
-  --green-light: #5dff80;
-  --orange: #d19000;
-  --orange-light: #ffcc5b;
   --pink: #ff25d0;
-  --red: #bb0606;
-  --red-light: #ff5d5d;
   --white: #fafeff;
   --black: #040407; /* background_color (manifest) */
 
@@ -78,8 +72,8 @@ body {
 .controls {
   align-items: center;
   display: flex;
-  justify-content: center;
-  padding: var(--spacing-small) 0;
+  justify-content: space-between;
+  padding: var(--spacing-base);
 }
 .controls > :not(:last-child) {
   margin-right: var(--spacing-base);
