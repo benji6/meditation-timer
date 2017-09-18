@@ -136,10 +136,6 @@ body {
 .timers--hidden {
   display: none;
 }
-.timers--transition-in {
-  animation-direction: reverse;
-  animation-name: slide-left;
-}
 .timers--transition-out {
   animation-name: slide-left;
 }

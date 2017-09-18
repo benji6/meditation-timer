@@ -29,8 +29,6 @@ timersEl.addEventListener('animationend', () => {
   if (timersEl.classList.contains('timers--transition-out')) {
     timersEl.classList.add('timers--hidden')
     timersEl.classList.remove('timers--transition-out')
-  } else {
-    timersEl.classList.remove('timers--transition-in')
   }
 })
 
@@ -106,7 +104,6 @@ const handleStop = () => {
   gradientBottom.classList.remove('gradient--bottom--hidden')
   timersEl.classList.remove('timers--hidden')
   display.classList.add('display--transition-out')
-  timersEl.classList.add('timers--transition-in')
   noSleep.disable()
 }
 
