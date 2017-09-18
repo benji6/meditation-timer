@@ -71,6 +71,7 @@ const startTimer = ({duration = displayTime * 1000, startTime}) => {
 
 for (const el of document.querySelectorAll('.timer-button')) {
   el.onclick = () => {
+    location.hash = 'timer'
     gradientBottom.classList.add('gradient--bottom--hidden')
     display.classList.remove('display--hidden')
     timersEl.classList.add('timers--transition-out')
@@ -95,6 +96,8 @@ playPauseEl.onclick = () => {
   }
 }
 
+const navigateBack = history.back.bind(history)
+
 const handleStop = () => {
   stopTimer()
   stopBell()
@@ -107,7 +110,7 @@ const handleStop = () => {
   noSleep.disable()
 }
 
-document.querySelector('.control-button--stop').onclick = handleStop
+document.querySelector('.control-button--stop').onclick = navigateBack
 
 const mc = new Hammer.Manager(document.querySelector('.time-display'), {
   recognizers: [
@@ -115,7 +118,19 @@ const mc = new Hammer.Manager(document.querySelector('.time-display'), {
   ],
 })
 
-mc.on('swiperight', handleStop)
+mc.on('swiperight', navigateBack)
+
+window.onhashchange = ({newURL, oldURL}) => {
+  if (newURL.indexOf('#timer') === -1 && oldURL.indexOf('#timer') !== -1) {
+    handleStop()
+  }
+}
+
+window.onload = () => {
+  if (location.href.indexOf('#') !== -1) {
+    history.replaceState('', document.title, location.pathname)
+  }
+}
 
 if (process.env.NODE_ENV === 'production') {
   OfflinePluginRuntime.install()
