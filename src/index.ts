@@ -1,29 +1,41 @@
-import Hammer from 'hammerjs'
-import NoSleep from 'nosleep.js'
+/// <reference path="./typings/nosleep.js.d.ts" />
+
+import * as Hammer from 'hammerjs'
+import * as NoSleep from 'nosleep.js'
 import * as OfflinePluginRuntime from 'offline-plugin/runtime'
 import {startBell, stopBell} from './bell'
+import {resetProgress, setProgress} from './components/progress'
 import './index.css'
 import './components/control-button.css'
 import './components/gradient.css'
 import './components/header.css'
 import './components/progress.css'
 import './components/timer-button.css'
-import {resetProgress, setProgress} from './components/progress'
+
+interface Process {
+  env: {
+    NODE_ENV: string,
+  }
+}
+
+declare var process: Process
 
 const noSleep = new NoSleep()
 
-const timersEl = document.querySelector('.timers')
-const display = document.querySelector('.display')
-const gradientBottom = document.querySelector('.gradient--bottom')
-const playPauseEl = document.querySelector('.control-button--pause')
+const timersEl = document.querySelector('.timers') as HTMLDivElement
+const displayEl = document.querySelector('.display') as HTMLDivElement
+const gradientBottomEl = document.querySelector('.gradient--bottom') as HTMLDivElement
+const playPauseEl = document.querySelector('.control-button') as HTMLButtonElement
+const stopButtonEl = document.querySelector('.control-button--stop') as HTMLButtonElement
+const timerButtonEls = document.querySelectorAll('.timer-button') as NodeListOf<HTMLButtonElement>
 
-display.addEventListener('animationend', () => {
-  if (display.classList.contains('display--transition-out')) {
-    display.classList.add('display--hidden')
-    display.classList.remove('display--transition-out')
+displayEl.addEventListener('animationend', () => {
+  if (displayEl.classList.contains('display--transition-out')) {
+    displayEl.classList.add('display--hidden')
+    displayEl.classList.remove('display--transition-out')
     resetProgress()
   } else {
-    display.classList.remove('display--transition-in')
+    displayEl.classList.remove('display--transition-in')
   }
 })
 timersEl.addEventListener('animationend', () => {
@@ -40,14 +52,14 @@ const stopTimer = () => {
   noSleep.disable()
 }
 
-let displayTime
-let totalTime
+let displayTime: number
+let totalTime: number
 
-const startTimer = duration => {
+const startTimer = (durationParam: number | null) => {
   const startTime = Date.now()
+  const duration = durationParam === null ? displayTime * 1000 : durationParam
 
-  if (duration) totalTime = duration / 1000
-  else duration = displayTime * 1000
+  if (durationParam !== null) totalTime = durationParam / 1000
 
   noSleep.enable()
   isRunning = true
@@ -72,15 +84,17 @@ const startTimer = duration => {
   requestAnimationFrame(renderLoop)
 }
 
-for (const el of document.querySelectorAll('.timer-button')) {
-  el.onclick = () => {
-    location.hash = 'timer'
-    gradientBottom.classList.add('gradient--bottom--hidden')
-    display.classList.remove('display--hidden')
-    timersEl.classList.add('timers--transition-out')
-    display.classList.add('display--transition-in')
+for (let i = 0; i < timerButtonEls.length; i++) {
+  const timerButton = timerButtonEls[i]
 
-    startTimer(Number(el.getAttribute('data-time')) * 1000 * 60)
+  timerButton.onclick = () => {
+    location.hash = 'timer'
+    gradientBottomEl.classList.add('gradient--bottom--hidden')
+    displayEl.classList.remove('display--hidden')
+    timersEl.classList.add('timers--transition-out')
+    displayEl.classList.add('display--transition-in')
+
+    startTimer(Number(timerButton.getAttribute('data-time')) * 1000 * 60)
   }
 }
 
@@ -90,7 +104,7 @@ playPauseEl.onclick = () => {
     playPauseEl.classList.remove('control-button--pause')
     playPauseEl.classList.add('control-button--play')
   } else {
-    startTimer()
+    startTimer(null)
     playPauseEl.classList.remove('control-button--play')
     playPauseEl.classList.add('control-button--pause')
   }
@@ -103,15 +117,15 @@ const handleStop = () => {
   stopBell()
   playPauseEl.classList.remove('control-button--play')
   playPauseEl.classList.add('control-button--pause')
-  gradientBottom.classList.remove('gradient--bottom--hidden')
+  gradientBottomEl.classList.remove('gradient--bottom--hidden')
   timersEl.classList.remove('timers--hidden')
-  display.classList.add('display--transition-out')
+  displayEl.classList.add('display--transition-out')
   noSleep.disable()
 }
 
-document.querySelector('.control-button--stop').onclick = navigateBack
+stopButtonEl.onclick = navigateBack
 
-const mc = new Hammer.Manager(document.querySelector('.display'), {
+const mc = new Hammer.Manager(displayEl, {
   recognizers: [
     [Hammer.Swipe, {direction: Hammer.DIRECTION_RIGHT}],
   ],
@@ -120,6 +134,7 @@ const mc = new Hammer.Manager(document.querySelector('.display'), {
 mc.on('swiperight', navigateBack)
 
 window.onhashchange = ({newURL, oldURL}) => {
+  if (newURL === null || oldURL === null) return
   if (newURL.indexOf('#timer') === -1 && oldURL.indexOf('#timer') !== -1) {
     handleStop()
   }

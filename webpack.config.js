@@ -32,7 +32,7 @@ const config = {
   devServer: {
     contentBase: path.join(__dirname, 'src'),
   },
-  entry: './src/index.js',
+  entry: './src/index.ts',
   module: {
     rules: [
       {
@@ -40,9 +40,8 @@ const config = {
         use: cssRuleUse,
       },
       {
-        exclude: /node_modules/,
-        test: /\.js$/,
-        use: {loader: 'babel-loader'},
+        loader: 'awesome-typescript-loader',
+        test: /\.ts$/,
       },
     ],
   },
@@ -78,6 +77,9 @@ const config = {
     }),
     new webpack.optimize.ModuleConcatenationPlugin,
   ],
+  resolve: {
+    extensions: ['.js', '.json', '.ts'],
+  },
 }
 
 if (isProduction) {
