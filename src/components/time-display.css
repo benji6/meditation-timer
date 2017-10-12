@@ -1,7 +1,0 @@
-.time-display {
-  align-items: center;
-  display: flex;
-  flex-grow: 1;
-  font-size: var(--font-size-x-large);
-  justify-content: center;
-}

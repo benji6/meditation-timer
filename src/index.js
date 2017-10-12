@@ -6,14 +6,14 @@ import './index.css'
 import './components/control-button.css'
 import './components/gradient.css'
 import './components/header.css'
-import './components/time-display.css'
+import './components/progress.css'
 import './components/timer-button.css'
+import {resetProgress, setProgress} from './components/progress'
 
 const noSleep = new NoSleep()
 
 const timersEl = document.querySelector('.timers')
 const display = document.querySelector('.display')
-const timeOutputEl = document.querySelector('.time-display')
 const gradientBottom = document.querySelector('.gradient--bottom')
 const playPauseEl = document.querySelector('.control-button--pause')
 
@@ -21,6 +21,7 @@ display.addEventListener('animationend', () => {
   if (display.classList.contains('display--transition-out')) {
     display.classList.add('display--hidden')
     display.classList.remove('display--transition-out')
+    resetProgress()
   } else {
     display.classList.remove('display--transition-in')
   }
@@ -40,8 +41,14 @@ const stopTimer = () => {
 }
 
 let displayTime
+let totalTime
 
-const startTimer = ({duration = displayTime * 1000, startTime}) => {
+const startTimer = duration => {
+  const startTime = Date.now()
+
+  if (duration) totalTime = duration / 1000
+  else duration = displayTime * 1000
+
   noSleep.enable()
   isRunning = true
   playPauseEl.disabled = false
@@ -58,10 +65,8 @@ const startTimer = ({duration = displayTime * 1000, startTime}) => {
       startBell()
     }
     displayTime = newDisplayTime
-    timeOutputEl.innerText =
-    ('0' + Math.floor(displayTime / 60)).slice(-2) +
-    ':' +
-    ('0' + displayTime % 60).slice(-2)
+
+    setProgress(totalTime, displayTime)
   }
 
   requestAnimationFrame(renderLoop)
@@ -75,10 +80,7 @@ for (const el of document.querySelectorAll('.timer-button')) {
     timersEl.classList.add('timers--transition-out')
     display.classList.add('display--transition-in')
 
-    startTimer({
-      duration: Number(el.getAttribute('data-time')) * 1000 * 60,
-      startTime: Date.now(),
-    })
+    startTimer(Number(el.getAttribute('data-time')) * 1000 * 60)
   }
 }
 
@@ -88,7 +90,7 @@ playPauseEl.onclick = () => {
     playPauseEl.classList.remove('control-button--pause')
     playPauseEl.classList.add('control-button--play')
   } else {
-    startTimer({startTime: Date.now()})
+    startTimer()
     playPauseEl.classList.remove('control-button--play')
     playPauseEl.classList.add('control-button--pause')
   }
@@ -109,7 +111,7 @@ const handleStop = () => {
 
 document.querySelector('.control-button--stop').onclick = navigateBack
 
-const mc = new Hammer.Manager(document.querySelector('.time-display'), {
+const mc = new Hammer.Manager(document.querySelector('.display'), {
   recognizers: [
     [Hammer.Swipe, {direction: Hammer.DIRECTION_RIGHT}],
   ],

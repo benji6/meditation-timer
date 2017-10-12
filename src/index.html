@@ -28,7 +28,12 @@
       <button aria-label="select 35 minutes timer" class="timer-button" data-time="30">30m</button>
     </div>
     <div class="display display--hidden">
-      <div class="time-display"></div>
+      <div class="progress">
+        <svg class="progress__meter" viewBox="0 0 1 1" xmlns="http://www.w3.org/2000/svg">
+          <circle class="progress__circle" r="" cx="0.5" cy="0.5" fill="transparent"/>
+        </svg>
+        <div class="progress__time"></div>
+      </div>
       <div class="controls">
         <button aria-label="toggle between paused and playing (playing is the initial state)" class="control-button control-button--pause" disabled>
           <svg class="control-button__play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">

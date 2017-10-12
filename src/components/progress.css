@@ -1,0 +1,24 @@
+.progress {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.progress__meter {
+  width: 100%;
+  transform: rotate(270deg);
+}
+
+.progress__circle {
+  fill: transparent;
+  stroke: var(--white);
+  stroke-width: 0.1;
+}
+.progress__circle--transitioning {
+  transition: stroke-dashoffset 1s linear;
+}
+
+.progress__time {
+  font-size: var(--font-size-x-large);
+}
