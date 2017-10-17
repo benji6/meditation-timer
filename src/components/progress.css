@@ -6,7 +6,9 @@
 }
 
 .progress__meter {
-  width: 100%;
+  flex-grow: 1;
+  /* HACK */
+  max-height: calc(100vh - 8rem);
   transform: rotate(270deg);
 }
 
