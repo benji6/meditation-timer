@@ -1,11 +1,11 @@
-const audioContext = window.AudioContext && new AudioContext
+const audioContext = typeof AudioContext !== 'undefined' && new AudioContext
 
 const bufferPromise = audioContext && fetch('assets/meditation-bell.mp3')
   .then(response => response.arrayBuffer())
   .then(data => audioContext.decodeAudioData(data))
-  .catch(err => console.error('meditation-bell error:', err)) // eslint-disable-line no-console
+  .catch(err => console.error('meditation-bell error:', err))
 
-let bufferSource = null
+let bufferSource: AudioBufferSourceNode | null = null
 
 export const stopBell = () => {
   if (bufferSource) {
@@ -15,8 +15,8 @@ export const stopBell = () => {
   }
 }
 
-export const startBell = () => bufferPromise && bufferPromise
-  .then(buffer => {
+export const startBell = () => audioContext && bufferPromise && bufferPromise
+  .then((buffer: AudioBuffer) => {
     stopBell()
     bufferSource = audioContext.createBufferSource()
     bufferSource.connect(audioContext.destination)
