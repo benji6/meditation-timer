@@ -1,5 +1,7 @@
 # meditation-timer
 
+[![Build Status](https://travis-ci.org/benji6/meditation-timer.svg?branch=master)](https://travis-ci.org/benji6/meditation-timer)
+
 https://meditation-timer.netlify.com
 
 ## Acknowledgement
