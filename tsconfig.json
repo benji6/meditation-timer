@@ -3,6 +3,7 @@
     "module": "ES2015",
     "moduleResolution": "Node",
     "noImplicitAny": true,
+    "noUnusedLocals": true,
     "strictNullChecks": true,
     "target": "es5"
   }

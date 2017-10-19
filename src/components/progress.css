@@ -21,6 +21,12 @@
   transition: stroke-dashoffset 1s linear;
 }
 
+.progress__circle-background {
+  fill: transparent;
+  stroke: rgba(255, 255, 255, 0.15);
+  stroke-width: 0.1;
+}
+
 .progress__time {
   font-size: var(--font-size-x-large);
 }
