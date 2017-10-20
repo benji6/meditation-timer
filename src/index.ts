@@ -1,6 +1,5 @@
 /// <reference path="./typings/nosleep.js.d.ts" />
 
-import * as Hammer from 'hammerjs'
 import * as NoSleep from 'nosleep.js'
 import * as OfflinePluginRuntime from 'offline-plugin/runtime'
 import {startBell, stopBell} from './bell'
@@ -110,8 +109,6 @@ playPauseEl.onclick = () => {
   }
 }
 
-const navigateBack = history.back.bind(history)
-
 const handleStop = () => {
   stopTimer()
   stopBell()
@@ -123,15 +120,7 @@ const handleStop = () => {
   noSleep.disable()
 }
 
-stopButtonEl.onclick = navigateBack
-
-const mc = new Hammer.Manager(displayEl, {
-  recognizers: [
-    [Hammer.Swipe, {direction: Hammer.DIRECTION_RIGHT}],
-  ],
-})
-
-mc.on('swiperight', navigateBack)
+stopButtonEl.onclick = history.back.bind(history)
 
 window.onhashchange = ({newURL, oldURL}) => {
   if (newURL === null || oldURL === null) return
