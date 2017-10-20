@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/benji6/meditation-timer#readme",
   "devDependencies": {
+    "@types/hammerjs": "^2.0.35",
     "awesome-typescript-loader": "^3.2.3",
     "babel-core": "^6.26.0",
     "babel-minify-webpack-plugin": "^0.2.0",
@@ -37,6 +38,7 @@
     "webpack-dev-server": "^2.9.2"
   },
   "dependencies": {
+    "hammerjs": "^2.0.8",
     "nosleep.js": "^0.7.0"
   }
 }
