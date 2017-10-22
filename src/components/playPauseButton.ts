@@ -2,7 +2,7 @@ import './play-pause-button.css'
 
 const playPauseEl = document.querySelector('.play-pause-button') as HTMLButtonElement
 
-export default class PlayPauseButton {
+class PlayPauseButton {
   private isPaused: boolean
 
   constructor () {
@@ -37,3 +37,5 @@ export default class PlayPauseButton {
     playPauseEl.classList.add('play-pause-button--paused')
   }
 }
+
+export default new PlayPauseButton

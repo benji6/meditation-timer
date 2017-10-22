@@ -4,8 +4,8 @@ import * as Hammer from 'hammerjs'
 import * as NoSleep from 'nosleep.js'
 import * as OfflinePluginRuntime from 'offline-plugin/runtime'
 import {startBell, stopBell} from './bell'
-import PlayPauseButton from './components/PlayPauseButton'
-import StopButton from './components/StopButton'
+import playPauseButton from './components/playPauseButton'
+import stopButton from './components/stopButton'
 import {resetProgress, setProgress} from './components/progress'
 import state from './state'
 import './index.css'
@@ -21,9 +21,6 @@ interface Process {
 }
 
 declare var process: Process
-
-const playPauseButton = new PlayPauseButton
-const stopButton = new StopButton
 
 const noSleep = new NoSleep()
 
