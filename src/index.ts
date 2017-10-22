@@ -4,10 +4,11 @@ import * as Hammer from 'hammerjs'
 import * as NoSleep from 'nosleep.js'
 import * as OfflinePluginRuntime from 'offline-plugin/runtime'
 import {startBell, stopBell} from './bell'
+import PlayPauseButton from './components/PlayPauseButton'
+import StopButton from './components/StopButton'
 import {resetProgress, setProgress} from './components/progress'
 import state from './state'
 import './index.css'
-import './components/control-button.css'
 import './components/gradient.css'
 import './components/header.css'
 import './components/progress.css'
@@ -21,13 +22,14 @@ interface Process {
 
 declare var process: Process
 
+const playPauseButton = new PlayPauseButton
+const stopButton = new StopButton
+
 const noSleep = new NoSleep()
 
 const timersEl = document.querySelector('.timers') as HTMLDivElement
 const displayEl = document.querySelector('.display') as HTMLDivElement
 const gradientBottomEl = document.querySelector('.gradient--bottom') as HTMLDivElement
-const playPauseEl = document.querySelector('.control-button') as HTMLButtonElement
-const stopButtonEl = document.querySelector('.control-button--stop') as HTMLButtonElement
 const timerButtonEls = document.querySelectorAll('.timer-button') as NodeListOf<HTMLButtonElement>
 
 displayEl.addEventListener('animationend', () => {
@@ -59,7 +61,7 @@ const startTimer = (durationParam: number | null) => {
 
   noSleep.enable()
   state.timerActive = true
-  playPauseEl.disabled = false
+  playPauseButton.enable()
 
   const renderLoop = () => {
     if (!state.timerActive) return
@@ -69,7 +71,7 @@ const startTimer = (durationParam: number | null) => {
     if (newDisplayTime <= 0) {
       newDisplayTime = 0
       stopTimer()
-      playPauseEl.disabled = true
+      playPauseButton.disable()
       startBell()
     }
     state.displayTime = newDisplayTime
@@ -94,32 +96,22 @@ for (let i = 0; i < timerButtonEls.length; i++) {
   }
 }
 
-playPauseEl.onclick = () => {
-  if (playPauseEl.classList.contains('control-button--pause')) {
-    stopTimer()
-    playPauseEl.classList.remove('control-button--pause')
-    playPauseEl.classList.add('control-button--play')
-  } else {
-    startTimer(null)
-    playPauseEl.classList.remove('control-button--play')
-    playPauseEl.classList.add('control-button--pause')
-  }
-}
+playPauseButton.onPlay = startTimer.bind(null, null)
+playPauseButton.onPause = stopTimer
 
 const navigateBack = history.back.bind(history)
 
 const handleStop = () => {
   stopTimer()
   stopBell()
-  playPauseEl.classList.remove('control-button--play')
-  playPauseEl.classList.add('control-button--pause')
+  playPauseButton.stop()
   gradientBottomEl.classList.remove('gradient--bottom--hidden')
   timersEl.classList.remove('timers--hidden')
   displayEl.classList.add('display--transition-out')
   noSleep.disable()
 }
 
-stopButtonEl.onclick = navigateBack
+stopButton.onStop = navigateBack
 
 const mc = new Hammer.Manager(displayEl, {
   recognizers: [

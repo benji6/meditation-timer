@@ -1,5 +1,4 @@
-.control-button {
-  animation-delay: var(--timing-base);
+.play-pause-button {
   animation-direction: reverse;
   animation-duration: var(--timing-base);
   animation-fill-mode: forwards;
@@ -20,26 +19,18 @@
   -webkit-tap-highlight-color: transparent;
   width: 4rem;
 }
-.control-button:nth-child(1) { animation-delay: var(--timing-fast) }
-.control-button:nth-child(2) { animation-delay: calc(var(--timing-fast) * 2) }
-.control-button > * {
+
+.play-pause-button__pause .play-pause-button__play {
   display: block;
   stroke-width: calc(var(--border-width) / 2);
 }
 
-.control-button__pause {
-  display: none;
-}
-.control-button__play {
-  display: block;
-}
-.control-button--pause .control-button__play {
-  display: none;
-}
-.control-button--pause .control-button__pause {
-  display: block;
-}
-.control-button:disabled {
+.play-pause-button--paused .play-pause-button__play { display: none; }
+.play-pause-button--paused .play-pause-button__pause { display: block; }
+.play-pause-button--playing .play-pause-button__pause { display: none; }
+.play-pause-button--playing  .play-pause-button__play { display: block; }
+
+.play-pause-button:disabled {
   border-color: var(--gray);
   box-shadow: none;
   stroke: var(--gray);
