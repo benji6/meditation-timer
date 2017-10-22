@@ -5,6 +5,7 @@ import * as NoSleep from 'nosleep.js'
 import * as OfflinePluginRuntime from 'offline-plugin/runtime'
 import {startBell, stopBell} from './bell'
 import {resetProgress, setProgress} from './components/progress'
+import state from './state'
 import './index.css'
 import './components/control-button.css'
 import './components/gradient.css'
@@ -45,40 +46,35 @@ timersEl.addEventListener('animationend', () => {
   }
 })
 
-let isRunning = false
-
 const stopTimer = () => {
-  isRunning = false
+  state.timerActive = false
   noSleep.disable()
 }
 
-let displayTime: number
-let totalTime: number
-
 const startTimer = (durationParam: number | null) => {
   const startTime = Date.now()
-  const duration = durationParam === null ? displayTime * 1000 : durationParam
+  const duration = durationParam === null ? state.displayTime * 1000 : durationParam
 
-  if (durationParam !== null) totalTime = durationParam / 1000
+  if (durationParam !== null) state.totalTime = durationParam / 1000
 
   noSleep.enable()
-  isRunning = true
+  state.timerActive = true
   playPauseEl.disabled = false
 
   const renderLoop = () => {
-    if (!isRunning) return
+    if (!state.timerActive) return
     requestAnimationFrame(renderLoop)
     let newDisplayTime = Math.round((duration + startTime - Date.now()) / 1000)
-    if (newDisplayTime === displayTime) return
+    if (newDisplayTime === state.displayTime) return
     if (newDisplayTime <= 0) {
       newDisplayTime = 0
       stopTimer()
       playPauseEl.disabled = true
       startBell()
     }
-    displayTime = newDisplayTime
+    state.displayTime = newDisplayTime
 
-    setProgress(totalTime, displayTime)
+    setProgress(state.totalTime, state.displayTime)
   }
 
   requestAnimationFrame(renderLoop)
