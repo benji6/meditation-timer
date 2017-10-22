@@ -136,10 +136,8 @@ window.onhashchange = ({newURL, oldURL}) => {
   }
 }
 
-window.onload = () => {
-  if (location.href.indexOf('#') !== -1) {
-    history.replaceState('', document.title, location.pathname)
-  }
+if (location.href.indexOf('#') !== -1) {
+  history.replaceState('', document.title, location.pathname)
 }
 
 if (process.env.NODE_ENV === 'production') {
