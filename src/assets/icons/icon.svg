@@ -12,8 +12,10 @@
       </feMerge>
     </filter>
 		<radialGradient id="grad">
-			<stop offset="20%" style="stop-color:#3ecbff"/>
-			<stop offset="80%" style="stop-color:#ff25d0"/>
+			<stop offset="25%" style="stop-color:#ff25d0"/>
+			<stop offset="50%" style="stop-color:#3ecbff"/>
+			<stop offset="67%" style="stop-color:#3ecbff"/>
+			<stop offset="95%" style="stop-color:#111e7a"/>
 		</radialGradient>
   </defs>
   <g filter="url(#dropshadow)">
