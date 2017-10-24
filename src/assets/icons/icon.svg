@@ -11,10 +11,10 @@
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
-		<linearGradient id="grad">
+		<radialGradient id="grad">
 			<stop offset="20%" style="stop-color:#3ecbff"/>
 			<stop offset="80%" style="stop-color:#ff25d0"/>
-		</linearGradient>
+		</radialGradient>
   </defs>
   <g filter="url(#dropshadow)">
 		<circle fill="url(#grad)" cx="50" cy="50" r="45" />
