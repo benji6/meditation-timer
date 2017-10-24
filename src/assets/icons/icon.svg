@@ -12,13 +12,11 @@
       </feMerge>
     </filter>
 		<linearGradient id="grad">
-			<stop offset="20%" style="stop-color:#0d0d2b"/>
-			<stop offset="80%" style="stop-color:#3ecbff"/>
+			<stop offset="20%" style="stop-color:#3ecbff"/>
+			<stop offset="80%" style="stop-color:#ff25d0"/>
 		</linearGradient>
   </defs>
   <g filter="url(#dropshadow)">
-		<circle fill="none" stroke="url(#grad)" stroke-width="5.5" cx="50" cy="50" r="10" />
-		<circle fill="none" stroke="url(#grad)" stroke-width="7" cx="50" cy="50" r="25" />
-		<circle fill="none" stroke="url(#grad)" stroke-width="7.5" cx="50" cy="50" r="40" />
+		<circle fill="url(#grad)" cx="50" cy="50" r="45" />
 	</g>
 </svg>
