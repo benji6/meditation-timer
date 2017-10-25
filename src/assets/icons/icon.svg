@@ -1,24 +1,22 @@
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100">
-	<defs>
+  <defs>
     <filter xmlns="http://www.w3.org/2000/svg" id="dropshadow">
-      <feGaussianBlur in="SourceAlpha" stdDeviation=".5"/>
-      <feOffset dx="-1.5" result="offsetblur"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="1"/>
+      <feOffset result="offsetblur"/>
       <feComponentTransfer>
-        <feFuncA type="linear" slope=".67"/>
+        <feFuncA type="linear" slope="2"/>
       </feComponentTransfer>
       <feMerge>
         <feMergeNode/>
-        <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
-		<radialGradient id="grad">
-			<stop offset="25%" style="stop-color:#ff25d0"/>
-			<stop offset="50%" style="stop-color:#3ecbff"/>
-			<stop offset="67%" style="stop-color:#3ecbff"/>
-			<stop offset="95%" style="stop-color:#111e7a"/>
-		</radialGradient>
+    <linearGradient id="grad">
+      <stop offset="25%" style="stop-color:#3ecbff"/>
+      <stop offset="75%" style="stop-color:#ff25d0"/>
+    </linearGradient>
   </defs>
+  <rect fill="url(#grad)" height="100" width="100" rx="20"/>
   <g filter="url(#dropshadow)">
-		<circle fill="url(#grad)" cx="50" cy="50" r="45" />
-	</g>
+    <circle fill="none" stroke="white" stroke-width="10" cx="50" cy="50" r="30"/>
+  </g>
 </svg>
