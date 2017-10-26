@@ -1,11 +1,10 @@
 :root {
-  --black: #000007; /* background_color (manifest) */
   --blue: #111e7a; /* (logo.svg) */
-  --blue-dark: #0d0d2b; /* theme_color & (manifest, meta tag & logo.svg)*/
+  --blue-dark: #0d0d2b; /* background_color theme_color & (manifest, meta tag & logo.svg)*/
   --blue-light: #3ecbff;
   --gray: #6e6e6e;
   --pink: #ff25d0; /* (logo.svg) */
-  --white: #fafeff;
+  --white: #fafeff; /* (logo.svg) */
 
   --shadow-dark: rgba(0, 0, 0, 0.75);
 
