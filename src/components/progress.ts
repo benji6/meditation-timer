@@ -7,6 +7,13 @@ const timeEl = document.querySelector('.progress__time') as HTMLDivElement
 const radius = 1 / 3
 const circumference = 2 * radius * Math.PI
 
+enum ActiveView {
+  digital,
+  radial,
+}
+
+let activeView = ActiveView.radial
+
 circleEl.setAttribute('stroke-dasharray', String(circumference))
 circleEl.setAttribute('r', String(radius))
 circleBackgroundEl.setAttribute('r', String(radius))
@@ -27,14 +34,16 @@ export const resetProgress = () => {
   circleEl.classList.add('progress__circle--transitioning')
 }
 
-timeEl.onclick = () => {
-  timeEl.remove()
-  progressEl.appendChild(meterEl)
-}
-
-meterEl.onclick = () => {
+progressEl.onclick = () => {
+  if (activeView === ActiveView.digital) {
+    activeView = ActiveView.radial
+    timeEl.remove()
+    progressEl.appendChild(meterEl)
+    return
+  }
   meterEl.remove()
   progressEl.appendChild(timeEl)
+  activeView = ActiveView.digital
 }
 
 resetProgress()
