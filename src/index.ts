@@ -5,6 +5,7 @@ import * as NoSleep from 'nosleep.js'
 import * as OfflinePluginRuntime from 'offline-plugin/runtime'
 import {startBell, stopBell} from './bell'
 import playPauseButton from './components/playPauseButton'
+import dimButton from './components/dimButton'
 import stopButton from './components/stopButton'
 import {resetProgress, setProgress} from './components/progress'
 import state from './state'
@@ -14,6 +15,7 @@ import './components/gradient.css'
 import './components/header.css'
 import './components/progress.css'
 import './components/timer-button.css'
+import './components/dimmer-overlay.css'
 
 interface Process {
   env: {
@@ -25,6 +27,7 @@ declare var process: Process
 
 const noSleep = new NoSleep()
 
+const dimmerOverlayEl = document.querySelector('.dimmer-overlay') as HTMLDivElement
 const timersEl = document.querySelector('.timers') as HTMLDivElement
 const displayEl = document.querySelector('.display') as HTMLDivElement
 const gradientBottomEl = document.querySelector('.gradient--bottom') as HTMLDivElement
@@ -96,6 +99,9 @@ for (let i = 0; i < timerButtonEls.length; i++) {
 
 playPauseButton.onPlay = startTimer.bind(null, null)
 playPauseButton.onPause = stopTimer
+
+dimmerOverlayEl.onclick = () => dimmerOverlayEl.classList.remove('dimmer-overlay--on')
+dimButton.onClick = () => dimmerOverlayEl.classList.add('dimmer-overlay--on')
 
 const navigateBack = history.back.bind(history)
 
