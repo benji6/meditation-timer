@@ -109,6 +109,7 @@ const handleStop = () => {
   stopTimer()
   stopBell()
   playPauseButton.stop()
+  dimmerOverlayEl.classList.remove('dimmer-overlay--on')
   gradientBottomEl.classList.remove('gradient--bottom--hidden')
   timersEl.classList.remove('timers--hidden')
   displayEl.classList.add('display--transition-out')
