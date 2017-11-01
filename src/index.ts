@@ -23,16 +23,16 @@ declare var process: Process
 
 const noSleep = new NoSleep()
 
-const displayEl = document.querySelector('.display') as HTMLDivElement
+const timerEl = document.querySelector('.timer') as HTMLDivElement
 const timerButtonEls = document.querySelectorAll('.timer-button') as NodeListOf<HTMLButtonElement>
 
-displayEl.addEventListener('animationend', () => {
-  if (displayEl.classList.contains('display--transition-out')) {
-    displayEl.classList.add('display--hidden')
-    displayEl.classList.remove('display--transition-out')
+timerEl.addEventListener('animationend', () => {
+  if (timerEl.classList.contains('timer--transition-out')) {
+    timerEl.classList.add('timer--hidden')
+    timerEl.classList.remove('timer--transition-out')
     resetProgress()
   } else {
-    displayEl.classList.remove('display--transition-in')
+    timerEl.classList.remove('timer--transition-in')
   }
 })
 
@@ -99,7 +99,7 @@ const handleStop = () => {
 
 timer.onStop = navigateBack
 
-const mc = new Hammer.Manager(displayEl, {
+const mc = new Hammer.Manager(timerEl, {
   recognizers: [
     [Hammer.Swipe, {direction: Hammer.DIRECTION_RIGHT}],
   ],
