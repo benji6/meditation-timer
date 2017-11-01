@@ -3,19 +3,15 @@
 import * as Hammer from 'hammerjs'
 import * as NoSleep from 'nosleep.js'
 import * as OfflinePluginRuntime from 'offline-plugin/runtime'
-import {startBell, stopBell} from './bell'
-import playPauseButton from './components/atoms/playPauseButton'
-import dimButton from './components/atoms/dimButton'
-import stopButton from './components/atoms/stopButton'
-import {resetProgress, setProgress} from './components/molecules/progress'
 import state from './state'
+import {startBell, stopBell} from './bell'
+import home from './components/pages/home'
+import timer from './components/pages/timer'
+import playPauseButton from './components/atoms/playPauseButton'
+import {resetProgress, setProgress} from './components/molecules/progress'
 import './vars.css'
 import './index.css'
-import './components/atoms/gradient.css'
 import './components/molecules/header.css'
-import './components/molecules/progress.css'
-import './components/atoms/timer-button.css'
-import './components/atoms/dimmer-overlay.css'
 
 interface Process {
   env: {
@@ -27,10 +23,7 @@ declare var process: Process
 
 const noSleep = new NoSleep()
 
-const dimmerOverlayEl = document.querySelector('.dimmer-overlay') as HTMLDivElement
-const timersEl = document.querySelector('.timers') as HTMLDivElement
 const displayEl = document.querySelector('.display') as HTMLDivElement
-const gradientBottomEl = document.querySelector('.gradient--bottom') as HTMLDivElement
 const timerButtonEls = document.querySelectorAll('.timer-button') as NodeListOf<HTMLButtonElement>
 
 displayEl.addEventListener('animationend', () => {
@@ -40,12 +33,6 @@ displayEl.addEventListener('animationend', () => {
     resetProgress()
   } else {
     displayEl.classList.remove('display--transition-in')
-  }
-})
-timersEl.addEventListener('animationend', () => {
-  if (timersEl.classList.contains('timers--transition-out')) {
-    timersEl.classList.add('timers--hidden')
-    timersEl.classList.remove('timers--transition-out')
   }
 })
 
@@ -88,11 +75,8 @@ for (let i = 0; i < timerButtonEls.length; i++) {
 
   timerButton.onclick = () => {
     location.hash = 'timer'
-    gradientBottomEl.classList.add('gradient--bottom--hidden')
-    displayEl.classList.remove('display--hidden')
-    timersEl.classList.add('timers--transition-out')
-    displayEl.classList.add('display--transition-in')
-
+    home.transitionOut()
+    timer.transitionIn()
     startTimer(Number(timerButton.getAttribute('data-time')) * 1000 * 60)
   }
 }
@@ -100,23 +84,20 @@ for (let i = 0; i < timerButtonEls.length; i++) {
 playPauseButton.onPlay = startTimer.bind(null, null)
 playPauseButton.onPause = stopTimer
 
-dimmerOverlayEl.onclick = () => dimmerOverlayEl.classList.remove('dimmer-overlay--on')
-dimButton.onClick = () => dimmerOverlayEl.classList.add('dimmer-overlay--on')
-
 const navigateBack = history.back.bind(history)
 
 const handleStop = () => {
   stopTimer()
   stopBell()
   playPauseButton.stop()
-  dimmerOverlayEl.classList.remove('dimmer-overlay--on')
-  gradientBottomEl.classList.remove('gradient--bottom--hidden')
-  timersEl.classList.remove('timers--hidden')
-  displayEl.classList.add('display--transition-out')
+
+  timer.transitionOut()
+  home.transitionIn()
+
   noSleep.disable()
 }
 
-stopButton.onStop = navigateBack
+timer.onStop = navigateBack
 
 const mc = new Hammer.Manager(displayEl, {
   recognizers: [
