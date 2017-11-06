@@ -1,5 +1,6 @@
 import gradient from '../atoms/gradient'
 import dimButton from '../atoms/dimButton'
+import playPauseButton from '../atoms/playPauseButton'
 import stopButton from '../atoms/stopButton'
 import '../atoms/dimmer-overlay.css'
 import '../molecules/progress.css'
@@ -14,6 +15,11 @@ dimButton.onClick = () => dimmerOverlayEl.classList.add('dimmer-overlay--on')
 class Timer {
   constructor () {
     stopButton.onStop = () => this.onStop()
+  }
+
+  finish () {
+    playPauseButton.disable()
+    dimmerOverlayEl.classList.remove('dimmer-overlay--on')
   }
 
   onStop () {}

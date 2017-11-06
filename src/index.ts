@@ -4,7 +4,7 @@ import * as Hammer from 'hammerjs'
 import * as NoSleep from 'nosleep.js'
 import * as OfflinePluginRuntime from 'offline-plugin/runtime'
 import state from './state'
-import {startBell, stopBell} from './bell'
+import bell from './bell'
 import home from './components/pages/home'
 import timer from './components/pages/timer'
 import playPauseButton from './components/atoms/playPauseButton'
@@ -59,8 +59,8 @@ const startTimer = (durationParam: number | null) => {
     if (newDisplayTime <= 0) {
       newDisplayTime = 0
       stopTimer()
-      playPauseButton.disable()
-      startBell()
+      timer.finish()
+      bell.start()
     }
     state.displayTime = newDisplayTime
 
@@ -88,7 +88,7 @@ const navigateBack = history.back.bind(history)
 
 const handleStop = () => {
   stopTimer()
-  stopBell()
+  bell.stop()
   playPauseButton.stop()
 
   timer.transitionOut()

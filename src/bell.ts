@@ -7,20 +7,26 @@ const bufferPromise = audioContext && fetch('assets/meditation-bell.mp3')
 
 let bufferSource: AudioBufferSourceNode | null = null
 
-export const stopBell = () => {
-  if (bufferSource) {
-    bufferSource.stop()
-    bufferSource.disconnect()
-    bufferSource = null
+class Bell {
+  start () {
+    audioContext && bufferPromise && bufferPromise
+    .then((buffer: AudioBuffer) => {
+      this.stop()
+      bufferSource = audioContext.createBufferSource()
+      bufferSource.connect(audioContext.destination)
+      bufferSource.buffer = buffer
+      bufferSource.onended = this.stop
+      bufferSource.start()
+    })
+  }
+
+  stop () {
+    if (bufferSource) {
+      bufferSource.stop()
+      bufferSource.disconnect()
+      bufferSource = null
+    }
   }
 }
 
-export const startBell = () => audioContext && bufferPromise && bufferPromise
-  .then((buffer: AudioBuffer) => {
-    stopBell()
-    bufferSource = audioContext.createBufferSource()
-    bufferSource.connect(audioContext.destination)
-    bufferSource.buffer = buffer
-    bufferSource.onended = stopBell
-    bufferSource.start()
-  })
+export default new Bell
