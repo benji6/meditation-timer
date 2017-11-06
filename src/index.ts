@@ -41,15 +41,15 @@ const stopTimer = () => {
   noSleep.disable()
 }
 
-const startTimer = (durationParam: number | null) => {
+const startTimer = () => {
   const startTime = Date.now()
-  const duration = durationParam === null ? state.displayTime * 1000 : durationParam
+  const duration = state.displayTime * 1000
 
-  if (durationParam !== null) state.totalTime = durationParam / 1000
+  state.timerActive = true
 
   noSleep.enable()
-  state.timerActive = true
   playPauseButton.enable()
+  setProgress(state.totalTime, state.displayTime)
 
   const renderLoop = () => {
     if (!state.timerActive) return
@@ -74,14 +74,13 @@ for (let i = 0; i < timerButtonEls.length; i++) {
   const timerButton = timerButtonEls[i]
 
   timerButton.onclick = () => {
+    state.displayTime = state.totalTime = Number(timerButton.getAttribute('data-time')) * 60
     location.hash = 'timer'
-    home.transitionOut()
-    timer.transitionIn()
-    startTimer(Number(timerButton.getAttribute('data-time')) * 1000 * 60)
+    startTimer()
   }
 }
 
-playPauseButton.onPlay = startTimer.bind(null, null)
+playPauseButton.onPlay = startTimer.bind(null)
 playPauseButton.onPause = stopTimer
 
 const navigateBack = history.back.bind(history)
@@ -105,6 +104,7 @@ const urlHash = (s: string) => {
 window.onhashchange = ({newURL, oldURL}) => {
   if (newURL === null || oldURL === null) return
 
+  const newHash = urlHash(newURL)
   const oldHash = urlHash(oldURL)
 
   if (oldHash === 'timer') {
@@ -116,6 +116,11 @@ window.onhashchange = ({newURL, oldURL}) => {
     home.transitionIn()
 
     noSleep.disable()
+  }
+
+  if (newHash === 'timer') {
+    home.transitionOut()
+    timer.transitionIn()
   }
 }
 
