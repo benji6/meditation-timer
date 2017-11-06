@@ -5,13 +5,18 @@ import * as NoSleep from 'nosleep.js'
 import * as OfflinePluginRuntime from 'offline-plugin/runtime'
 import state from './state'
 import bell from './bell'
+import about from './components/pages/about'
 import home from './components/pages/home'
 import timer from './components/pages/timer'
 import playPauseButton from './components/atoms/playPauseButton'
-import {resetProgress, setProgress} from './components/molecules/progress'
+import {setProgress} from './components/molecules/progress'
+import header from './components/molecules/header'
 import './vars.css'
+import './keyframes.css'
 import './index.css'
 import './components/molecules/header.css'
+
+header.onClickAbout = () => location.hash = 'about'
 
 interface Process {
   env: {
@@ -25,16 +30,6 @@ const noSleep = new NoSleep()
 
 const timerEl = document.querySelector('.timer') as HTMLDivElement
 const timerButtonEls = document.querySelectorAll('.timer-button') as NodeListOf<HTMLButtonElement>
-
-timerEl.addEventListener('animationend', () => {
-  if (timerEl.classList.contains('timer--transition-out')) {
-    timerEl.classList.add('timer--hidden')
-    timerEl.classList.remove('timer--transition-out')
-    resetProgress()
-  } else {
-    timerEl.classList.remove('timer--transition-in')
-  }
-})
 
 const stopTimer = () => {
   state.timerActive = false
@@ -107,20 +102,30 @@ window.onhashchange = ({newURL, oldURL}) => {
   const newHash = urlHash(newURL)
   const oldHash = urlHash(oldURL)
 
-  if (oldHash === 'timer') {
-    stopTimer()
-    bell.stop()
-    playPauseButton.stop()
-
-    timer.transitionOut()
-    home.transitionIn()
-
-    noSleep.disable()
+  switch (oldHash) {
+    case 'about':
+      about.transitionOut()
+      break
+    case 'timer':
+      stopTimer()
+      bell.stop()
+      timer.transitionOut()
+      noSleep.disable()
+      header.showControls()
   }
 
-  if (newHash === 'timer') {
-    home.transitionOut()
-    timer.transitionIn()
+  switch (newHash) {
+    case '':
+      home.transitionIn()
+      break
+    case 'about':
+      home.transitionOut()
+      about.transitionIn()
+      break
+    case 'timer':
+      header.hideControls()
+      home.transitionOut()
+      timer.transitionIn()
   }
 }
 

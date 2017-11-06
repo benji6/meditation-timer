@@ -14,12 +14,24 @@
 </head>
 <body>
   <header class="header">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="header__settings">
+      <circle cx="12" cy="12" r="3"/>
+      <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+    </svg>
     <h1 class="header__heading">Meditate</h1>
+    <button class="header__about">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+        <circle cx="12" cy="12" r="10"/>
+        <line x1="12" y1="17" x2="12" y2="17"/>
+      </svg>
+    </button>
   </header>
   <main class="main">
-    <div class="gradient gradient--top"></div>
-    <div class="gradient gradient--bottom"></div>
-    <div class="timers">
+    <div class="gradient gradient__2"></div>
+    <div class="gradient gradient__1"></div>
+    <div class="gradient gradient__0"></div>
+    <div class="home">
       <button aria-label="select 5 minutes timer" class="timer-button" data-time="5">5m</button>
       <button aria-label="select 10 minutes timer" class="timer-button" data-time="10">10m</button>
       <button aria-label="select 15 minutes timer" class="timer-button" data-time="15">15m</button>
@@ -56,6 +68,12 @@
           </svg>
         </button>
       </div>
+    </div>
+    <div class="about about--hidden">
+      <p class="about__paragraph">Meditate is a free and open source web app.</p>
+      <p class="about__paragraph">All source code is freely available <a class="about__link" href="https://github.com/benji6/meditation-timer" rel="noopener" target="_blank">here</a>.</p>
+      <p class="about__paragraph">If you have any ideas, feedback or bugs you can raise them here <a class="about__link" href="https://github.com/benji6/meditation-timer/issues" rel="noopener" target="_blank">here</a>.</p>
+      <p class="about__paragraph">Enjoy :)</p>
     </div>
   </main>
   <div class="dimmer-overlay"></div>

@@ -1,0 +1,23 @@
+.home {
+  animation-duration: var(--timing-base);
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  left: 0;
+  margin: 0 auto;
+  max-width: 19rem;
+  padding: var(--spacing-base) 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.home--hidden {
+  display: none;
+}
+
+.home--transition-out {
+  animation-name: slide-left;
+}

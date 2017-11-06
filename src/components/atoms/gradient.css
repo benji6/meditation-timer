@@ -7,12 +7,27 @@
   transition: opacity var(--timing-slow);
   z-index: -1;
 }
-.gradient--bottom {
+
+.gradient__0 {
   background-image: linear-gradient(145deg, var(--blue-light), var(--pink));
 }
-.gradient--bottom--hidden {
+
+.gradient__0--hidden {
   opacity: 0;
 }
-.gradient--top {
+
+.gradient__1 {
   background-image: linear-gradient(145deg, var(--blue), var(--blue-dark));
+}
+
+.gradient__1--hidden {
+  opacity: 0;
+}
+
+.gradient__2 {
+  background-image: linear-gradient(145deg, var(--purple), var(--red));
+}
+
+.gradient__2--hidden {
+  opacity: 0;
 }

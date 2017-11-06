@@ -1,10 +1,44 @@
 .header {
+  align-items: center;
   background: var(--blue-dark);
   box-shadow: 0 0 var(--spacing-base) var(--shadow-dark);
+  display: flex;
+  justify-content: space-between;
   padding: var(--spacing-base) 0;
   text-align: center;
 }
 
 .header__heading {
   margin: 0;
+}
+
+.header__about {
+  -webkit-tap-highlight-color: transparent;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin: 0 1rem;
+  outline: 0;
+  padding: 0 1rem;
+  stroke: var(--white);
+}
+
+.header--hide-controls .header__about {
+  visibility: hidden;
+}
+
+.header__settings {
+  -webkit-tap-highlight-color: transparent;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin: 0 1rem;
+  outline: 0;
+  padding: 0 1rem;
+  stroke: var(--white);
+  visibility: hidden; /* TODO */
+}
+
+.header--hide-controls .header__settings {
+  visibility: hidden;
 }

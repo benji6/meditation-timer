@@ -1,27 +1,28 @@
-.timer {
+.about {
   animation-duration: var(--timing-base);
   animation-fill-mode: forwards;
   animation-timing-function: ease-in-out;
-  bottom: 0;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  left: 0;
-  overflow-y: hidden;
-  position: absolute;
-  right: 0;
-  top: 0;
 }
 
-.timer--hidden {
+.about--hidden {
   display: none;
 }
 
-.timer--transition-in {
+.about--transition-in {
   animation-direction: reverse;
   animation-name: slide-right;
 }
 
-.timer--transition-out {
+.about--transition-out {
   animation-name: slide-right;
+}
+
+.about__link {
+  text-decoration: none;
+  font-weight: 900;
+  color: var(--white);
+}
+
+.about__paragraph {
+  margin: var(--spacing-base);
 }

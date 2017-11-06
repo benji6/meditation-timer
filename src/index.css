@@ -1,36 +1,3 @@
-@keyframes slide-down {
-  from {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(100vh);
-  }
-}
-@keyframes slide-left {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-100vw);
-  }
-}
-@keyframes slide-right {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(100vw);
-  }
-}
-@keyframes slide-up {
-  from {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(-100vh);
-  }
-}
-
 html {
   height: 100%;
 }
@@ -62,26 +29,4 @@ body {
   flex-grow: 1;
   overflow-x: hidden;
   position: relative;
-}
-
-.timers {
-  animation-duration: var(--timing-base);
-  animation-fill-mode: forwards;
-  animation-timing-function: ease-in-out;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  left: 0;
-  margin: 0 auto;
-  max-width: 19rem;
-  padding: var(--spacing-base) 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-.timers--hidden {
-  display: none;
-}
-.timers--transition-out {
-  animation-name: slide-left;
 }
