@@ -86,17 +86,6 @@ playPauseButton.onPause = stopTimer
 
 const navigateBack = history.back.bind(history)
 
-const handleStop = () => {
-  stopTimer()
-  bell.stop()
-  playPauseButton.stop()
-
-  timer.transitionOut()
-  home.transitionIn()
-
-  noSleep.disable()
-}
-
 timer.onStop = navigateBack
 
 const mc = new Hammer.Manager(timerEl, {
@@ -107,10 +96,26 @@ const mc = new Hammer.Manager(timerEl, {
 
 mc.on('swiperight', navigateBack)
 
+const urlHash = (s: string) => {
+  const hashIndex = s.indexOf('#')
+  if (hashIndex === -1) return ''
+  return s.slice(hashIndex + 1)
+}
+
 window.onhashchange = ({newURL, oldURL}) => {
   if (newURL === null || oldURL === null) return
-  if (newURL.indexOf('#timer') === -1 && oldURL.indexOf('#timer') !== -1) {
-    handleStop()
+
+  const oldHash = urlHash(oldURL)
+
+  if (oldHash === 'timer') {
+    stopTimer()
+    bell.stop()
+    playPauseButton.stop()
+
+    timer.transitionOut()
+    home.transitionIn()
+
+    noSleep.disable()
   }
 }
 
