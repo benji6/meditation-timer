@@ -14,10 +14,12 @@
 </head>
 <body>
   <header class="header">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="header__settings">
-      <circle cx="12" cy="12" r="3"/>
-      <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
-    </svg>
+    <button class="header__settings">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="3"/>
+        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+      </svg>
+    </button>
     <h1 class="header__heading">Meditate</h1>
     <button class="header__about">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -50,21 +52,21 @@
       <div class="controls">
         <button aria-label="toggle between paused and playing (playing is the initial state)" class="play-pause-button play-pause-button--paused" disabled>
           <svg class="play-pause-button__play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <polygon points="10 8 16 12 10 16 10 8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <polygon points="10 8 16 12 10 16 10 8" fill="none" stroke-linejoin="round"/>
           </svg>
           <svg class="play-pause-button__pause" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <line x1="10" y1="15" x2="10" y2="9" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-            <line x1="14" y1="15" x2="14" y2="9" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <line x1="10" y1="15" x2="10" y2="9" fill="none" stroke-linejoin="round"/>
+            <line x1="14" y1="15" x2="14" y2="9" fill="none" stroke-linejoin="round"/>
           </svg>
         </button>
         <button aria-label="dim the screen to black" class="dim-button">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="-16 -16 56 56" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="-16 -16 56 56" fill="none" stroke-width="2" stroke-linejoin="round">
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
           </svg>
         </button>
         <button aria-label="stop the timer" class="stop-button">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <rect x="9" y="9" width="6" height="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="9" y="9" width="6" height="6" fill="none" stroke-linejoin="round"/>
           </svg>
         </button>
       </div>
@@ -74,6 +76,9 @@
       <p class="about__paragraph">All source code is available <a class="about__link" href="https://github.com/benji6/meditation-timer" rel="noopener" target="_blank">here</a>.</p>
       <p class="about__paragraph">If you have any ideas, feedback or bugs you can raise them here <a class="about__link" href="https://github.com/benji6/meditation-timer/issues" rel="noopener" target="_blank">here</a>.</p>
       <p class="about__paragraph">Enjoy :)</p>
+    </div>
+    <div class="settings settings--hidden">
+      <h1>Settings!</h1>
     </div>
   </main>
   <div class="dimmer-overlay"></div>

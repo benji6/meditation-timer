@@ -7,6 +7,7 @@ import state from './state'
 import bell from './bell'
 import about from './components/pages/about'
 import home from './components/pages/home'
+import settings from './components/pages/settings'
 import timer from './components/pages/timer'
 import playPauseButton from './components/atoms/playPauseButton'
 import {setProgress} from './components/molecules/progress'
@@ -17,6 +18,7 @@ import './index.css'
 import './components/molecules/header.css'
 
 header.onClickAbout = () => location.hash = 'about'
+header.onClickSettings = () => location.hash = 'settings'
 
 interface Process {
   env: {
@@ -103,8 +105,14 @@ window.onhashchange = ({newURL, oldURL}) => {
   const oldHash = urlHash(oldURL)
 
   switch (oldHash) {
+    case '':
+      home.transitionOut()
+      break
     case 'about':
       about.transitionOut()
+      break
+    case 'settings':
+      settings.transitionOut()
       break
     case 'timer':
       stopTimer()
@@ -119,12 +127,13 @@ window.onhashchange = ({newURL, oldURL}) => {
       home.transitionIn()
       break
     case 'about':
-      home.transitionOut()
       about.transitionIn()
+      break
+    case 'settings':
+      settings.transitionIn()
       break
     case 'timer':
       header.hideControls()
-      home.transitionOut()
       timer.transitionIn()
   }
 }

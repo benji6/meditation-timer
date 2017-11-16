@@ -1,0 +1,18 @@
+.settings {
+  animation-duration: var(--timing-base);
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+
+.settings--hidden {
+  display: none;
+}
+
+.settings--transition-in {
+  animation-direction: reverse;
+  animation-name: slide-right;
+}
+
+.settings--transition-out {
+  animation-name: slide-right;
+}
