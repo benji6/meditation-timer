@@ -1,6 +1,5 @@
 /// <reference path="./typings/nosleep.js.d.ts" />
 
-import * as Hammer from 'hammerjs'
 import * as NoSleep from 'nosleep.js'
 import * as OfflinePluginRuntime from 'offline-plugin/runtime'
 import state from './state'
@@ -17,7 +16,10 @@ import './keyframes.css'
 import './index.css'
 import './components/molecules/header.css'
 
+const navigateBack = history.back.bind(history)
+
 header.onClickAbout = () => location.hash = 'about'
+header.onClickHome = navigateBack
 header.onClickSettings = () => location.hash = 'settings'
 
 interface Process {
@@ -30,7 +32,6 @@ declare var process: Process
 
 const noSleep = new NoSleep()
 
-const timerEl = document.querySelector('.timer') as HTMLDivElement
 const timerButtonEls = document.querySelectorAll('.timer-button') as NodeListOf<HTMLButtonElement>
 
 const stopTimer = () => {
@@ -80,17 +81,7 @@ for (let i = 0; i < timerButtonEls.length; i++) {
 playPauseButton.onPlay = startTimer.bind(null)
 playPauseButton.onPause = stopTimer
 
-const navigateBack = history.back.bind(history)
-
 timer.onStop = navigateBack
-
-const mc = new Hammer.Manager(timerEl, {
-  recognizers: [
-    [Hammer.Swipe, {direction: Hammer.DIRECTION_RIGHT}],
-  ],
-})
-
-mc.on('swiperight', navigateBack)
 
 const urlHash = (s: string) => {
   const hashIndex = s.indexOf('#')
@@ -109,6 +100,7 @@ window.onhashchange = ({newURL, oldURL}) => {
       home.transitionOut()
       break
     case 'about':
+      header.switchHomeToAbout()
       about.transitionOut()
       break
     case 'settings':
@@ -127,6 +119,7 @@ window.onhashchange = ({newURL, oldURL}) => {
       home.transitionIn()
       break
     case 'about':
+      header.switchAboutToHome()
       about.transitionIn()
       break
     case 'settings':

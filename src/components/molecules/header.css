@@ -12,7 +12,11 @@
   margin: 0;
 }
 
-.header__about {
+.header--hide-controls .header__button {
+  visibility: hidden;
+}
+
+.header__button {
   -webkit-tap-highlight-color: transparent;
   background: none;
   border: none;
@@ -21,24 +25,4 @@
   outline: 0;
   padding: 0 1rem;
   stroke: var(--white);
-}
-
-.header--hide-controls .header__about {
-  visibility: hidden;
-}
-
-.header__settings {
-  -webkit-tap-highlight-color: transparent;
-  background: none;
-  border: none;
-  cursor: pointer;
-  margin: 0 1rem;
-  outline: 0;
-  padding: 0 1rem;
-  stroke: var(--white);
-  visibility: hidden; /* TODO */
-}
-
-.header--hide-controls .header__settings {
-  visibility: hidden;
 }
