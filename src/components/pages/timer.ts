@@ -1,4 +1,3 @@
-import * as Hammer from 'hammerjs'
 import dimButton from '../atoms/dimButton'
 import gradient from '../atoms/gradient'
 import playPauseButton from '../atoms/playPauseButton'
@@ -25,17 +24,9 @@ timerEl.addEventListener('animationend', () => {
 dimmerOverlayEl.onclick = () => dimmerOverlayEl.classList.remove('dimmer-overlay--on')
 dimButton.onClick = () => dimmerOverlayEl.classList.add('dimmer-overlay--on')
 
-const mc = new Hammer.Manager(timerEl, {
-  recognizers: [
-    [Hammer.Swipe, {direction: Hammer.DIRECTION_RIGHT}],
-  ],
-})
-
 class Timer {
   constructor () {
-    const handleStop = () => this.onStop()
-    stopButton.onStop = handleStop
-    mc.on('swiperight', handleStop)
+    stopButton.onStop = () => this.onStop()
   }
 
   finish () {
