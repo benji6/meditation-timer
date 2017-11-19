@@ -1,6 +1,5 @@
 .home {
   animation-duration: var(--timing-base);
-  animation-fill-mode: forwards;
   animation-timing-function: ease-in-out;
   display: flex;
   flex-wrap: wrap;

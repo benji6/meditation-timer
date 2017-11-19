@@ -15,11 +15,13 @@ aboutEl.addEventListener('animationend', () => {
 class About {
   transitionIn () {
     aboutEl.classList.remove('about--hidden')
+    aboutEl.classList.remove('about--transition-out')
     aboutEl.classList.add('about--transition-in')
     gradient.setGradient(2)
   }
 
   transitionOut () {
+    aboutEl.classList.remove('about--transition-in')
     aboutEl.classList.add('about--transition-out')
   }
 }

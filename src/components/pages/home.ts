@@ -14,6 +14,7 @@ homeEl.addEventListener('animationend', () => {
 class Home {
   transitionIn () {
     homeEl.classList.remove('home--hidden')
+    homeEl.classList.remove('home--transition-out')
     gradient.setGradient(0)
   }
 
