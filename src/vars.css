@@ -8,6 +8,8 @@
   --red: #ff442b;
   --white: #fafeff; /* (logo.svg) */
 
+  --gradient-angle: 145deg;
+
   --shadow-dark: rgba(0, 0, 0, 0.75);
 
   --border-width: 0.175rem;
