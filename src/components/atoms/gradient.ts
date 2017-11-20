@@ -1,7 +1,7 @@
 import './gradient.css'
 import {getCssVar, setCssVar} from '../../utils'
 
-const rotationInterval = 1000 * 60 * 5
+const rotationInterval = 1000 * 60 * 10
 
 const gradientEl = document.querySelector('.gradient') as HTMLDivElement
 
