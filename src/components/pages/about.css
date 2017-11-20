@@ -25,4 +25,5 @@
 
 .about__paragraph {
   margin: var(--spacing-base);
+  font-size: var(--font-size-base);
 }
