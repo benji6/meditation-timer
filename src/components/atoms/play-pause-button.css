@@ -1,5 +1,5 @@
 .play-pause-button {
-  animation-delay: var(--timing-fast);
+  animation-delay: var(--timing-faster);
   animation-direction: reverse;
   animation-duration: var(--timing-base);
   animation-fill-mode: forwards;

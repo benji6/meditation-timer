@@ -3,6 +3,7 @@
   --blue-dark: #0d0d2b; /* background_color theme_color & (manifest, meta tag & logo.svg)*/
   --blue-light: #3ecbff;
   --gray: #6e6e6e;
+  --green: #53c080;
   --pink: #ff25d0; /* (logo.svg) */
   --purple: #4f21bb;
   --red: #ff442b;
@@ -20,7 +21,8 @@
   --spacing-small: 0.75rem;
   --spacing-base: 1.2rem;
 
-  --timing-fast: 50ms;
+  --timing-faster: 50ms;
+  --timing-fast: 150ms;
   --timing-base: 250ms;
   --timing-slow: 1s;
 }

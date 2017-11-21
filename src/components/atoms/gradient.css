@@ -25,3 +25,7 @@
 .gradient__layer--2 {
   background-image: linear-gradient(var(--gradient-angle), var(--purple), var(--red));
 }
+
+.gradient__layer--3 {
+  background-image: linear-gradient(var(--gradient-angle), var(--green), var(--purple));
+}

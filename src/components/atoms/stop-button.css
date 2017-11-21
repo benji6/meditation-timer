@@ -1,5 +1,5 @@
 .stop-button {
-  animation-delay: calc(var(--timing-fast) * 3);
+  animation-delay: calc(var(--timing-faster) * 3);
   animation-direction: reverse;
   animation-duration: var(--timing-base);
   animation-fill-mode: forwards;

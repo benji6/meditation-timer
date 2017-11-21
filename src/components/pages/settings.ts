@@ -16,7 +16,7 @@ class Settings {
   transitionIn () {
     settingsEl.classList.remove('settings--hidden')
     settingsEl.classList.add('settings--transition-in')
-    gradient.setGradient(2)
+    gradient.setGradient(3)
   }
 
   transitionOut () {

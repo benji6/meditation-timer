@@ -116,6 +116,7 @@ window.onhashchange = ({newURL, oldURL}) => {
       about.transitionOut()
       break
     case 'settings':
+      header.switchHomeToSettings()
       settings.transitionOut()
       break
     case 'timer':
@@ -135,6 +136,7 @@ window.onhashchange = ({newURL, oldURL}) => {
       about.transitionIn()
       break
     case 'settings':
+      header.switchSettingsToHome()
       settings.transitionIn()
       break
     case 'timer':

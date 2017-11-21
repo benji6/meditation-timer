@@ -25,4 +25,16 @@
   outline: 0;
   padding: 0 1rem;
   stroke: var(--white);
+  transition-duration: var(--timing-fast);
+  transition-property: opacity, transform;
+  transition-timing-function: ease-in-out;
+}
+
+.header__button:disabled {
+  opacity: .75;
+  transform: rotate(180deg) scale(0);
+}
+
+.header__button--reverse-spin:disabled {
+  transform: rotate(-180deg) scale(0);
 }
