@@ -41,7 +41,7 @@ class Header {
   }
 
   switchAboutToHome () {
-    this.hideSettingsButton()
+    settingsButtonEl.disabled = true
     aboutButtonEl.remove()
     headerEl.appendChild(homeButtonEl)
   }
@@ -49,52 +49,42 @@ class Header {
   switchHomeToAbout () {
     homeButtonEl.remove()
     headerEl.appendChild(aboutButtonEl)
-    this.showSettingsButton()
+    settingsButtonEl.disabled = false
   }
 
   switchHomeToSettings () {
     homeButtonEl.remove()
     headerEl.insertAdjacentElement('afterbegin', settingsButtonEl)
-    this.showAboutButton()
+    aboutButtonEl.disabled = false
   }
 
   switchSettingsToHome () {
-    this.hideAboutButton()
+    aboutButtonEl.disabled = true
     settingsButtonEl.remove()
     headerEl.insertAdjacentElement('afterbegin', homeButtonEl)
   }
 
   hideControls () {
-    headerEl.classList.add('header--hide-controls')
+    aboutButtonEl.classList.add('header__button--delay')
+    requestAnimationFrame(() => {
+      aboutButtonEl.disabled = true
+      settingsButtonEl.disabled = true
+      requestAnimationFrame(() => aboutButtonEl.classList.remove('header__button--delay'))
+    })
   }
 
   showControls () {
-    headerEl.classList.remove('header--hide-controls')
+    settingsButtonEl.classList.add('header__button--delay')
+    requestAnimationFrame(() => {
+      aboutButtonEl.disabled = false
+      settingsButtonEl.disabled = false
+      requestAnimationFrame(() => settingsButtonEl.classList.remove('header__button--delay'))
+    })
   }
 
   public onClickAbout () {}
   public onClickHome () {}
   public onClickSettings () {}
-
-  private hideAboutButton () {
-    aboutButtonEl.classList.add('header__button--hide')
-    aboutButtonEl.disabled = true
-  }
-
-  private hideSettingsButton () {
-    settingsButtonEl.classList.add('header__button--hide')
-    settingsButtonEl.disabled = true
-  }
-
-  private showAboutButton () {
-    aboutButtonEl.disabled = false
-    aboutButtonEl.classList.remove('header__button--hide')
-  }
-
-  private showSettingsButton () {
-    settingsButtonEl.disabled = false
-    settingsButtonEl.classList.remove('header__button--hide')
-  }
 }
 
 export default new Header

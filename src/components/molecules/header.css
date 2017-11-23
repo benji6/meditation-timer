@@ -12,10 +12,6 @@
   margin: 0;
 }
 
-.header--hide-controls .header__button {
-  visibility: hidden;
-}
-
 .header__button {
   -webkit-tap-highlight-color: transparent;
   background: none;
@@ -30,11 +26,15 @@
   transition-timing-function: ease-in-out;
 }
 
+.header__button--delay {
+  transition-delay: var(--timing-faster);
+}
+
 .header__button:disabled {
-  opacity: .75;
+  opacity: .67;
   transform: rotate(180deg) scale(0);
 }
 
-.header__button--reverse-spin:disabled {
+.header__button:last-child:disabled {
   transform: rotate(-180deg) scale(0);
 }
