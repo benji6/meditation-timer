@@ -15,11 +15,13 @@ settingsEl.addEventListener('animationend', () => {
 class Settings {
   transitionIn () {
     settingsEl.classList.remove('settings--hidden')
+    settingsEl.classList.remove('settings--transition-out')
     settingsEl.classList.add('settings--transition-in')
     gradient.setGradient(3)
   }
 
   transitionOut () {
+    settingsEl.classList.remove('settings--transition-in')
     settingsEl.classList.add('settings--transition-out')
   }
 }

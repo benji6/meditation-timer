@@ -20,6 +20,7 @@ homeButtonEl.innerHTML = `
 let isTransitioning = true
 
 const aboutTransitionTime = () => parseInt(getCssVar('--timing-base'))
+const settingsTransitionTime = aboutTransitionTime
 const homeTransitionTime = () => aboutTransitionTime() + parseInt(getCssVar('--timing-faster')) * timerButtonCount
 
 class Header {
@@ -30,7 +31,12 @@ class Header {
       setTimeout(() => isTransitioning = false, aboutTransitionTime())
       this.onClickAbout()
     }
-    settingsButtonEl.onclick = () => this.onClickSettings()
+    settingsButtonEl.onclick = () => {
+      if (isTransitioning) return
+      isTransitioning = true
+      setTimeout(() => isTransitioning = false, settingsTransitionTime())
+      this.onClickSettings()
+    }
     homeButtonEl.onclick = () => {
       if (isTransitioning) return
       isTransitioning = true
