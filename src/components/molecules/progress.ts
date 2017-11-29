@@ -1,3 +1,5 @@
+import state, {ProgressDisplay} from '../../state'
+
 const progressEl = document.querySelector('.progress') as HTMLDivElement
 const meterEl = document.querySelector('.progress__meter') as SVGElement
 const circleEl = document.querySelector('.progress__circle') as SVGCircleElement
@@ -6,13 +8,6 @@ const timeEl = document.querySelector('.progress__time') as HTMLDivElement
 
 const radius = 1 / 3
 const circumference = 2 * radius * Math.PI
-
-enum ActiveView {
-  digital,
-  radial,
-}
-
-let activeView = ActiveView.radial
 
 circleEl.setAttribute('stroke-dasharray', String(circumference))
 circleEl.setAttribute('r', String(radius))
@@ -35,15 +30,15 @@ export const resetProgress = () => {
 }
 
 progressEl.onclick = () => {
-  if (activeView === ActiveView.digital) {
-    activeView = ActiveView.radial
+  if (state.progressDisplay === ProgressDisplay.digital) {
+    state.progressDisplay = ProgressDisplay.radial
     timeEl.remove()
     progressEl.appendChild(meterEl)
     return
   }
   meterEl.remove()
   progressEl.appendChild(timeEl)
-  activeView = ActiveView.digital
+  state.progressDisplay = ProgressDisplay.digital
 }
 
 resetProgress()
