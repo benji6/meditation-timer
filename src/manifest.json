@@ -21,6 +21,6 @@
   "lang": "en",
   "name": "Meditate",
   "short_name": "Meditate",
-  "start_url": "/",
+  "start_url": "./",
   "theme_color": "#0d0d2b"
 }

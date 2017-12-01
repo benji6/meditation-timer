@@ -31,7 +31,7 @@ interface Process {
 
 declare var process: Process
 
-const noSleep = new NoSleep()
+const noSleep = new NoSleep
 
 const mainEl = document.querySelector('.main') as HTMLDivElement
 const timerButtonEls = document.querySelectorAll('.timer-button') as NodeListOf<HTMLButtonElement>
