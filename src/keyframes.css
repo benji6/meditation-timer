@@ -33,12 +33,3 @@
     transform: translateX(100vw);
   }
 }
-
-@keyframes slide-up {
-  from {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(-100vh);
-  }
-}

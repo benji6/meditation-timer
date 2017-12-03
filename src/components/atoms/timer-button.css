@@ -4,7 +4,7 @@
   animation-direction: reverse;
   animation-duration: var(--timing-base);
   animation-fill-mode: forwards;
-  animation-name: slide-up;
+  animation-name: slide-down;
   animation-timing-function: ease-in-out;
   background: none;
   border-radius: 50%;
