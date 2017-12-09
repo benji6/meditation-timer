@@ -5,7 +5,8 @@ import * as OfflinePluginRuntime from 'offline-plugin/runtime'
 import state from './state'
 import bell from './bell'
 import about from './components/pages/about'
-import home from './components/pages/home'
+import customTimer, {CustomTimerTransitionTypes} from './components/pages/customTimer'
+import home, {HomeTransitionTypes} from './components/pages/home'
 import settings from './components/pages/settings'
 import timer from './components/pages/timer'
 import playPauseButton from './components/atoms/playPauseButton'
@@ -14,6 +15,8 @@ import header from './components/molecules/header'
 import './vars.css'
 import './keyframes.css'
 import './index.css'
+import './components/atoms/controls.css'
+import './components/atoms/icon-button.css'
 import './components/molecules/header.css'
 
 const navigateBack = history.back.bind(history)
@@ -21,6 +24,17 @@ const navigateBack = history.back.bind(history)
 header.onClickAbout = () => location.hash = 'about'
 header.onClickHome = navigateBack
 header.onClickSettings = () => location.hash = 'settings'
+home.onClickCustomTimerButton = () => location.hash = 'custom-timer'
+home.onClickTimerButton = (t: number) => {
+  state.displayTime = state.totalTime = t
+  location.hash = 'timer'
+  startTimer()
+}
+customTimer.onStart = () => {
+  state.displayTime = state.totalTime = state.customTimerTime
+  location.replace('#timer')
+  startTimer()
+}
 
 interface Process {
   env: {
@@ -31,8 +45,6 @@ interface Process {
 declare var process: Process
 
 const noSleep = new NoSleep
-
-const timerButtonEls = document.querySelectorAll('.timer-button') as NodeListOf<HTMLButtonElement>
 
 const stopTimer = () => {
   state.timerActive = false
@@ -68,16 +80,6 @@ const startTimer = () => {
   requestAnimationFrame(renderLoop)
 }
 
-for (let i = 0; i < timerButtonEls.length; i++) {
-  const timerButton = timerButtonEls[i]
-
-  timerButton.onclick = () => {
-    state.displayTime = state.totalTime = Number(timerButton.getAttribute('data-time')) * 60
-    location.hash = 'timer'
-    startTimer()
-  }
-}
-
 playPauseButton.onPlay = startTimer.bind(null)
 playPauseButton.onPause = stopTimer
 
@@ -97,11 +99,22 @@ window.onhashchange = ({newURL, oldURL}) => {
 
   switch (oldHash) {
     case '':
-      home.transitionOut()
+      if (newHash === 'custom-timer') {
+        home.transitionOut(HomeTransitionTypes.vertical)
+      } else {
+        home.transitionOut(HomeTransitionTypes.horizontal)
+      }
       break
     case 'about':
       header.switchHomeToAbout()
       about.transitionOut()
+      break
+    case 'custom-timer':
+      if (newHash === '') {
+        customTimer.transitionOut(CustomTimerTransitionTypes.zoom)
+        break
+      }
+      customTimer.transitionOut(CustomTimerTransitionTypes.slide)
       break
     case 'settings':
       header.switchHomeToSettings()
@@ -122,6 +135,9 @@ window.onhashchange = ({newURL, oldURL}) => {
     case 'about':
       header.switchAboutToHome()
       about.transitionIn()
+      break
+    case 'custom-timer':
+      customTimer.transitionIn()
       break
     case 'settings':
       header.switchSettingsToHome()

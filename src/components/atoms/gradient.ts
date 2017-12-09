@@ -22,8 +22,10 @@ const render = () => {
 
 render()
 
+type GradientRange = 0|1|2|3|4
+
 class Gradient {
-  setGradient (n: number) {
+  setGradient (n: GradientRange) {
     const newLayerEl = document.createElement('div')
     newLayerEl.classList.add('gradient__layer', `gradient__layer--${n}`)
     newLayerEl.addEventListener('animationend', () => {

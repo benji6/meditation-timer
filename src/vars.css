@@ -6,6 +6,7 @@
   --green: #53c080;
   --pink: #ff25d0; /* (logo.svg) */
   --purple: #4f21bb;
+  --yellow: #fff242;
   --red: #ff442b;
   --white: #fafeff; /* (logo.svg) */
 
@@ -16,13 +17,15 @@
   --border-width: 0.175rem;
 
   --font-size-base: 1.1rem;
+  --font-size-large: 2rem;
   --font-size-x-large: 6rem;
 
   --spacing-small: 0.75rem;
-  --spacing-base: 1.2rem;
+  --spacing-base: 1.33rem;
 
-  --timing-faster: 50ms;
-  --timing-fast: 150ms;
-  --timing-base: 250ms;
-  --timing-slow: 1s;
+  --timing-faster: .05s;
+  --timing-fast: .15s;
+  --timing-base: .3s;
+  --timing-slow: .4s;
+  --timing-slower: 1s;
 }

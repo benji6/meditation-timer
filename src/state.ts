@@ -5,13 +5,15 @@ export enum ProgressDisplay {
 
 interface State {
   displayTime: number
-  timerActive: boolean,
-  totalTime: number,
-  progressDisplay: ProgressDisplay,
+  customTimerTime: number,
+  timerActive: boolean
+  totalTime: number
+  progressDisplay: ProgressDisplay
 }
 
 export default {
   displayTime: 0,
+  customTimerTime: 0,
   timerActive: false,
   totalTime: 0,
   progressDisplay: ProgressDisplay.radial,

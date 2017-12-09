@@ -7,7 +7,6 @@ const aboutButtonEl = buttonEls[1]
 const settingsButtonEl = buttonEls[0]
 const headerEl = document.querySelector('.header') as HTMLDivElement
 const homeButtonEl = document.createElement('button')
-const timerButtonCount = document.querySelectorAll('.timer-button').length
 
 homeButtonEl.className = 'header__button'
 homeButtonEl.innerHTML = `
@@ -19,9 +18,11 @@ homeButtonEl.innerHTML = `
 
 let isTransitioning = true
 
-const aboutTransitionTime = () => parseInt(getCssVar('--timing-base'))
+const getCssTime = (s: string): number => parseFloat(getCssVar(s)) * 1000
+
+const aboutTransitionTime = (): number => getCssTime('--timing-base')
 const settingsTransitionTime = aboutTransitionTime
-const homeTransitionTime = () => aboutTransitionTime() + parseInt(getCssVar('--timing-faster')) * timerButtonCount
+const homeTransitionTime = (): number => getCssTime('--timing-base') + getCssTime('--timing-slow')
 
 class Header {
   constructor () {

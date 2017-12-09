@@ -34,12 +34,54 @@
       <div class="gradient__layer gradient__layer--0 gradient__layer--no-animate"></div>
     </div>
     <div class="home">
-      <button aria-label="select 5 minutes timer" class="timer-button" data-time="5">5m</button>
-      <button aria-label="select 10 minutes timer" class="timer-button" data-time="10">10m</button>
-      <button aria-label="select 15 minutes timer" class="timer-button" data-time="15">15m</button>
-      <button aria-label="select 20 minutes timer" class="timer-button" data-time="20">20m</button>
-      <button aria-label="select 25 minutes timer" class="timer-button" data-time="25">25m</button>
-      <button aria-label="select 35 minutes timer" class="timer-button" data-time="30">30m</button>
+      <div class="home__timers">
+        <button aria-label="select 5 minutes timer" class="home__timer-button" data-val="5">5m</button>
+        <button aria-label="select 10 minutes timer" class="home__timer-button" data-val="10">10m</button>
+        <button aria-label="select 15 minutes timer" class="home__timer-button" data-val="15">15m</button>
+        <button aria-label="select 20 minutes timer" class="home__timer-button" data-val="20">20m</button>
+        <button aria-label="select 25 minutes timer" class="home__timer-button" data-val="25">25m</button>
+        <button aria-label="select 35 minutes timer" class="home__timer-button" data-val="30">30m</button>
+      </div>
+      <div class="controls">
+        <button aria-label="create a custom timer" class="icon-button home__custom-timer-button">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="12 6 12 12 15 15"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div class="custom-timer custom-timer--hidden">
+      <div>
+        <div class="custom-timer__output-container">
+          <output class="custom-timer__time-display">00m</output>
+          <button class="custom-timer__delete-button" disabled>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 4H8l-7 8 7 8h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"/>
+              <line x1="18" y1="9" x2="12" y2="15"/>
+              <line x1="12" y1="9" x2="18" y2="15"/>
+            </svg>
+          </button>
+        </div>
+        <div class="custom-timer__number-button-container">
+          <button class="custom-timer__number-button" data-val="1">1</button>
+          <button class="custom-timer__number-button" data-val="2">2</button>
+          <button class="custom-timer__number-button" data-val="3">3</button>
+          <button class="custom-timer__number-button" data-val="4">4</button>
+          <button class="custom-timer__number-button" data-val="5">5</button>
+          <button class="custom-timer__number-button" data-val="6">6</button>
+          <button class="custom-timer__number-button" data-val="7">7</button>
+          <button class="custom-timer__number-button" data-val="8">8</button>
+          <button class="custom-timer__number-button" data-val="9">9</button>
+          <button class="custom-timer__number-button" data-val="0">0</button>
+        </div>
+      </div>
+      <div class="controls">
+        <button class="icon-button custom-timer__start-button" disabled>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <polygon points="10 8 16 12 10 16 10 8" fill="none" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
     </div>
     <div class="timer timer--hidden">
       <div class="progress">
@@ -50,7 +92,7 @@
         <div class="progress__time"></div>
       </div>
       <div class="controls">
-        <button aria-label="toggle between paused and playing (playing is the initial state)" class="play-pause-button play-pause-button--paused" disabled>
+        <button aria-label="toggle between paused and playing (playing is the initial state)" class="icon-button play-pause-button play-pause-button--paused" disabled>
           <svg class="play-pause-button__play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <polygon points="10 8 16 12 10 16 10 8" fill="none" stroke-linejoin="round"/>
           </svg>
@@ -59,12 +101,12 @@
             <line x1="14" y1="15" x2="14" y2="9" fill="none" stroke-linejoin="round"/>
           </svg>
         </button>
-        <button aria-label="dim the screen to black" class="dim-button">
+        <button aria-label="dim the screen to black" class="icon-button dim-button">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="-16 -16 56 56" fill="none" stroke-width="2" stroke-linejoin="round">
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
           </svg>
         </button>
-        <button aria-label="stop the timer" class="stop-button">
+        <button aria-label="stop the timer" class="icon-button stop-button">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <rect x="9" y="9" width="6" height="6" fill="none" stroke-linejoin="round"/>
           </svg>
