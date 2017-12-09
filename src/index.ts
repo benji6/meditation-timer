@@ -1,6 +1,5 @@
 /// <reference path="./typings/nosleep.js.d.ts" />
 
-import * as Hammer from 'hammerjs'
 import * as NoSleep from 'nosleep.js'
 import * as OfflinePluginRuntime from 'offline-plugin/runtime'
 import state from './state'
@@ -33,18 +32,7 @@ declare var process: Process
 
 const noSleep = new NoSleep
 
-const mainEl = document.querySelector('.main') as HTMLDivElement
 const timerButtonEls = document.querySelectorAll('.timer-button') as NodeListOf<HTMLButtonElement>
-
-const mc = new Hammer.Manager(mainEl, {
-  recognizers: [
-    [Hammer.Swipe, {direction: Hammer.DIRECTION_RIGHT}],
-  ],
-})
-
-mc.on('swiperight', () => {
-  if (location.hash !== '') navigateBack()
-})
 
 const stopTimer = () => {
   state.timerActive = false
