@@ -1,5 +1,5 @@
 .gradient__layer {
-  animation-duration: var(--timing-slow);
+  animation-duration: var(--timing-slower);
   animation-name: fade-in;
   animation-timing-function: ease-in-out;
   bottom: 0;
@@ -28,4 +28,8 @@
 
 .gradient__layer--3 {
   background-image: linear-gradient(var(--gradient-angle), var(--green), var(--purple));
+}
+
+.gradient__layer--4 {
+  background-image: linear-gradient(var(--gradient-angle), var(--yellow), var(--pink));
 }

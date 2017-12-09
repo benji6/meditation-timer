@@ -1,13 +1,12 @@
 .home {
+  align-items: center;
   animation-duration: var(--timing-base);
   animation-timing-function: ease-in-out;
+  bottom: 0;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  flex-direction: column;
+  justify-content: space-between;
   left: 0;
-  margin: 0 auto;
-  max-width: 19rem;
-  padding: var(--spacing-base) 0;
   position: absolute;
   right: 0;
   top: 0;
@@ -17,6 +16,71 @@
   display: none;
 }
 
-.home--transition-out {
+.home--transition-out-horizontal {
   animation-name: slide-left;
 }
+
+.home--transition-out-vertical {
+  animation-name: slide-up;
+}
+
+.home__custom-timer-button {
+  animation-delay: var(--timing-slow);
+  animation-direction: reverse;
+  animation-duration: var(--timing-base);
+  animation-fill-mode: forwards;
+  animation-name: slide-down;
+  animation-timing-function: ease-in-out;
+  margin: 0 auto;
+  transform: translateY(100vh);
+}
+
+.home__timers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  max-width: 21rem;
+  padding: var(--spacing-base) var(--spacing-small) 0;
+}
+
+.home__timer-button {
+  --size: 5rem;
+
+  animation-direction: reverse;
+  animation-duration: var(--timing-base);
+  animation-fill-mode: forwards;
+  animation-name: slide-up;
+  animation-timing-function: ease-in-out;
+  background: none;
+  border-radius: 50%;
+  border: var(--border-width) solid var(--white);
+  box-shadow: 0 0 var(--spacing-small) var(--white);
+  color: var(--white);
+  cursor: pointer;
+  display: block;
+  flex: 0 1 var(--size);
+  font-size: 1rem;
+  font-weight: bold;
+  height: var(--size);
+  margin: 0 calc(var(--spacing-small) / 2) var(--spacing-base);
+  outline: 0;
+  transform: translateY(-100vh);
+  transition: background-color var(--timing-base),
+    box-shadow var(--timing-base),
+    color var(--timing-base);
+  -webkit-tap-highlight-color: transparent;
+}
+@media (min-width: 768px) {
+  .home__timer-button:focus,
+  .home__timer-button:hover {
+    box-shadow: none;
+    background: var(--white);
+    color: var(--blue-dark);
+  }
+}
+.home__timer-button:nth-child(1) { animation-delay: calc(var(--timing-base) / 6) }
+.home__timer-button:nth-child(2) { animation-delay: calc(var(--timing-base) / 6 * 2) }
+.home__timer-button:nth-child(3) { animation-delay: calc(var(--timing-base) / 6 * 3) }
+.home__timer-button:nth-child(4) { animation-delay: calc(var(--timing-base) / 6 * 4) }
+.home__timer-button:nth-child(5) { animation-delay: calc(var(--timing-base) / 6 * 5) }
+.home__timer-button:nth-child(6) { animation-delay: calc(var(--timing-base) / 6 * 6) }

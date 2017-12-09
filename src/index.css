@@ -13,16 +13,6 @@ body {
   user-select: none;
 }
 
-.controls {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-  padding: var(--spacing-base);
-}
-.controls > :not(:last-child) {
-  margin-right: var(--spacing-base);
-}
-
 .main {
   display: flex;
   flex-direction: column;

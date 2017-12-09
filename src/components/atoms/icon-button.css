@@ -1,0 +1,16 @@
+.icon-button {
+  -webkit-tap-highlight-color: transparent;
+  background: none;
+  border-radius: 50%;
+  border: var(--border-width) solid var(--white);
+  box-shadow: 0 0 var(--spacing-small) var(--white);
+  cursor: pointer;
+  height: 4rem;
+  outline: 0;
+  padding: 0;
+  stroke: var(--white);
+  transition-duration: var(--timing-fast);
+  transition-property: stroke, transform;
+  transition-timing-function: ease-in-out;
+  width: 4rem;
+}

@@ -5,19 +5,7 @@
   animation-fill-mode: forwards;
   animation-name: slide-down;
   animation-timing-function: ease-in-out;
-  background: none;
-  border-radius: 50%;
-  border: var(--border-width) solid var(--white);
-  box-shadow: 0 0 var(--spacing-small) var(--white);
-  cursor: pointer;
-  height: 4rem;
-  outline: 0;
-  padding: 0;
-  stroke: var(--white);
   transform: translateY(100vh);
-  transition: stroke var(--timing-base);
-  -webkit-tap-highlight-color: transparent;
-  width: 4rem;
 }
 
 .play-pause-button__pause .play-pause-button__play {
