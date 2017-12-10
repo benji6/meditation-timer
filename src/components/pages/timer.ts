@@ -1,10 +1,10 @@
-import dimButton from '../atoms/dimButton'
-import gradient from '../atoms/gradient'
-import playPauseButton from '../atoms/playPauseButton'
-import stopButton from '../atoms/stopButton'
-import {resetProgress} from '../molecules/progress'
-import '../atoms/dimmer-overlay.css'
-import '../molecules/progress.css'
+import dimButton from '../generic/dimButton'
+import gradient from '../generic/gradient'
+import playPauseButton from '../generic/playPauseButton'
+import stopButton from '../generic/stopButton'
+import {resetProgress} from '../generic/progress'
+import '../generic/dimmer-overlay.css'
+import '../generic/progress.css'
 import './timer.css'
 
 const dimmerOverlayEl = document.querySelector('.dimmer-overlay') as HTMLDivElement

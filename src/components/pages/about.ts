@@ -1,4 +1,4 @@
-import gradient from '../atoms/gradient'
+import gradient from '../generic/gradient'
 import './about.css'
 
 const aboutEl = document.querySelector('.about') as HTMLDivElement

@@ -1,4 +1,4 @@
-import gradient from '../atoms/gradient'
+import gradient from '../generic/gradient'
 import './settings.css'
 
 const settingsEl = document.querySelector('.settings') as HTMLDivElement

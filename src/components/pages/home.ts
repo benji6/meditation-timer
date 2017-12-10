@@ -1,4 +1,4 @@
-import gradient from '../atoms/gradient'
+import gradient from '../generic/gradient'
 import './home.css'
 
 const homeEl = document.querySelector('.home') as HTMLDivElement

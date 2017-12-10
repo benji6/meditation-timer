@@ -1,4 +1,4 @@
-import gradient from '../atoms/gradient'
+import gradient from '../generic/gradient'
 import state from '../../state'
 import './custom-timer.css'
 
