@@ -4,7 +4,13 @@
   animation-timing-function: ease-in-out;
 }
 
-.about--transition-in {
+.about__body {
+  animation-duration: var(--timing-base);
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+
+.about--transition-in .about__body {
   animation-direction: reverse;
   animation-name: slide-right;
 }
@@ -22,4 +28,12 @@
 .about__paragraph {
   margin: var(--spacing-base);
   font-size: var(--font-size-base);
+}
+
+.about__share-button {
+  margin: 0 auto;
+}
+
+.about__share-button--hidden {
+  display: none;
 }

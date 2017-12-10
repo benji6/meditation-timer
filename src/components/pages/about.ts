@@ -1,7 +1,18 @@
 import gradient from '../generic/gradient'
+import share, { shareAvailable } from '../../share'
 import './about.css'
 
 const aboutEl = document.querySelector('.about') as HTMLDivElement
+const shareButtonEl = document.querySelector('.about__share-button') as HTMLButtonElement
+
+if (shareAvailable) {
+  shareButtonEl.classList.remove('about__share-button--hidden')
+}
+
+shareButtonEl.onclick = () => share({
+  title: document.title,
+  url: location.origin,
+})
 
 aboutEl.addEventListener('animationend', () => {
   if (aboutEl.classList.contains('about--transition-in')) {

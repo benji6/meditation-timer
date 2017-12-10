@@ -1,4 +1,5 @@
 import './header.css'
+import {shareAvailable} from '../../share'
 import {getCssVar} from '../../utils'
 
 const buttonEls = document.querySelectorAll('.header__button') as NodeListOf<HTMLButtonElement>
@@ -20,8 +21,8 @@ let isTransitioning = true
 
 const getCssTime = (s: string): number => parseFloat(getCssVar(s)) * 1000
 
-const aboutTransitionTime = (): number => getCssTime('--timing-base')
-const settingsTransitionTime = aboutTransitionTime
+const aboutTransitionTime = (): number => getCssTime('--timing-base') * (shareAvailable ? 2 : 1)
+const settingsTransitionTime = (): number => getCssTime('--timing-base')
 const homeTransitionTime = (): number => getCssTime('--timing-base') * 2
 
 class Header {
