@@ -5,6 +5,15 @@
   padding: var(--spacing-base);
 }
 
+.controls > * {
+  animation-direction: reverse;
+  animation-duration: var(--timing-base);
+  animation-fill-mode: forwards;
+  animation-name: slide-down;
+  animation-timing-function: ease-in-out;
+  transform: translateY(100vh);
+}
+
 .controls > :not(:last-child) {
   margin-right: var(--spacing-base);
 }

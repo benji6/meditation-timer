@@ -13,13 +13,7 @@
 
 .home__custom-timer-button {
   animation-delay: var(--timing-base);
-  animation-direction: reverse;
-  animation-duration: var(--timing-base);
-  animation-fill-mode: forwards;
-  animation-name: slide-down;
-  animation-timing-function: ease-in-out;
   margin: 0 auto;
-  transform: translateY(100vh);
 }
 
 .home__timers {

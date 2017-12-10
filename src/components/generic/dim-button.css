@@ -1,9 +1,3 @@
 .dim-button {
   animation-delay: calc(var(--timing-faster) * 2);
-  animation-direction: reverse;
-  animation-duration: var(--timing-base);
-  animation-fill-mode: forwards;
-  animation-name: slide-down;
-  animation-timing-function: ease-in-out;
-  transform: translateY(100vh);
 }

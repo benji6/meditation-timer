@@ -1,11 +1,5 @@
 .play-pause-button {
   animation-delay: var(--timing-faster);
-  animation-direction: reverse;
-  animation-duration: var(--timing-base);
-  animation-fill-mode: forwards;
-  animation-name: slide-down;
-  animation-timing-function: ease-in-out;
-  transform: translateY(100vh);
 }
 
 .play-pause-button__pause .play-pause-button__play {
