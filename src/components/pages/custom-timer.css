@@ -30,7 +30,8 @@
   animation-name: slide-left;
 }
 
-.custom-timer--transition-out-slide .custom-timer__delete-button:disabled {
+.custom-timer--transition-out-slide .custom-timer__delete-button:disabled,
+.custom-timer--transition-out-slide .custom-timer__start-button:disabled {
   display: none;
 }
 
@@ -38,7 +39,8 @@
   animation-name: zoom-out;
 }
 
-.custom-timer--transition-out-zoom .custom-timer__delete-button:disabled {
+.custom-timer--transition-out-zoom .custom-timer__delete-button:disabled,
+.custom-timer--transition-out-zoom .custom-timer__start-button:disabled {
   display: none;
 }
 
