@@ -8,10 +8,10 @@ const timerButtonEls = document.querySelectorAll('.home__timer-button') as NodeL
 homeEl.addEventListener('animationend', () => {
   const {classList} = homeEl
   if (classList.contains('home--transition-out-horizontal')) {
-    classList.add('home--hidden')
+    classList.add('page--hidden')
     classList.remove('home--transition-out-horizontal')
   } else if (classList.contains('home--transition-out-vertical')) {
-    classList.add('home--hidden')
+    classList.add('page--hidden')
     classList.remove('home--transition-out-vertical')
   }
 })
@@ -37,7 +37,7 @@ class Home {
   }
 
   transitionIn () {
-    homeEl.classList.remove('home--hidden')
+    homeEl.classList.remove('page--hidden')
     homeEl.classList.remove('home--transition-out-horizontal')
     gradient.setGradient(0)
   }

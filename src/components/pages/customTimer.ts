@@ -47,7 +47,7 @@ customTimerEl.addEventListener('animationend', () => {
   ) {
     timeDisplayEl.value = numberToText(state.customTimerTime = 0)
     deleteButtonEl.disabled = startButtonEl.disabled = true
-    customTimerEl.classList.add('custom-timer--hidden')
+    customTimerEl.classList.add('page--hidden')
     customTimerEl.classList.remove('custom-timer--transition-out-slide')
     customTimerEl.classList.remove('custom-timer--transition-out-zoom')
   }
@@ -65,7 +65,7 @@ class CustomTimer {
 
   transitionIn () {
     gradient.setGradient(4)
-    customTimerEl.classList.remove('custom-timer--hidden')
+    customTimerEl.classList.remove('page--hidden')
     customTimerEl.classList.remove('custom-timer--transition-out-slide')
     customTimerEl.classList.remove('custom-timer--transition-out-zoom')
     customTimerEl.classList.add('custom-timer--transition-in')

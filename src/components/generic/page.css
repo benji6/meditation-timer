@@ -1,0 +1,14 @@
+.page {
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.page--hidden {
+  display: none;
+}

@@ -18,6 +18,7 @@ import './index.css'
 import './components/atoms/controls.css'
 import './components/atoms/icon-button.css'
 import './components/molecules/header.css'
+import './components/generic/page.css'
 
 const navigateBack = history.back.bind(history)
 

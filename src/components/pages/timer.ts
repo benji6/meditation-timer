@@ -12,7 +12,7 @@ const timerEl = document.querySelector('.timer') as HTMLDivElement
 
 timerEl.addEventListener('animationend', () => {
   if (timerEl.classList.contains('timer--transition-out')) {
-    timerEl.classList.add('timer--hidden')
+    timerEl.classList.add('page--hidden')
     timerEl.classList.remove('timer--transition-out')
     resetProgress()
     playPauseButton.stop()
@@ -37,7 +37,7 @@ class Timer {
   onStop () {}
 
   transitionIn () {
-    timerEl.classList.remove('timer--hidden')
+    timerEl.classList.remove('page--hidden')
     timerEl.classList.add('timer--transition-in')
     gradient.setGradient(1)
   }

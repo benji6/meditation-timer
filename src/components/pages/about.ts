@@ -7,14 +7,14 @@ aboutEl.addEventListener('animationend', () => {
   if (aboutEl.classList.contains('about--transition-in')) {
     aboutEl.classList.remove('about--transition-in')
   } else if (aboutEl.classList.contains('about--transition-out')) {
-    aboutEl.classList.add('about--hidden')
+    aboutEl.classList.add('page--hidden')
     aboutEl.classList.remove('about--transition-out')
   }
 })
 
 class About {
   transitionIn () {
-    aboutEl.classList.remove('about--hidden')
+    aboutEl.classList.remove('page--hidden')
     aboutEl.classList.remove('about--transition-out')
     aboutEl.classList.add('about--transition-in')
     gradient.setGradient(2)

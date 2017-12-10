@@ -4,10 +4,6 @@
   animation-timing-function: ease-in-out;
 }
 
-.about--hidden {
-  display: none;
-}
-
 .about--transition-in {
   animation-direction: reverse;
   animation-name: slide-right;
