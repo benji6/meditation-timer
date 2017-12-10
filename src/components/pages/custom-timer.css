@@ -42,12 +42,22 @@
   animation-name: slide-left;
 }
 
+.custom-timer--transition-out-slide .custom-timer__delete-button:disabled {
+  display: none;
+}
+
 .custom-timer--transition-out-zoom {
   animation-name: zoom-out;
 }
 
+.custom-timer--transition-out-zoom .custom-timer__delete-button:disabled {
+  display: none;
+}
+
 .custom-timer__number-button {
   -webkit-tap-highlight-color: transparent;
+  background: none;
+  border: none;
   flex-basis: 33.3%;
   font-size: var(--font-size-large);
   outline: 0;
