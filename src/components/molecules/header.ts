@@ -22,7 +22,7 @@ const getCssTime = (s: string): number => parseFloat(getCssVar(s)) * 1000
 
 const aboutTransitionTime = (): number => getCssTime('--timing-base')
 const settingsTransitionTime = aboutTransitionTime
-const homeTransitionTime = (): number => getCssTime('--timing-base') + getCssTime('--timing-slow')
+const homeTransitionTime = (): number => getCssTime('--timing-base') * 2
 
 class Header {
   constructor () {

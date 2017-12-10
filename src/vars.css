@@ -26,6 +26,5 @@
   --timing-faster: .05s;
   --timing-fast: .15s;
   --timing-base: .3s;
-  --timing-slow: .4s;
-  --timing-slower: 1s;
+  --timing-slow: 1s;
 }

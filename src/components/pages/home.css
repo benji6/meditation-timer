@@ -12,7 +12,7 @@
 }
 
 .home__custom-timer-button {
-  animation-delay: var(--timing-slow);
+  animation-delay: var(--timing-base);
   animation-direction: reverse;
   animation-duration: var(--timing-base);
   animation-fill-mode: forwards;

@@ -1,5 +1,5 @@
 .gradient__layer {
-  animation-duration: var(--timing-slower);
+  animation-duration: var(--timing-slow);
   animation-name: fade-in;
   animation-timing-function: ease-in-out;
   bottom: 0;
