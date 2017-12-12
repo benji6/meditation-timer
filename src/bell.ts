@@ -1,3 +1,5 @@
+import state from './state'
+
 const audioContext = typeof AudioContext !== 'undefined' && new AudioContext
 
 const bufferPromise = audioContext && fetch('assets/meditation-bell.mp3')
@@ -9,15 +11,15 @@ let bufferSource: AudioBufferSourceNode | null = null
 
 class Bell {
   start () {
-    audioContext && bufferPromise && bufferPromise
-    .then((buffer: AudioBuffer) => {
-      this.stop()
-      bufferSource = audioContext.createBufferSource()
-      bufferSource.connect(audioContext.destination)
-      bufferSource.buffer = buffer
-      bufferSource.onended = this.stop
-      bufferSource.start()
-    })
+    !state.isSilent && audioContext && bufferPromise && bufferPromise
+      .then((buffer: AudioBuffer) => {
+        this.stop()
+        bufferSource = audioContext.createBufferSource()
+        bufferSource.connect(audioContext.destination)
+        bufferSource.buffer = buffer
+        bufferSource.onended = this.stop
+        bufferSource.start()
+      })
   }
 
   stop () {
