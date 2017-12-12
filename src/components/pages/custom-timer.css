@@ -87,10 +87,6 @@
   transform: translateX(6rem);
 }
 
-.custom-timer__start-button {
-  margin: 0 auto;
-}
-
 .custom-timer__start-button:disabled {
   transform: translateY(6rem);
 }

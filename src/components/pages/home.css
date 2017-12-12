@@ -13,7 +13,6 @@
 
 .home__custom-timer-button {
   animation-delay: var(--timing-base);
-  margin: 0 auto;
 }
 
 .home__timers {

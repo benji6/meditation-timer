@@ -30,10 +30,6 @@
   font-size: var(--font-size-base);
 }
 
-.about__share-button {
-  margin: 0 auto;
-}
-
 .about__share-button--hidden {
   display: none;
 }
