@@ -4,6 +4,32 @@
   animation-timing-function: ease-in-out;
 }
 
+.custom-timer__number-button {
+  -webkit-tap-highlight-color: transparent;
+  background: none;
+  border: none;
+  flex-basis: 33.3%;
+  font-size: var(--font-size-large);
+  outline: 0;
+  padding: var(--spacing-small);
+}
+
+.custom-timer__delete-button {
+  -webkit-tap-highlight-color: transparent;
+  background: none;
+  border: none;
+  bottom: 0;
+  cursor: pointer;
+  margin-right: var(--spacing-base);
+  outline: 0;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  stroke: var(--white);
+  top: 0;
+  transition: transform var(--timing-fast) ease-in-out;
+}
+
 .custom-timer--transition-in .custom-timer__number-button {
   -webkit-tap-highlight-color: transparent;
   animation-duration: var(--timing-base);
@@ -30,6 +56,14 @@
   animation-name: slide-left;
 }
 
+.custom-timer__delete-button:disabled {
+  transform: translateX(6rem);
+}
+
+.custom-timer__start-button:disabled {
+  transform: translateY(6rem);
+}
+
 .custom-timer--transition-out-slide .custom-timer__delete-button:disabled,
 .custom-timer--transition-out-slide .custom-timer__start-button:disabled {
   display: none;
@@ -44,16 +78,6 @@
   display: none;
 }
 
-.custom-timer__number-button {
-  -webkit-tap-highlight-color: transparent;
-  background: none;
-  border: none;
-  flex-basis: 33.3%;
-  font-size: var(--font-size-large);
-  outline: 0;
-  padding: var(--spacing-small);
-}
-
 .custom-timer__number-button-container {
   display: flex;
   flex-wrap: wrap;
@@ -65,30 +89,6 @@
   display: flex;
   justify-content: center;
   position: relative;
-}
-
-.custom-timer__delete-button {
-  -webkit-tap-highlight-color: transparent;
-  background: none;
-  border: none;
-  bottom: 0;
-  cursor: pointer;
-  margin-right: var(--spacing-base);
-  outline: 0;
-  padding: 0;
-  position: absolute;
-  right: 0;
-  stroke: var(--white);
-  top: 0;
-  transition: transform var(--timing-fast) ease-in-out;
-}
-
-.custom-timer__delete-button:disabled {
-  transform: translateX(6rem);
-}
-
-.custom-timer__start-button:disabled {
-  transform: translateY(6rem);
 }
 
 .custom-timer__time-display {

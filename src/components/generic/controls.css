@@ -5,10 +5,10 @@
   padding: var(--spacing-base);
 }
 
-.controls > :first-child:nth-last-child(1) {
-  margin: 0 auto;
-}
-
 .controls > :not(:last-child) {
   margin-right: var(--spacing-base);
+}
+
+.controls > :first-child:nth-last-child(1) {
+  margin: 0 auto;
 }
