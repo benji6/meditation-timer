@@ -7,9 +7,12 @@ const timerButtonEls = document.querySelectorAll('.home__timer-button') as NodeL
 
 homeEl.addEventListener('animationend', () => {
   const {classList} = homeEl
-  if (classList.contains('home--transition-out-horizontal')) {
+  if (classList.contains('home--transition-out-left')) {
     classList.add('page--hidden')
-    classList.remove('home--transition-out-horizontal')
+    classList.remove('home--transition-out-left')
+  } else if (classList.contains('home--transition-out-right')) {
+    classList.add('page--hidden')
+    classList.remove('home--transition-out-right')
   } else if (classList.contains('home--transition-out-vertical')) {
     classList.add('page--hidden')
     classList.remove('home--transition-out-vertical')
@@ -17,7 +20,8 @@ homeEl.addEventListener('animationend', () => {
 })
 
 export enum HomeTransitionTypes {
-  horizontal,
+  left,
+  right,
   vertical,
 }
 
@@ -38,15 +42,20 @@ class Home {
 
   transitionIn () {
     homeEl.classList.remove('page--hidden')
-    homeEl.classList.remove('home--transition-out-horizontal')
+    homeEl.classList.remove('home--transition-out-left')
     gradient.setGradient(0)
   }
 
   transitionOut (type: HomeTransitionTypes) {
-    if (type === HomeTransitionTypes.horizontal) {
-      homeEl.classList.add('home--transition-out-horizontal')
-    } else {
-      homeEl.classList.add('home--transition-out-vertical')
+    switch (type) {
+      case HomeTransitionTypes.right:
+        homeEl.classList.add('home--transition-out-right')
+        return
+      case HomeTransitionTypes.vertical:
+        homeEl.classList.add('home--transition-out-vertical')
+        return
+      default:
+        homeEl.classList.add('home--transition-out-left')
     }
   }
 

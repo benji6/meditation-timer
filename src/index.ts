@@ -99,10 +99,15 @@ window.onhashchange = ({newURL, oldURL}) => {
 
   switch (oldHash) {
     case '':
-      if (newHash === 'custom-timer') {
-        home.transitionOut(HomeTransitionTypes.vertical)
-      } else {
-        home.transitionOut(HomeTransitionTypes.horizontal)
+      switch (newHash) {
+        case 'custom-timer':
+          home.transitionOut(HomeTransitionTypes.vertical)
+          break
+        case 'settings':
+          home.transitionOut(HomeTransitionTypes.right)
+          break
+        default:
+          home.transitionOut(HomeTransitionTypes.left)
       }
       break
     case 'about':

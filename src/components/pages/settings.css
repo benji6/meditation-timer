@@ -6,11 +6,11 @@
 
 .settings--transition-in {
   animation-direction: reverse;
-  animation-name: slide-right;
+  animation-name: slide-left;
 }
 
 .settings--transition-out {
-  animation-name: slide-right;
+  animation-name: slide-left;
 }
 
 .settings_input-container {

@@ -3,8 +3,12 @@
   animation-timing-function: ease-in-out;
 }
 
-.home--transition-out-horizontal {
+.home--transition-out-left {
   animation-name: slide-left;
+}
+
+.home--transition-out-right {
+  animation-name: slide-right;
 }
 
 .home--transition-out-vertical {
