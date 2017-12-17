@@ -1,7 +1,32 @@
 import gradient from '../generic/gradient'
+import state from '../../state'
 import './settings.css'
 
 const settingsEl = document.querySelector('.settings') as HTMLDivElement
+const toggleSilentButton = document.querySelector('.toggle-silent-button') as HTMLButtonElement
+const noisyEl = document.querySelector('.toggle-silent-button__noisy') as SVGElement
+const silentEl = document.querySelector('.toggle-silent-button__silent') as SVGElement
+const silentMsgEl = document.querySelector('.settings__silent-msg') as HTMLParagraphElement
+
+const silentOffMsg = 'Silent mode is off'
+const silentOnMsg = 'Silent mode is on'
+
+silentEl.remove()
+silentMsgEl.textContent = silentOffMsg
+
+toggleSilentButton.onclick = () => {
+  const {isSilent} = state
+  if (isSilent) {
+    silentEl.remove()
+    toggleSilentButton.appendChild(noisyEl)
+    silentMsgEl.textContent = silentOffMsg
+  } else {
+    noisyEl.remove()
+    toggleSilentButton.appendChild(silentEl)
+    silentMsgEl.textContent = silentOnMsg
+  }
+  state.isSilent = !isSilent
+}
 
 settingsEl.addEventListener('animationend', () => {
   if (settingsEl.classList.contains('settings--transition-in')) {

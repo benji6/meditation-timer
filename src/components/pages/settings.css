@@ -12,3 +12,14 @@
 .settings--transition-out {
   animation-name: slide-right;
 }
+
+.settings_input-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: calc(100% / 3);
+  transform: translateY(-50%);
+}
