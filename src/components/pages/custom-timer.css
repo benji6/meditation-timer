@@ -52,8 +52,12 @@
 .custom-timer__number-button:nth-child(9) { animation-delay: calc(var(--timing-base) / 10 * 9) }
 .custom-timer__number-button:nth-child(10) { animation-delay: calc(var(--timing-base) / 10 * 10) }
 
-.custom-timer--transition-out-slide {
+.custom-timer--transition-out-left {
   animation-name: slide-left;
+}
+
+.custom-timer--transition-out-right {
+  animation-name: slide-right;
 }
 
 .custom-timer__delete-button:disabled {
@@ -64,8 +68,10 @@
   transform: translateY(6rem);
 }
 
-.custom-timer--transition-out-slide .custom-timer__delete-button:disabled,
-.custom-timer--transition-out-slide .custom-timer__start-button:disabled {
+.custom-timer--transition-out-left .custom-timer__delete-button:disabled,
+.custom-timer--transition-out-left .custom-timer__start-button:disabled,
+.custom-timer--transition-out-right .custom-timer__delete-button:disabled,
+.custom-timer--transition-out-right .custom-timer__start-button:disabled {
   display: none;
 }
 

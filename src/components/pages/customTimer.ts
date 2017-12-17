@@ -42,20 +42,23 @@ customTimerEl.addEventListener('animationend', () => {
   if (customTimerEl.classList.contains('custom-timer--transition-in')) {
     customTimerEl.classList.remove('custom-timer--transition-in')
   } else if (
-    customTimerEl.classList.contains('custom-timer--transition-out-slide') ||
+    customTimerEl.classList.contains('custom-timer--transition-out-left') ||
+    customTimerEl.classList.contains('custom-timer--transition-out-right') ||
     customTimerEl.classList.contains('custom-timer--transition-out-zoom')
   ) {
     timeDisplayEl.value = numberToText(state.customTimerTime = 0)
     deleteButtonEl.disabled = startButtonEl.disabled = true
     customTimerEl.classList.add('page--hidden')
-    customTimerEl.classList.remove('custom-timer--transition-out-slide')
+    customTimerEl.classList.remove('custom-timer--transition-out-left')
+    customTimerEl.classList.remove('custom-timer--transition-out-right')
     customTimerEl.classList.remove('custom-timer--transition-out-zoom')
   }
 })
 
 export enum CustomTimerTransitionTypes {
   zoom,
-  slide,
+  left,
+  right,
 }
 
 class CustomTimer {
@@ -66,17 +69,23 @@ class CustomTimer {
   transitionIn () {
     gradient.setGradient(4)
     customTimerEl.classList.remove('page--hidden')
-    customTimerEl.classList.remove('custom-timer--transition-out-slide')
+    customTimerEl.classList.remove('custom-timer--transition-out-left')
+    customTimerEl.classList.remove('custom-timer--transition-out-right')
     customTimerEl.classList.remove('custom-timer--transition-out-zoom')
     customTimerEl.classList.add('custom-timer--transition-in')
   }
 
   transitionOut (type: CustomTimerTransitionTypes) {
     customTimerEl.classList.remove('custom-timer--transition-in')
-    if (type === CustomTimerTransitionTypes.slide) {
-      customTimerEl.classList.add('custom-timer--transition-out-slide')
-    } else {
-      customTimerEl.classList.add('custom-timer--transition-out-zoom')
+    switch (type) {
+      case CustomTimerTransitionTypes.left:
+        customTimerEl.classList.add('custom-timer--transition-out-left')
+        return
+      case CustomTimerTransitionTypes.right:
+        customTimerEl.classList.add('custom-timer--transition-out-right')
+        return
+      default:
+        customTimerEl.classList.add('custom-timer--transition-out-zoom')
     }
   }
 

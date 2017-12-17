@@ -115,11 +115,16 @@ window.onhashchange = ({newURL, oldURL}) => {
       about.transitionOut()
       break
     case 'custom-timer':
-      if (newHash === '') {
-        customTimer.transitionOut(CustomTimerTransitionTypes.zoom)
-        break
+      switch (newHash) {
+        case '':
+          customTimer.transitionOut(CustomTimerTransitionTypes.zoom)
+          break
+        case 'settings':
+          customTimer.transitionOut(CustomTimerTransitionTypes.right)
+          break
+        default:
+          customTimer.transitionOut(CustomTimerTransitionTypes.left)
       }
-      customTimer.transitionOut(CustomTimerTransitionTypes.slide)
       break
     case 'settings':
       header.switchHomeToSettings()
