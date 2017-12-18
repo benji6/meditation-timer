@@ -3,20 +3,22 @@ export enum ProgressDisplay {
   radial,
 }
 
-interface State {
-  displayTime: number
-  customTimerTime: number
-  isSilent: boolean
-  timerActive: boolean
-  totalTime: number
-  progressDisplay: ProgressDisplay
+class State {
+  displayTime: number = 0
+  customTimerTime: number = 0
+  timerActive: boolean = false
+  totalTime: number = 0
+  progressDisplay: ProgressDisplay = ProgressDisplay.radial
+  private _isSilent: boolean = localStorage.isSilent === 'true'
+
+  get isSilent () {
+    return this._isSilent
+  }
+
+  set isSilent (val: boolean) {
+    localStorage.isSilent = val
+    this._isSilent = val
+  }
 }
 
-export default {
-  displayTime: 0,
-  customTimerTime: 0,
-  isSilent: false,
-  timerActive: false,
-  totalTime: 0,
-  progressDisplay: ProgressDisplay.radial,
-} as State
+export default new State

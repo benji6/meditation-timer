@@ -21,6 +21,7 @@
 .icon-button svg {
   fill: none;
   height: 1.5rem;
+  pointer-events: none; /* Fixes bug with silent button */
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-width: 2px;

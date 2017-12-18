@@ -11,8 +11,13 @@ const silentMsgEl = document.querySelector('.settings__silent-msg') as HTMLParag
 const silentOffMsg = 'Silent mode is off'
 const silentOnMsg = 'Silent mode is on'
 
-silentEl.remove()
-silentMsgEl.textContent = silentOffMsg
+if (state.isSilent) {
+  noisyEl.remove()
+  silentMsgEl.textContent = silentOnMsg
+} else {
+  silentEl.remove()
+  silentMsgEl.textContent = silentOffMsg
+}
 
 toggleSilentButton.onclick = () => {
   const {isSilent} = state
