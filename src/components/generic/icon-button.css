@@ -18,6 +18,15 @@
   width: 4rem;
 }
 
+.icon-button svg {
+  fill: none;
+  height: 1.5rem;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2px;
+  width: 1.5rem;
+}
+
 .icon-button--slide-in {
   animation-direction: reverse;
   animation-duration: var(--timing-base);
