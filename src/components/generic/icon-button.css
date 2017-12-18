@@ -1,11 +1,14 @@
 .icon-button {
   -webkit-tap-highlight-color: transparent;
+  align-items: center;
   background: none;
   border-radius: 50%;
   border: var(--border-width) solid var(--white);
   box-shadow: 0 0 var(--spacing-small) var(--white);
   cursor: pointer;
+  display: flex;
   height: 4rem;
+  justify-content: center;
   outline: 0;
   padding: 0;
   stroke: var(--white);
