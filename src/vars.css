@@ -20,7 +20,7 @@
   --font-size-base: calc(.6rem + .5vh + .5vw);
   --font-size-large: calc(var(--font-size-base) * 1.33 - .25vh - .25vw);
   --font-size-larger: calc(var(--font-size-base) * 2 - .25rem + .2vh + .2vh);
-  --font-size-x-large: calc(var(--font-size-base) * 5);
+  --font-size-x-large: calc(var(--font-size-base) * 6);
 
   --spacing-base: calc(.5rem + 1vh + 1vw);
   --spacing-small: calc(var(--spacing-base) / 16 * 9 - .25rem + .1vh + .1vw);
