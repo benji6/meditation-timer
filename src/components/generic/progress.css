@@ -3,13 +3,13 @@
   display: flex;
   flex-grow: 1;
   justify-content: center;
+  position: relative;
   width: 100%;
 }
 
 .progress__meter {
-  flex-grow: 1;
-  /* HACK */
-  max-height: calc(100vh - 8rem);
+  height: 100%;
+  position: absolute;
   transform: rotate(270deg);
 }
 
