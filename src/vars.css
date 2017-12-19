@@ -18,25 +18,25 @@
   --border-width-thick: 3px;
 
   --font-size-base: 1.1rem;
-  --font-size-large: 2rem;
+  --font-size-large: calc(1rem + 3vh);
   --font-size-x-large: 6rem;
 
-  --spacing-small: 0.75rem;
-  --spacing-base: 1.33rem;
+  --spacing-base: calc(.5rem + 1vmin);
+  --spacing-small: calc(var(--spacing-base) / 16 * 9);
 
   --timing-faster: .05s;
   --timing-fast: .15s;
   --timing-base: .3s;
   --timing-slow: 1s;
 
-  --cmp-custom-timer__number-button-font-size: 2rem;
+  --cmp-custom-timer__number-button-font-size: var(--font-size-large);
   --cmp-icon-button-radius: 4rem;
 
   --cmp-home__timers-max-width: calc(var(--cmp-icon-button-radius) * 5 + 1rem);
   --cmp-home__timer-button-radius: calc(var(--cmp-icon-button-radius) * 1.25);
 }
 
-@media (max-height: 24rem) {
+@media (max-height: 22rem) {
   :root {
     --font-size-base: 0.85rem;
     --font-size-large: 1.67rem;
