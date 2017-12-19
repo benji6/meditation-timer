@@ -10,7 +10,18 @@ const timeDisplayEl = document.querySelector('.custom-timer__time-display') as H
 
 const numberToText = (n: number): string => `${n < 600 ? '0' : ''}${n / 60}m`
 
-deleteButtonEl.onclick = () => {
+const handleNumberInput = (n: number): void => {
+  if (n !== 0) deleteButtonEl.disabled = startButtonEl.disabled = false
+  const {customTimerTime} = state
+
+  if (customTimerTime >= 600) return
+
+  state.customTimerTime = customTimerTime * 10 + n * 60
+
+  timeDisplayEl.value = numberToText(state.customTimerTime)
+}
+
+const handleBackspace = () => {
   const {customTimerTime} = state
 
   if (customTimerTime < 600) {
@@ -23,19 +34,12 @@ deleteButtonEl.onclick = () => {
   timeDisplayEl.value = numberToText(state.customTimerTime)
 }
 
+deleteButtonEl.onclick = handleBackspace
+
 for (let i = 0; i < numberButtonEls.length; i++) {
   const numberButtonEl = numberButtonEls[i]
   const n = Number(numberButtonEl.getAttribute('data-val'))
-  numberButtonEl.onclick = () => {
-    if (n !== 0) deleteButtonEl.disabled = startButtonEl.disabled = false
-    const {customTimerTime} = state
-
-    if (customTimerTime >= 600) return
-
-    state.customTimerTime = customTimerTime * 10 + n * 60
-
-    timeDisplayEl.value = numberToText(state.customTimerTime)
-  }
+  numberButtonEl.onclick = () => handleNumberInput(n)
 }
 
 customTimerEl.addEventListener('animationend', () => {
@@ -61,6 +65,8 @@ export enum CustomTimerTransitionTypes {
   right,
 }
 
+let isListeningToKeys = false
+
 class CustomTimer {
   constructor () {
     startButtonEl.onclick = () => this.onStart()
@@ -73,9 +79,11 @@ class CustomTimer {
     customTimerEl.classList.remove('custom-timer--transition-out-right')
     customTimerEl.classList.remove('custom-timer--transition-out-zoom')
     customTimerEl.classList.add('custom-timer--transition-in')
+    isListeningToKeys = true
   }
 
   transitionOut (type: CustomTimerTransitionTypes) {
+    isListeningToKeys = false
     customTimerEl.classList.remove('custom-timer--transition-in')
     switch (type) {
       case CustomTimerTransitionTypes.left:
@@ -92,4 +100,18 @@ class CustomTimer {
   public onStart () {}
 }
 
-export default new CustomTimer
+const customTimer = new CustomTimer
+
+document.onkeydown = e => {
+  if (!isListeningToKeys) return
+  const {keyCode} = e
+  if (keyCode >= 48 && keyCode <= 57) {
+    handleNumberInput(keyCode - 48)
+  } else if (keyCode === 8 || keyCode === 46) {
+    handleBackspace()
+  } else if (keyCode === 13 || keyCode === 32) {
+    customTimer.onStart()
+  }
+}
+
+export default customTimer
