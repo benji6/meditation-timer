@@ -24,13 +24,11 @@
   flex-wrap: wrap;
   justify-content: space-around;
   margin: 0 auto;
-  max-width: 21rem;
+  max-width: var(--cmp-home__timers-max-width);
   padding: var(--spacing-base) var(--spacing-small) 0;
 }
 
 .home__timer-button {
-  --size: 5rem;
-
   animation-direction: reverse;
   animation-duration: var(--timing-base);
   animation-fill-mode: forwards;
@@ -43,10 +41,10 @@
   color: var(--white);
   cursor: pointer;
   display: block;
-  flex: 0 1 var(--size);
-  font-size: 1rem;
+  flex: 0 1 var(--cmp-home__timer-button-radius);
+  font-size: var(--font-size-base);
   font-weight: bold;
-  height: var(--size);
+  height: var(--cmp-home__timer-button-radius);
   margin: 0 calc(var(--spacing-small) / 2) var(--spacing-base);
   outline: 0;
   transform: translateY(-100vh);

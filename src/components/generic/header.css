@@ -9,6 +9,7 @@
 }
 
 .header__heading {
+  font-size: var(--font-size-large);
   margin: 0;
 }
 

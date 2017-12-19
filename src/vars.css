@@ -15,6 +15,7 @@
   --shadow-dark: rgba(0, 0, 0, 0.75);
 
   --border-width: 0.175rem;
+  --border-width-thick: 3px;
 
   --font-size-base: 1.1rem;
   --font-size-large: 2rem;
@@ -27,4 +28,24 @@
   --timing-fast: .15s;
   --timing-base: .3s;
   --timing-slow: 1s;
+
+  --cmp-custom-timer__number-button-font-size: 2rem;
+  --cmp-icon-button-radius: 4rem;
+
+  --cmp-home__timers-max-width: calc(var(--cmp-icon-button-radius) * 5 + 1rem);
+  --cmp-home__timer-button-radius: calc(var(--cmp-icon-button-radius) * 1.25);
+}
+
+@media (max-height: 24rem) {
+  :root {
+    --font-size-base: 0.85rem;
+    --font-size-large: 1.67rem;
+    --font-size-x-large: 3rem;
+
+    --spacing-small: 0.5rem;
+    --spacing-base: 0.75rem;
+
+    --cmp-custom-timer__number-button-font-size: 1rem;
+    --cmp-icon-button-radius: 3.33rem;
+  }
 }

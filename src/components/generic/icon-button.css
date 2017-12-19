@@ -7,7 +7,7 @@
   box-shadow: 0 0 var(--spacing-small) var(--white);
   cursor: pointer;
   display: flex;
-  height: 4rem;
+  height: var(--cmp-icon-button-radius);
   justify-content: center;
   outline: 0;
   padding: 0;
@@ -15,17 +15,19 @@
   transition-duration: var(--timing-fast);
   transition-property: stroke, transform;
   transition-timing-function: ease-in-out;
-  width: 4rem;
+  width: var(--cmp-icon-button-radius);
 }
 
 .icon-button svg {
+  --radius: calc(var(--cmp-icon-button-radius) / 8 * 3);
+
   fill: none;
-  height: 1.5rem;
+  height: var(--radius);
   pointer-events: none; /* Fixes bug with silent button */
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-width: 2px;
-  width: 1.5rem;
+  stroke-width: var(--border-width-thick);
+  width: var(--radius)  ;
 }
 
 .icon-button--slide-in {

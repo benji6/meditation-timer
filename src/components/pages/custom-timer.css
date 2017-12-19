@@ -9,7 +9,7 @@
   background: none;
   border: none;
   flex-basis: 33.3%;
-  font-size: var(--font-size-large);
+  font-size: var(--cmp-custom-timer__number-button-font-size);
   outline: 0;
   padding: var(--spacing-small);
 }
