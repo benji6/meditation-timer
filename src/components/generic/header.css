@@ -26,6 +26,12 @@
   transition-property: opacity, transform;
   transition-timing-function: ease-in-out;
 }
+@media (min-width: 768px) {
+  .header__button:focus,
+  .header__button:hover {
+    transform: rotate(45deg) scale(1.1);
+  }
+}
 
 .header__button--delay {
   transition-delay: var(--timing-faster);
