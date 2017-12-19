@@ -21,7 +21,7 @@
 
 .about__link {
   text-decoration: none;
-  font-weight: 900;
+  font-weight: 800;
   color: var(--white);
 }
 
@@ -31,5 +31,5 @@
 }
 
 .about__share-button--hidden {
-  display: none;
+  display: none !important;
 }
