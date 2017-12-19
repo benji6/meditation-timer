@@ -10,6 +10,7 @@
 .progress__meter {
   height: 100%;
   position: absolute;
+  top: 0;
   transform: rotate(270deg);
 }
 
