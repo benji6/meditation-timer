@@ -1,5 +1,6 @@
 .controls {
   align-items: center;
+  align-self: stretch;
   display: flex;
   justify-content: space-between;
   padding: var(--spacing-base);
