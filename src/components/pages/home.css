@@ -45,7 +45,7 @@
   font-size: var(--font-size-base);
   font-weight: bold;
   height: var(--cmp-home__timer-button-radius);
-  margin: 0 calc(var(--spacing-small) / 2) var(--spacing-base);
+  margin: 0 var(--spacing-small) var(--spacing-base);
   outline: 0;
   transform: translateY(-100vh);
   transition: background-color var(--timing-base),

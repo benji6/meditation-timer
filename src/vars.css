@@ -33,7 +33,7 @@
   --cmp-custom-timer__number-button-font-size: var(--font-size-larger);
   --cmp-icon-button-radius: calc(3.5rem + 1vh + 1vw);
 
-  --cmp-home__timers-max-width: calc(var(--cmp-icon-button-radius) * 5 + 1rem);
+  --cmp-home__timers-max-width: calc(var(--cmp-icon-button-radius) * 5 + 2rem);
   --cmp-home__timer-button-radius: calc(var(--cmp-icon-button-radius) * 1.33);
 }
 
