@@ -15,7 +15,6 @@
 
 .settings_input-container {
   align-items: center;
-  align-self: center;
   display: flex;
   flex-direction: column;
   position: absolute;

@@ -60,12 +60,17 @@
   animation-name: slide-right;
 }
 
+.custom-timer__body {
+  width: 100%;
+  max-width: 40rem;
+}
+
 .custom-timer__delete-button:disabled {
-  transform: translateX(6rem);
+  transform: translateX(50vw);
 }
 
 .custom-timer__start-button:disabled {
-  transform: translateY(6rem);
+  transform: translateY(10rem);
 }
 
 .custom-timer--transition-out-left .custom-timer__delete-button:disabled,
@@ -104,7 +109,7 @@
   animation-name: slide-down;
   animation-timing-function: ease-in-out;
   display: flex;
-  font-size: var(--font-size-large);
+  font-size: var(--font-size-larger);
   justify-content: center;
   margin: var(--spacing-base);
 }

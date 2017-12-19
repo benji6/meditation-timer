@@ -17,30 +17,29 @@
   --border-width: 0.175rem;
   --border-width-thick: 3px;
 
-  --font-size-base: 1.1rem;
-  --font-size-large: calc(1rem + 3vh);
-  --font-size-x-large: 6rem;
+  --font-size-base: calc(.6rem + .5vh + .5vw);
+  --font-size-large: calc(var(--font-size-base) * 1.33 - .25vh - .25vw);
+  --font-size-larger: calc(var(--font-size-base) * 2 - .25rem + .2vh + .2vh);
+  --font-size-x-large: calc(var(--font-size-base) * 5);
 
-  --spacing-base: calc(.5rem + 1vmin);
-  --spacing-small: calc(var(--spacing-base) / 16 * 9);
+  --spacing-base: calc(.5rem + 1vh + 1vw);
+  --spacing-small: calc(var(--spacing-base) / 16 * 9 - .25rem + .1vh + .1vw);
 
   --timing-faster: .05s;
   --timing-fast: .15s;
   --timing-base: .3s;
   --timing-slow: 1s;
 
-  --cmp-custom-timer__number-button-font-size: var(--font-size-large);
-  --cmp-icon-button-radius: 4rem;
+  --cmp-custom-timer__number-button-font-size: var(--font-size-larger);
+  --cmp-icon-button-radius: calc(3.5rem + 1vh + 1vw);
 
   --cmp-home__timers-max-width: calc(var(--cmp-icon-button-radius) * 5 + 1rem);
-  --cmp-home__timer-button-radius: calc(var(--cmp-icon-button-radius) * 1.25);
+  --cmp-home__timer-button-radius: calc(var(--cmp-icon-button-radius) * 1.33);
 }
 
-@media (max-height: 22rem) {
+@media (max-height: 26rem) {
   :root {
-    --font-size-base: 0.85rem;
-    --font-size-large: 1.67rem;
-    --font-size-x-large: 3rem;
+    --font-size-base: calc(.25rem + .33vh + .33vw);
 
     --spacing-small: 0.5rem;
     --spacing-base: 0.75rem;

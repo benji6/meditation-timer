@@ -7,7 +7,7 @@ body {
   cursor: default;
   display: flex;
   flex-direction: column;
-  font-family: sans-serif;
+  font-family: system-ui, sans-serif;
   height: 100%;
   margin: 0;
   user-select: none;
