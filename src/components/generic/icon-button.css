@@ -13,9 +13,17 @@
   padding: 0;
   stroke: var(--white);
   transition-duration: var(--timing-fast);
-  transition-property: stroke, transform;
+  transition-property: background-color, box-shadow, stroke, transform;
   transition-timing-function: ease-in-out;
   width: var(--cmp-icon-button-radius);
+}
+@media (min-width: 768px) {
+  .icon-button:focus,
+  .icon-button:hover {
+    box-shadow: none;
+    background-color: var(--white);
+    stroke: var(--blue-dark);
+  }
 }
 
 .icon-button svg {
