@@ -1,5 +1,5 @@
 {
-  "name": "meditation-timer",
+  "name": "meditate",
   "version": "0.0.0",
   "description": "",
   "main": "index.js",
@@ -14,14 +14,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/benji6/meditation-timer.git"
+    "url": "git+https://github.com/benji6/meditate.git"
   },
   "author": "Ben Hall",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/benji6/meditation-timer/issues"
+    "url": "https://github.com/benji6/meditate/issues"
   },
-  "homepage": "https://github.com/benji6/meditation-timer#readme",
+  "homepage": "https://github.com/benji6/meditate#readme",
   "devDependencies": {
     "awesome-typescript-loader": "^3.4.1",
     "babel-core": "^6.26.0",
