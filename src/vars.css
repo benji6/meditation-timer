@@ -17,7 +17,7 @@
   --border-width: 0.175rem;
   --border-width-thick: 3px;
 
-  --font-size-base: calc(.75rem + .5vh + .5vw);
+  --font-size-base: calc(.75rem + .4vh + .4vw);
   --font-size-large: calc(var(--font-size-base) * 1.33 - .25vh - .25vw);
   --font-size-larger: calc(var(--font-size-base) * 2 - .25rem + .2vh + .2vh);
   --font-size-x-large: calc(var(--font-size-base) * 6);
