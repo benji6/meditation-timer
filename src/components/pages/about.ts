@@ -11,7 +11,7 @@ if (shareAvailable) {
 
 shareButtonEl.onclick = () => share({
   title: document.title,
-  url: location.origin,
+  url: location.host,
 })
 
 aboutEl.addEventListener('animationend', () => {
