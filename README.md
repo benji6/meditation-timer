@@ -15,3 +15,5 @@ It is free and open source so all contributions are welcome.
 Icons from https://feathericons.com (MIT)
 
 Meditation Bell from https://freesound.org/people/fauxpress/sounds/42095 (CC0 1.0)
+
+Deployed with https://www.netlify.com
