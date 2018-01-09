@@ -1,5 +1,11 @@
 {
   "background_color": "#0d0d2b",
+  "categories": [
+    "health",
+    "lifestyle",
+    "tool",
+    "utilities"
+  ],
   "display": "standalone",
   "icons": [{
     "src": "assets/icons/icon-144x144.png",
