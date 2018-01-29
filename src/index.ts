@@ -17,6 +17,7 @@ import './keyframes.css'
 import './index.css'
 import './components/generic/controls.css'
 import './components/generic/icon-button.css'
+import './components/generic/notification.css'
 import './components/generic/page.css'
 
 const navigateBack = history.back.bind(history)

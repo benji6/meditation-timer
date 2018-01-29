@@ -1,0 +1,22 @@
+.notification {
+  align-items: center;
+  background: rgba(0,0,0,.6);
+  border-radius: .333rem;
+  bottom: calc(var(--spacing-base) - calc(var(--spacing-base) / 4));
+  display: flex;
+  font-size: var(--font-size-large);
+  height: var(--cmp-icon-button-radius);
+  justify-content: center;
+  left: var(--spacing-base);
+  margin: 0 auto;
+  max-width: var(--cmp-home__timers-max-width);
+  padding: calc(var(--spacing-base) / 4);
+  position: fixed;
+  right: var(--spacing-base);
+  transform: translateY(8rem);
+  transition: transform var(--timing-fast) ease-in-out;
+}
+
+.notification--show {
+  transform: translateY(0);
+}
