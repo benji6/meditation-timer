@@ -17,10 +17,8 @@
   --border-width: 0.175rem;
   --border-width-thick: 3px;
 
-  --font-size-base: calc(.75rem + .4vh + .4vw);
-  --font-size-large: calc(var(--font-size-base) * 1.33 - .25vh - .25vw);
-  --font-size-larger: calc(var(--font-size-base) * 2 - .25rem + .2vh + .2vh);
-  --font-size-x-large: calc(var(--font-size-base) * 6);
+  --font-size-base: 1.25rem;
+  --font-size-large: 1.5rem;
 
   --spacing-base: calc(.5rem + 1vh + 1vw);
   --spacing-small: calc(var(--spacing-base) / 16 * 9 - .25rem + .1vh + .1vw);
@@ -30,7 +28,6 @@
   --timing-base: .3s;
   --timing-slow: 1s;
 
-  --cmp-custom-timer__number-button-font-size: var(--font-size-larger);
   --cmp-icon-button-radius: calc(3.5rem + 1vh + 1vw);
 
   --cmp-home__timers-max-width: calc(var(--cmp-icon-button-radius) * 5.1 + 2rem);
@@ -39,12 +36,9 @@
 
 @media (max-height: 26rem) {
   :root {
-    --font-size-base: calc(.25rem + .33vh + .33vw);
-
     --spacing-small: 0.5rem;
     --spacing-base: 0.75rem;
 
-    --cmp-custom-timer__number-button-font-size: 1rem;
     --cmp-icon-button-radius: 3.33rem;
   }
 }

@@ -4,7 +4,7 @@
   border-radius: .333rem;
   bottom: calc(var(--spacing-base) - calc(var(--spacing-base) / 4));
   display: flex;
-  font-size: var(--font-size-large);
+  font-size: var(--font-size-base);
   height: var(--cmp-icon-button-radius);
   justify-content: center;
   left: var(--spacing-base);

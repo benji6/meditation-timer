@@ -9,7 +9,7 @@
   background: none;
   border: none;
   flex-basis: 33.3%;
-  font-size: var(--cmp-custom-timer__number-button-font-size);
+  font-size: var(--font-size-large);
   outline: 0;
   padding: var(--spacing-small);
 }
@@ -109,7 +109,7 @@
   animation-name: slide-down;
   animation-timing-function: ease-in-out;
   display: flex;
-  font-size: var(--font-size-larger);
+  font-size: var(--font-size-large);
   justify-content: center;
   margin: var(--spacing-base);
 }

@@ -26,6 +26,6 @@
 }
 
 .about__paragraph {
-  font-size: var(--font-size-large);
+  font-size: var(--font-size-base);
   margin: var(--spacing-base);
 }
