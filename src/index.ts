@@ -22,9 +22,15 @@ import './components/generic/page.css'
 
 const navigateBack = history.back.bind(history)
 
-header.onClickAbout = () => location.hash = 'about'
+header.onClickAbout = () => {
+  if (location.hash === '#custom-timer') location.replace('#about')
+  else location.hash = 'about'
+}
 header.onClickHome = navigateBack
-header.onClickSettings = () => location.hash = 'settings'
+header.onClickSettings = () => {
+  if (location.hash === '#custom-timer') location.replace('#settings')
+  else location.hash = 'settings'
+}
 home.onClickCustomTimerButton = () => location.hash = 'custom-timer'
 home.onClickTimerButton = (t: number) => {
   state.displayTime = state.totalTime = t
