@@ -1,7 +1,7 @@
 /// <reference path="./typings/nosleep.js.d.ts" />
 
-import * as NoSleep from 'nosleep.js'
-import * as OfflinePluginRuntime from 'offline-plugin/runtime'
+import NoSleep from 'nosleep.js'
+import OfflinePluginRuntime from 'offline-plugin/runtime'
 import state from './state'
 import bell from './bell'
 import about from './components/pages/about'
