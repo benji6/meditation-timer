@@ -36,8 +36,7 @@
 
 @media (max-height: 26rem) {
   :root {
-    --spacing-small: 0.5rem;
-    --spacing-base: 0.75rem;
+    --spacing-base: .75rem;
 
     --cmp-icon-button-radius: 3.33rem;
   }
