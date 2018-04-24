@@ -1,6 +1,6 @@
 # Meditate
 
-[![Build Status](https://travis-ci.org/benji6/meditate.svg?branch=master)](https://travis-ci.org/benji6/meditation-timer)
+[![Build Status](https://travis-ci.org/benji6/meditation-timer.svg?branch=master)](https://travis-ci.org/benji6/meditation-timer)
 
 ## About
 
