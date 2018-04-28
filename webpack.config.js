@@ -1,7 +1,6 @@
-const MinifyJS = require('babel-minify-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const minify = require('html-minifier').minify
 const OfflinePlugin = require('offline-plugin')
 const path = require('path')
@@ -17,65 +16,51 @@ const htmlMinifierOpts = {
 const isProduction = process.env.NODE_ENV === 'production'
 
 const cssRuleUse = isProduction
-  ? ExtractTextPlugin.extract({
-    fallback: 'style-loader',
-    use: {
-      loader: 'css-loader',
-      options: {
-        minimize: true,
-      },
-    },
-  })
+  ? [MiniCssExtractPlugin.loader, {
+    loader: 'css-loader',
+    options: {minimize: true},
+  }]
   : ['style-loader', 'css-loader']
 
 const config = {
   devServer: {
     contentBase: path.join(__dirname, 'src'),
   },
-  entry: './src/index.ts',
+  mode: isProduction ? 'production' : 'development',
   module: {
-    rules: [
-      {
-        test: /\.css$/,
-        use: cssRuleUse,
-      },
-      {
-        loader: 'awesome-typescript-loader',
-        test: /\.ts$/,
-      },
-    ],
+    rules: [{
+      test: /\.css$/,
+      use: cssRuleUse,
+    }, {
+      loader: 'awesome-typescript-loader',
+      test: /\.ts$/,
+    }],
   },
   output: {
     filename: 'index.js',
-    path: path.resolve(__dirname, 'dist'),
   },
   plugins: [
     new CopyWebpackPlugin([{
       from: 'src/assets',
       to: 'assets',
-      transform: (content, path) => {
-        if (isProduction && path.endsWith('.svg')) {
-          return minify(content.toString(), htmlMinifierOpts)
-        }
-        return content
-      },
+      transform: (content, path) => isProduction && path.endsWith('.svg')
+        ? minify(content.toString(), htmlMinifierOpts)
+        : content,
     }, {
       from: 'src/index.html',
-      transform: content => {
-        if (!isProduction) return content
-        return minify(
-          content.toString().replace('<!-- css-tag -->', '<link href="index.css" rel="stylesheet">'),
-          htmlMinifierOpts
+      transform: content => isProduction
+        ? minify(
+          content.toString().replace(
+            '<!-- css-tag -->',
+            '<link href="index.css" rel="stylesheet">',
+          ),
+          htmlMinifierOpts,
         )
-      },
+        : content,
     }, {
       from: 'src/manifest.json',
       transform: content => isProduction ? JSON.stringify(JSON.parse(content.toString())) : content,
     }]),
-    new webpack.EnvironmentPlugin({
-      NODE_ENV: null,
-    }),
-    new webpack.optimize.ModuleConcatenationPlugin,
   ],
   resolve: {
     extensions: ['.js', '.json', '.ts'],
@@ -84,8 +69,7 @@ const config = {
 
 if (isProduction) {
   config.plugins.unshift(new CleanWebpackPlugin('dist'))
-  config.plugins.unshift(new ExtractTextPlugin('index.css'))
-  config.plugins.push(new MinifyJS)
+  config.plugins.unshift(new MiniCssExtractPlugin({filename: "index.css"}))
   config.plugins.push(new OfflinePlugin({
     ServiceWorker: {
       minify: true,
