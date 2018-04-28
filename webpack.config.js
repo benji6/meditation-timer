@@ -87,7 +87,6 @@ if (isProduction) {
   config.plugins.unshift(new ExtractTextPlugin('index.css'))
   config.plugins.push(new MinifyJS)
   config.plugins.push(new OfflinePlugin({
-    AppCache: false,
     ServiceWorker: {
       minify: true,
     },
