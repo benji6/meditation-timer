@@ -28,7 +28,7 @@
     "clean-webpack-plugin": "^0.1.17",
     "copy-webpack-plugin": "^4.3.0",
     "css-loader": "^0.28.7",
-    "favicons": "^4.8.6",
+    "favicons": "^5.1.1",
     "html-minifier": "^3.5.7",
     "mini-css-extract-plugin": "^0.4.0",
     "style-loader": "^0.21.0",
