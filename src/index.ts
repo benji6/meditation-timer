@@ -15,11 +15,12 @@ import customTimer, {
 import home, { HomeTransitionTypes } from './components/pages/home'
 import settings from './components/pages/settings'
 import timer from './components/pages/timer'
-import './index.css'
-import './keyframes.css'
 import state from './state'
-import './typings/nosleep.js.d.ts'
 import './vars.css'
+
+import './keyframes.css'
+
+import './index.css'
 
 const navigateBack = history.back.bind(history)
 
