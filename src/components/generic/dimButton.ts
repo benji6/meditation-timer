@@ -3,11 +3,13 @@ import './dim-button.css'
 const stopButtonEl = document.querySelector('.dim-button') as HTMLButtonElement
 
 class DimButton {
-  constructor () {
+  constructor() {
     stopButtonEl.onclick = () => this.onClick()
   }
 
-  public onClick () {}
+  public onClick() {
+    // empty
+  }
 }
 
-export default new DimButton
+export default new DimButton()

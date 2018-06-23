@@ -3,11 +3,13 @@ import './stop-button.css'
 const stopButtonEl = document.querySelector('.stop-button') as HTMLButtonElement
 
 class StopButton {
-  constructor () {
+  constructor() {
     stopButtonEl.onclick = () => this.onStop()
   }
 
-  public onStop () {}
+  public onStop() {
+    // empty
+  }
 }
 
-export default new StopButton
+export default new StopButton()

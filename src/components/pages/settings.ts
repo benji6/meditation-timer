@@ -1,12 +1,20 @@
-import gradient from '../generic/gradient'
 import state from '../../state'
+import gradient from '../generic/gradient'
 import './settings.css'
 
 const settingsEl = document.querySelector('.settings') as HTMLDivElement
-const toggleSilentButton = document.querySelector('.toggle-silent-button') as HTMLButtonElement
-const noisyEl = document.querySelector('.toggle-silent-button__noisy') as SVGElement
-const silentEl = document.querySelector('.toggle-silent-button__silent') as SVGElement
-const silentMsgEl = document.querySelector('.settings__silent-msg') as HTMLParagraphElement
+const toggleSilentButton = document.querySelector(
+  '.toggle-silent-button',
+) as HTMLButtonElement
+const noisyEl = document.querySelector(
+  '.toggle-silent-button__noisy',
+) as SVGElement
+const silentEl = document.querySelector(
+  '.toggle-silent-button__silent',
+) as SVGElement
+const silentMsgEl = document.querySelector(
+  '.settings__silent-msg',
+) as HTMLParagraphElement
 
 const silentOffMsg = 'Silent mode is off'
 const silentOnMsg = 'Silent mode is on'
@@ -20,7 +28,7 @@ if (state.isSilent) {
 }
 
 toggleSilentButton.onclick = () => {
-  const {isSilent} = state
+  const { isSilent } = state
   if (isSilent) {
     silentEl.remove()
     toggleSilentButton.appendChild(noisyEl)
@@ -43,17 +51,17 @@ settingsEl.addEventListener('animationend', () => {
 })
 
 class Settings {
-  transitionIn () {
+  public transitionIn() {
     settingsEl.classList.remove('page--hidden')
     settingsEl.classList.remove('settings--transition-out')
     settingsEl.classList.add('settings--transition-in')
     gradient.setGradient(3)
   }
 
-  transitionOut () {
+  public transitionOut() {
     settingsEl.classList.remove('settings--transition-in')
     settingsEl.classList.add('settings--transition-out')
   }
 }
 
-export default new Settings
+export default new Settings()

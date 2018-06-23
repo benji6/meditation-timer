@@ -1,11 +1,9 @@
 declare module 'nosleep.js' {
+  class NoSleep {
+    constructor()
+    public disable(): undefined
+    public enable(): undefined
+  }
+
   export = NoSleep
-}
-
-declare namespace NoSleep {}
-
-declare class NoSleep {
-  constructor ()
-  disable (): undefined
-  enable (): undefined
 }

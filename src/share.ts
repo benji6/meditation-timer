@@ -1,21 +1,21 @@
-type ShareOptions = {
-  onCopy: () => void;
-  title: string;
-  text?: string;
-  url: string;
+interface IShareOptions {
+  onCopy: () => void
+  title: string
+  text?: string
+  url: string
 }
 
-type NavigatorShare = (options: ShareOptions) => Promise<{}>
+type NavigatorShare = (options: IShareOptions) => Promise<{}>
 
-interface Navigator {
+interface INavigator {
   share?: NavigatorShare
 }
 
-const nav = navigator as Navigator
+const nav = navigator as INavigator
 
 export const shareAvailable = true
 
-export default (options: ShareOptions) => {
+export default (options: IShareOptions) => {
   if (nav.share !== undefined) {
     nav.share(options)
     return

@@ -2,11 +2,15 @@ import gradient from '../generic/gradient'
 import './home.css'
 
 const homeEl = document.querySelector('.home') as HTMLDivElement
-const customTimerButton = document.querySelector('.home__custom-timer-button') as HTMLButtonElement
-const timerButtonEls = document.querySelectorAll('.home__timer-button') as NodeListOf<HTMLButtonElement>
+const customTimerButton = document.querySelector(
+  '.home__custom-timer-button',
+) as HTMLButtonElement
+const timerButtonEls = document.querySelectorAll(
+  '.home__timer-button',
+) as NodeListOf<HTMLButtonElement>
 
 homeEl.addEventListener('animationend', () => {
-  const {classList} = homeEl
+  const { classList } = homeEl
   if (classList.contains('home--transition-out-left')) {
     classList.add('page--hidden')
     classList.remove('home--transition-out-left')
@@ -26,7 +30,7 @@ export enum HomeTransitionTypes {
 }
 
 class Home {
-  constructor () {
+  constructor() {
     customTimerButton.onclick = () => {
       this.onClickCustomTimerButton()
     }
@@ -35,18 +39,20 @@ class Home {
       const timerButton = timerButtonEls[i]
 
       timerButton.onclick = () => {
-        this.onClickTimerButton(Number(timerButton.getAttribute('data-val')) * 60)
+        this.onClickTimerButton(
+          Number(timerButton.getAttribute('data-val')) * 60,
+        )
       }
     }
   }
 
-  transitionIn () {
+  public transitionIn() {
     homeEl.classList.remove('page--hidden')
     homeEl.classList.remove('home--transition-out-left')
     gradient.setGradient(0)
   }
 
-  transitionOut (type: HomeTransitionTypes) {
+  public transitionOut(type: HomeTransitionTypes) {
     switch (type) {
       case HomeTransitionTypes.right:
         homeEl.classList.add('home--transition-out-right')
@@ -59,8 +65,12 @@ class Home {
     }
   }
 
-  public onClickCustomTimerButton () {}
-  public onClickTimerButton (t: number) {}
+  public onClickCustomTimerButton() {
+    // empty
+  }
+  public onClickTimerButton(t: number) {
+    // empty
+  }
 }
 
-export default new Home
+export default new Home()

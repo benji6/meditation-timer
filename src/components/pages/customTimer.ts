@@ -1,18 +1,26 @@
-import gradient from '../generic/gradient'
 import state from '../../state'
+import gradient from '../generic/gradient'
 import './custom-timer.css'
 
 const customTimerEl = document.querySelector('.custom-timer') as HTMLDivElement
-const deleteButtonEl = document.querySelector('.custom-timer__delete-button') as HTMLButtonElement
-const numberButtonEls = document.querySelectorAll('.custom-timer__number-button') as NodeListOf<HTMLButtonElement>
-const startButtonEl = document.querySelector('.custom-timer__start-button') as HTMLButtonElement
-const timeDisplayEl = document.querySelector('.custom-timer__time-display') as HTMLOutputElement
+const deleteButtonEl = document.querySelector(
+  '.custom-timer__delete-button',
+) as HTMLButtonElement
+const numberButtonEls = document.querySelectorAll(
+  '.custom-timer__number-button',
+) as NodeListOf<HTMLButtonElement>
+const startButtonEl = document.querySelector(
+  '.custom-timer__start-button',
+) as HTMLButtonElement
+const timeDisplayEl = document.querySelector(
+  '.custom-timer__time-display',
+) as HTMLOutputElement
 
 const numberToText = (n: number): string => `${n < 600 ? '0' : ''}${n / 60}m`
 
 const handleNumberInput = (n: number): void => {
   if (n !== 0) deleteButtonEl.disabled = startButtonEl.disabled = false
-  const {customTimerTime} = state
+  const { customTimerTime } = state
 
   if (customTimerTime >= 600) return
 
@@ -22,7 +30,7 @@ const handleNumberInput = (n: number): void => {
 }
 
 const handleBackspace = () => {
-  const {customTimerTime} = state
+  const { customTimerTime } = state
 
   if (customTimerTime < 600) {
     state.customTimerTime = 0
@@ -50,7 +58,7 @@ customTimerEl.addEventListener('animationend', () => {
     customTimerEl.classList.contains('custom-timer--transition-out-right') ||
     customTimerEl.classList.contains('custom-timer--transition-out-zoom')
   ) {
-    timeDisplayEl.value = numberToText(state.customTimerTime = 0)
+    timeDisplayEl.value = numberToText((state.customTimerTime = 0))
     deleteButtonEl.disabled = startButtonEl.disabled = true
     customTimerEl.classList.add('page--hidden')
     customTimerEl.classList.remove('custom-timer--transition-out-left')
@@ -68,11 +76,11 @@ export enum CustomTimerTransitionTypes {
 let isListeningToKeys = false
 
 class CustomTimer {
-  constructor () {
+  constructor() {
     startButtonEl.onclick = () => this.onStart()
   }
 
-  transitionIn () {
+  public transitionIn() {
     gradient.setGradient(4)
     customTimerEl.classList.remove('page--hidden')
     customTimerEl.classList.remove('custom-timer--transition-out-left')
@@ -82,7 +90,7 @@ class CustomTimer {
     isListeningToKeys = true
   }
 
-  transitionOut (type: CustomTimerTransitionTypes) {
+  public transitionOut(type: CustomTimerTransitionTypes) {
     isListeningToKeys = false
     customTimerEl.classList.remove('custom-timer--transition-in')
     switch (type) {
@@ -97,14 +105,16 @@ class CustomTimer {
     }
   }
 
-  public onStart () {}
+  public onStart() {
+    // empty
+  }
 }
 
-const customTimer = new CustomTimer
+const customTimer = new CustomTimer()
 
 document.onkeydown = e => {
   if (!isListeningToKeys) return
-  const {keyCode} = e
+  const { keyCode } = e
   if (keyCode >= 48 && keyCode <= 57) {
     handleNumberInput(keyCode - 48)
   } else if (keyCode === 8 || keyCode === 46) {

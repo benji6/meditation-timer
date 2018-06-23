@@ -1,5 +1,5 @@
+import { getCssVar, setCssVar } from '../../utils'
 import './gradient.css'
-import {getCssVar, setCssVar} from '../../utils'
 
 const rotationInterval = 1000 * 60 * 30
 
@@ -10,7 +10,7 @@ let gradientAngle = getCssVar('--gradient-angle')
 const render = () => {
   requestAnimationFrame(render)
 
-  const ratioOfDayCompleted = Date.now() % rotationInterval / rotationInterval
+  const ratioOfDayCompleted = (Date.now() % rotationInterval) / rotationInterval
   const newGradientAngle = (ratioOfDayCompleted * 360).toFixed(0) + 'deg'
 
   if (newGradientAngle === gradientAngle) return
@@ -22,17 +22,17 @@ const render = () => {
 
 render()
 
-type GradientRange = 0|1|2|3|4
+type GradientRange = 0 | 1 | 2 | 3 | 4
 
 class Gradient {
-  setGradient (n: GradientRange) {
+  public setGradient(n: GradientRange) {
     const newLayerEl = document.createElement('div')
     newLayerEl.classList.add('gradient__layer', `gradient__layer--${n}`)
     newLayerEl.addEventListener('animationend', () => {
-      (document.querySelector('.gradient__layer') as HTMLDivElement).remove()
+      ;(document.querySelector('.gradient__layer') as HTMLDivElement).remove()
     })
     gradientEl.appendChild(newLayerEl)
   }
 }
 
-export default new Gradient
+export default new Gradient()

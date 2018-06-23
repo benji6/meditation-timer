@@ -1,24 +1,25 @@
-/// <reference path="./typings/nosleep.js.d.ts" />
-
 import NoSleep from 'nosleep.js'
 import OfflinePluginRuntime from 'offline-plugin/runtime'
-import state from './state'
 import bell from './bell'
-import about from './components/pages/about'
-import customTimer, {CustomTimerTransitionTypes} from './components/pages/customTimer'
-import home, {HomeTransitionTypes} from './components/pages/home'
-import settings from './components/pages/settings'
-import timer from './components/pages/timer'
-import playPauseButton from './components/generic/playPauseButton'
-import {setProgress} from './components/generic/progress'
-import header from './components/generic/header'
-import './vars.css'
-import './keyframes.css'
-import './index.css'
 import './components/generic/controls.css'
+import header from './components/generic/header'
 import './components/generic/icon-button.css'
 import './components/generic/notification.css'
 import './components/generic/page.css'
+import playPauseButton from './components/generic/playPauseButton'
+import { setProgress } from './components/generic/progress'
+import about from './components/pages/about'
+import customTimer, {
+  CustomTimerTransitionTypes,
+} from './components/pages/customTimer'
+import home, { HomeTransitionTypes } from './components/pages/home'
+import settings from './components/pages/settings'
+import timer from './components/pages/timer'
+import './index.css'
+import './keyframes.css'
+import state from './state'
+import './typings/nosleep.js.d.ts'
+import './vars.css'
 
 const navigateBack = history.back.bind(history)
 
@@ -31,7 +32,7 @@ header.onClickSettings = () => {
   if (location.hash === '#custom-timer') location.replace('#settings')
   else location.hash = 'settings'
 }
-home.onClickCustomTimerButton = () => location.hash = 'custom-timer'
+home.onClickCustomTimerButton = () => (location.hash = 'custom-timer')
 home.onClickTimerButton = (t: number) => {
   state.displayTime = state.totalTime = t
   location.hash = 'timer'
@@ -43,15 +44,15 @@ customTimer.onStart = () => {
   startTimer()
 }
 
-interface Process {
+interface IProcess {
   env: {
-    NODE_ENV: string,
+    NODE_ENV: string
   }
 }
 
-declare var process: Process
+declare var process: IProcess
 
-const noSleep = new NoSleep
+const noSleep = new NoSleep()
 
 const stopTimer = () => {
   state.timerActive = false
@@ -98,7 +99,7 @@ const urlHash = (s: string) => {
   return s.slice(hashIndex + 1)
 }
 
-window.onhashchange = ({newURL, oldURL}) => {
+window.onhashchange = ({ newURL, oldURL }) => {
   if (newURL === null || oldURL === null) return
 
   const newHash = urlHash(newURL)

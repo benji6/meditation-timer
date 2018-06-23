@@ -1,13 +1,15 @@
 import dimButton from '../generic/dimButton'
+import '../generic/dimmer-overlay.css'
 import gradient from '../generic/gradient'
 import playPauseButton from '../generic/playPauseButton'
-import stopButton from '../generic/stopButton'
-import {resetProgress} from '../generic/progress'
-import '../generic/dimmer-overlay.css'
+import { resetProgress } from '../generic/progress'
 import '../generic/progress.css'
+import stopButton from '../generic/stopButton'
 import './timer.css'
 
-const dimmerOverlayEl = document.querySelector('.dimmer-overlay') as HTMLDivElement
+const dimmerOverlayEl = document.querySelector(
+  '.dimmer-overlay',
+) as HTMLDivElement
 const timerEl = document.querySelector('.timer') as HTMLDivElement
 
 timerEl.addEventListener('animationend', () => {
@@ -21,31 +23,34 @@ timerEl.addEventListener('animationend', () => {
   }
 })
 
-dimmerOverlayEl.onclick = () => dimmerOverlayEl.classList.remove('dimmer-overlay--on')
+dimmerOverlayEl.onclick = () =>
+  dimmerOverlayEl.classList.remove('dimmer-overlay--on')
 dimButton.onClick = () => dimmerOverlayEl.classList.add('dimmer-overlay--on')
 
 class Timer {
-  constructor () {
+  constructor() {
     stopButton.onStop = () => this.onStop()
   }
 
-  finish () {
+  public finish() {
     playPauseButton.disable()
     dimmerOverlayEl.classList.remove('dimmer-overlay--on')
   }
 
-  onStop () {}
+  public onStop() {
+    // empty
+  }
 
-  transitionIn () {
+  public transitionIn() {
     timerEl.classList.remove('page--hidden')
     timerEl.classList.add('timer--transition-in')
     gradient.setGradient(1)
   }
 
-  transitionOut () {
+  public transitionOut() {
     timerEl.classList.add('timer--transition-out')
     dimmerOverlayEl.classList.remove('dimmer-overlay--on')
   }
 }
 
-export default new Timer
+export default new Timer()

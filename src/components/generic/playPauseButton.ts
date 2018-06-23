@@ -1,11 +1,13 @@
 import './play-pause-button.css'
 
-const playPauseEl = document.querySelector('.play-pause-button') as HTMLButtonElement
+const playPauseEl = document.querySelector(
+  '.play-pause-button',
+) as HTMLButtonElement
 
 class PlayPauseButton {
   private isPaused: boolean
 
-  constructor () {
+  constructor() {
     this.isPaused = false
 
     playPauseEl.onclick = () => {
@@ -19,23 +21,27 @@ class PlayPauseButton {
     }
   }
 
-  public disable () {
+  public disable() {
     playPauseEl.disabled = true
   }
 
-  public enable () {
+  public enable() {
     playPauseEl.disabled = false
   }
 
-  public onPause () {}
+  public onPause() {
+    // empty
+  }
 
-  public onPlay () {}
+  public onPlay() {
+    // empty
+  }
 
-  public stop () {
+  public stop() {
     this.isPaused = false
     playPauseEl.classList.remove('play-pause-button--playing')
     playPauseEl.classList.add('play-pause-button--paused')
   }
 }
 
-export default new PlayPauseButton
+export default new PlayPauseButton()

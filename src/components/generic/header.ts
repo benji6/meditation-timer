@@ -1,7 +1,9 @@
+import { getCssVar } from '../../utils'
 import './header.css'
-import {getCssVar} from '../../utils'
 
-const buttonEls = document.querySelectorAll('.header__button') as NodeListOf<HTMLButtonElement>
+const buttonEls = document.querySelectorAll('.header__button') as NodeListOf<
+  HTMLButtonElement
+>
 
 const aboutButtonEl = buttonEls[1]
 const settingsButtonEl = buttonEls[0]
@@ -25,73 +27,83 @@ const settingsTransitionTime = (): number => getCssTime('--timing-base')
 const homeTransitionTime = (): number => getCssTime('--timing-base') * 2
 
 class Header {
-  constructor () {
+  constructor() {
     aboutButtonEl.onclick = () => {
       if (isTransitioning) return
       isTransitioning = true
-      setTimeout(() => isTransitioning = false, aboutTransitionTime())
+      setTimeout(() => (isTransitioning = false), aboutTransitionTime())
       this.onClickAbout()
     }
     settingsButtonEl.onclick = () => {
       if (isTransitioning) return
       isTransitioning = true
-      setTimeout(() => isTransitioning = false, settingsTransitionTime())
+      setTimeout(() => (isTransitioning = false), settingsTransitionTime())
       this.onClickSettings()
     }
     homeButtonEl.onclick = () => {
       if (isTransitioning) return
       isTransitioning = true
-      setTimeout(() => isTransitioning = false, homeTransitionTime())
+      setTimeout(() => (isTransitioning = false), homeTransitionTime())
       this.onClickHome()
     }
-    setTimeout(() => isTransitioning = false, homeTransitionTime())
+    setTimeout(() => (isTransitioning = false), homeTransitionTime())
   }
 
-  switchAboutToHome () {
+  public switchAboutToHome() {
     settingsButtonEl.disabled = true
     aboutButtonEl.remove()
     headerEl.appendChild(homeButtonEl)
   }
 
-  switchHomeToAbout () {
+  public switchHomeToAbout() {
     homeButtonEl.remove()
     headerEl.appendChild(aboutButtonEl)
     settingsButtonEl.disabled = false
   }
 
-  switchHomeToSettings () {
+  public switchHomeToSettings() {
     homeButtonEl.remove()
     headerEl.insertAdjacentElement('afterbegin', settingsButtonEl)
     aboutButtonEl.disabled = false
   }
 
-  switchSettingsToHome () {
+  public switchSettingsToHome() {
     aboutButtonEl.disabled = true
     settingsButtonEl.remove()
     headerEl.insertAdjacentElement('afterbegin', homeButtonEl)
   }
 
-  hideControls () {
+  public hideControls() {
     aboutButtonEl.classList.add('header__button--delay')
     requestAnimationFrame(() => {
       aboutButtonEl.disabled = true
       settingsButtonEl.disabled = true
-      requestAnimationFrame(() => aboutButtonEl.classList.remove('header__button--delay'))
+      requestAnimationFrame(() =>
+        aboutButtonEl.classList.remove('header__button--delay'),
+      )
     })
   }
 
-  showControls () {
+  public showControls() {
     settingsButtonEl.classList.add('header__button--delay')
     requestAnimationFrame(() => {
       aboutButtonEl.disabled = false
       settingsButtonEl.disabled = false
-      requestAnimationFrame(() => settingsButtonEl.classList.remove('header__button--delay'))
+      requestAnimationFrame(() =>
+        settingsButtonEl.classList.remove('header__button--delay'),
+      )
     })
   }
 
-  public onClickAbout () {}
-  public onClickHome () {}
-  public onClickSettings () {}
+  public onClickAbout() {
+    // empty
+  }
+  public onClickHome() {
+    // empty
+  }
+  public onClickSettings() {
+    // empty
+  }
 }
 
-export default new Header
+export default new Header()
