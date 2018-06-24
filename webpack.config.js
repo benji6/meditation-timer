@@ -9,6 +9,10 @@ const webpack = require('webpack')
 const htmlMinifierOpts = {
   collapseBooleanAttributes: true,
   collapseWhitespace: true,
+  decodeEntities: true,
+  processConditionalComments: true,
+  removeOptionalTags: true,
+  removeRedundantAttributes: true,
   sortAttributes: true,
   sortClassName: true,
 }
