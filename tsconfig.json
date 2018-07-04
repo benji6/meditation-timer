@@ -4,10 +4,8 @@
     "esModuleInterop": true,
     "module": "ES2015",
     "moduleResolution": "Node",
-    "noImplicitAny": true,
     "noUnusedLocals": true,
-    "strictNullChecks": true,
-    "strictPropertyInitialization": true,
+    "strict": true,
     "target": "es5"
   },
   "typeRoots": [
