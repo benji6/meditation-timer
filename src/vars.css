@@ -1,14 +1,18 @@
 :root {
-  --blue: #111e7a; /* (logo.svg) */
-  --blue-dark: #0d0d2b; /* background_color theme_color & (manifest, meta tag & logo.svg)*/
-  --blue-light: #3ecbff;
-  --gray: #6e6e6e;
-  --green: #53c080;
-  --pink: #ff25d0; /* (logo.svg) */
-  --purple: #4f21bb;
-  --yellow: #fff242;
-  --red: #ff442b;
-  --white: #fafeff; /* (logo.svg) */
+  --blue: hsl(233, 76%, 27%); /* (logo.svg) */
+  --blue-dark: hsl(
+    240,
+    54%,
+    11%
+  ); /* background_color theme_color & (manifest, meta tag & logo.svg)*/
+  --blue-light: hsl(195, 100%, 55%);
+  --gray: hsl(0, 0%, 43%);
+  --green: hsl(145, 65%, 50%);
+  --pink: hsl(315, 100%, 55%); /* (logo.svg) */
+  --purple: hsl(258, 70%, 45%);
+  --yellow: hsl(56, 100%, 63%);
+  --red: hsl(0, 100%, 55%);
+  --white: hsl(192, 100%, 99%); /* (logo.svg) */
 
   --gradient-angle: 205deg;
 
