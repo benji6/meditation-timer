@@ -10,7 +10,7 @@
   --red: #ff442b;
   --white: #fafeff; /* (logo.svg) */
 
-  --gradient-angle: 145deg;
+  --gradient-angle: 205deg;
 
   --shadow-dark: rgba(0, 0, 0, 0.75);
 
@@ -21,22 +21,24 @@
   --font-size-large: 1.5rem;
 
   --spacing-base: 1.5rem;
-  --spacing-small: .5rem;
+  --spacing-small: 0.5rem;
 
-  --timing-faster: .05s;
-  --timing-fast: .15s;
-  --timing-base: .3s;
+  --timing-faster: 0.05s;
+  --timing-fast: 0.15s;
+  --timing-base: 0.3s;
   --timing-slow: 1s;
 
   --cmp-icon-button-radius: 4.5rem;
 
   --cmp-home__timer-button-radius: calc(var(--cmp-icon-button-radius) * 1.33);
-  --cmp-home__timers-max-width: calc(var(--cmp-home__timer-button-radius) * 3 + var(--spacing-small) * 11);
+  --cmp-home__timers-max-width: calc(
+    var(--cmp-home__timer-button-radius) * 3 + var(--spacing-small) * 11
+  );
 }
 
 @media (max-height: 26rem) {
   :root {
-    --spacing-base: .75rem;
+    --spacing-base: 0.75rem;
 
     --cmp-icon-button-radius: 3.33rem;
   }
