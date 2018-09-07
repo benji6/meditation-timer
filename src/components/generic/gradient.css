@@ -15,21 +15,41 @@
 }
 
 .gradient__layer--0 {
-  background-image: linear-gradient(var(--gradient-angle), var(--blue-light), var(--pink));
+  background-image: linear-gradient(
+    var(--gradient-angle),
+    var(--blue-light),
+    var(--pink)
+  );
 }
 
 .gradient__layer--1 {
-  background-image: linear-gradient(var(--gradient-angle), var(--blue), var(--blue-dark));
+  background-image: linear-gradient(
+    var(--gradient-angle),
+    var(--blue),
+    var(--blue-dark)
+  );
 }
 
 .gradient__layer--2 {
-  background-image: linear-gradient(var(--gradient-angle), var(--purple), var(--red));
+  background-image: linear-gradient(
+    var(--gradient-angle),
+    var(--purple),
+    var(--red)
+  );
 }
 
 .gradient__layer--3 {
-  background-image: linear-gradient(var(--gradient-angle), var(--green), var(--purple));
+  background-image: linear-gradient(
+    var(--gradient-angle),
+    var(--green),
+    var(--purple)
+  );
 }
 
 .gradient__layer--4 {
-  background-image: linear-gradient(var(--gradient-angle), var(--yellow), var(--pink));
+  background-image: linear-gradient(
+    var(--gradient-angle),
+    var(--pink),
+    var(--yellow)
+  );
 }
