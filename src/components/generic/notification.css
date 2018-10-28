@@ -1,7 +1,7 @@
 .notification {
   align-items: center;
-  background: rgba(0,0,0,.6);
-  border-radius: .333rem;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 0.333rem;
   bottom: calc(var(--spacing-base) - calc(var(--spacing-base) / 4));
   display: flex;
   font-size: var(--font-size-base);
@@ -14,7 +14,7 @@
   position: fixed;
   right: var(--spacing-base);
   transform: translateY(8rem);
-  transition: transform var(--timing-fast) ease-in-out;
+  transition: transform var(--timing-fast) var(--easing-standard);
 }
 
 .notification--show {

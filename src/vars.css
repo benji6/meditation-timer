@@ -21,6 +21,8 @@
   --border-width: 0.175rem;
   --border-width-thick: 3px;
 
+  --easing-standard: cubic-bezier(0.4, 0, 0.2, 1);
+
   --font-size-base: 1.25rem;
   --font-size-large: 1.5rem;
 

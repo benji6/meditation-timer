@@ -24,7 +24,7 @@
   stroke: var(--white);
   transition-duration: var(--timing-fast);
   transition-property: opacity, transform;
-  transition-timing-function: ease-in-out;
+  transition-timing-function: var(--easing-standard);
 }
 @media (min-width: 768px) {
   .header__button:focus,
@@ -38,7 +38,7 @@
 }
 
 .header__button:disabled {
-  opacity: .67;
+  opacity: 0.67;
   transform: rotate(180deg) scale(0);
 }
 

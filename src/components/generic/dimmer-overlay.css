@@ -7,7 +7,7 @@
   position: fixed;
   right: 0;
   top: 0;
-  transition: opacity var(--timing-base) ease-in-out;
+  transition: opacity var(--timing-base) var(--easing-standard);
 }
 
 .dimmer-overlay--on {

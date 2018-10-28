@@ -1,6 +1,6 @@
 .home {
   animation-duration: var(--timing-base);
-  animation-timing-function: ease-in-out;
+  animation-timing-function: var(--easing-standard);
 }
 
 .home--transition-out-left {
@@ -33,7 +33,7 @@
   animation-duration: var(--timing-base);
   animation-fill-mode: forwards;
   animation-name: slide-up;
-  animation-timing-function: ease-in-out;
+  animation-timing-function: var(--easing-standard);
   background: none;
   border-radius: 50%;
   border: var(--border-width) solid var(--white);
@@ -48,8 +48,7 @@
   margin: 0 var(--spacing-small) var(--spacing-base);
   outline: 0;
   transform: translateY(-100vh);
-  transition: background-color var(--timing-base),
-    box-shadow var(--timing-base),
+  transition: background-color var(--timing-base), box-shadow var(--timing-base),
     color var(--timing-base);
   -webkit-tap-highlight-color: transparent;
 }
@@ -61,9 +60,21 @@
     color: var(--blue-dark);
   }
 }
-.home__timer-button:nth-child(1) { animation-delay: calc(var(--timing-base) / 6) }
-.home__timer-button:nth-child(2) { animation-delay: calc(var(--timing-base) / 6 * 2) }
-.home__timer-button:nth-child(3) { animation-delay: calc(var(--timing-base) / 6 * 3) }
-.home__timer-button:nth-child(4) { animation-delay: calc(var(--timing-base) / 6 * 4) }
-.home__timer-button:nth-child(5) { animation-delay: calc(var(--timing-base) / 6 * 5) }
-.home__timer-button:nth-child(6) { animation-delay: calc(var(--timing-base) / 6 * 6) }
+.home__timer-button:nth-child(1) {
+  animation-delay: calc(var(--timing-base) / 6);
+}
+.home__timer-button:nth-child(2) {
+  animation-delay: calc(var(--timing-base) / 6 * 2);
+}
+.home__timer-button:nth-child(3) {
+  animation-delay: calc(var(--timing-base) / 6 * 3);
+}
+.home__timer-button:nth-child(4) {
+  animation-delay: calc(var(--timing-base) / 6 * 4);
+}
+.home__timer-button:nth-child(5) {
+  animation-delay: calc(var(--timing-base) / 6 * 5);
+}
+.home__timer-button:nth-child(6) {
+  animation-delay: calc(var(--timing-base) / 6 * 6);
+}

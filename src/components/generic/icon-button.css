@@ -14,7 +14,7 @@
   stroke: var(--white);
   transition-duration: var(--timing-fast);
   transition-property: background-color, box-shadow, stroke, transform;
-  transition-timing-function: ease-in-out;
+  transition-timing-function: var(--easing-standard);
   width: var(--cmp-icon-button-radius);
 }
 @media (min-width: 768px) {
@@ -35,7 +35,7 @@
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-width: var(--border-width-thick);
-  width: var(--radius)  ;
+  width: var(--radius);
 }
 
 .icon-button--slide-in {
@@ -43,6 +43,6 @@
   animation-duration: var(--timing-base);
   animation-fill-mode: forwards;
   animation-name: slide-down;
-  animation-timing-function: ease-in-out;
+  animation-timing-function: var(--easing-standard);
   transform: translateY(100vh);
 }
