@@ -94,7 +94,7 @@ if (isProduction) {
     new OfflinePlugin({
       AppCache: false,
       autoUpdate: 1e3 * 60 * 60 * 24,
-      externals: ['favicon.ico'],
+      externals: ['assets/icons/favicon.ico'],
       ServiceWorker: {
         minify: true,
       },
