@@ -92,6 +92,9 @@ if (isProduction) {
   config.plugins.unshift(new MiniCssExtractPlugin({ filename: 'index.css' }))
   config.plugins.push(
     new OfflinePlugin({
+      AppCache: false,
+      autoUpdate: 1e3 * 60 * 60 * 24,
+      externals: ['favicon.ico'],
       ServiceWorker: {
         minify: true,
       },
