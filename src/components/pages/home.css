@@ -37,7 +37,6 @@
   background: none;
   border-radius: 50%;
   border: var(--border-width) solid var(--white);
-  box-shadow: 0 0 var(--spacing-small) var(--white);
   color: var(--white);
   cursor: pointer;
   display: block;
@@ -55,7 +54,6 @@
 @media (min-width: 768px) {
   .home__timer-button:focus,
   .home__timer-button:hover {
-    box-shadow: none;
     background: var(--white);
     color: var(--blue-dark);
   }
