@@ -1,4 +1,4 @@
-import { getCssVar } from '../../utils'
+import getCssVar from 'eri/dist/utils/getCssVar'
 import './header.css'
 
 const buttonEls = document.querySelectorAll('.header__button') as NodeListOf<
