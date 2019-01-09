@@ -1,75 +1,68 @@
 .custom-timer {
-  animation-duration: var(--timing-base);
+  animation-duration: var(--e-time-1);
   animation-fill-mode: forwards;
-  animation-timing-function: var(--easing-standard);
+  animation-timing-function: var(--e-easing-standard);
 }
 
 .custom-timer__number-button {
   -webkit-tap-highlight-color: transparent;
-  background: none;
   border: none;
   flex-basis: 33.3%;
-  font-size: var(--font-size-large);
-  outline: 0;
-  padding: var(--spacing-small);
+  font-size: var(--e-font-size-2);
+  padding: var(--e-space-1);
 }
 
 .custom-timer__delete-button {
   -webkit-tap-highlight-color: transparent;
-  background: none;
   border: none;
   bottom: 0;
-  cursor: pointer;
-  margin-right: var(--spacing-base);
-  outline: 0;
-  padding: 0;
+  margin-right: var(--e-space-3);
   position: absolute;
   right: 0;
-  stroke: var(--white);
+  stroke: var(--e-color-ground);
   top: 0;
-  transition: transform var(--timing-fast) var(--easing-standard);
+  transition: transform var(--e-time-0) var(--e-easing-standard);
 }
 
 .custom-timer--transition-in .custom-timer__number-button {
   -webkit-tap-highlight-color: transparent;
-  animation-duration: var(--timing-base);
+  animation-duration: var(--e-time-1);
   animation-fill-mode: forwards;
-  animation-timing-function: var(--easing-standard);
+  animation-timing-function: var(--e-easing-standard);
   animation-direction: reverse;
   animation-name: slide-down;
-  outline: 0;
   transform: translateY(-100vh);
 }
 
 .custom-timer__number-button:nth-child(1) {
-  animation-delay: var(--timing-base) / 10;
+  animation-delay: var(--e-time-1) / 10;
 }
 .custom-timer__number-button:nth-child(2) {
-  animation-delay: calc(var(--timing-base) / 10 * 2);
+  animation-delay: calc(var(--e-time-1) / 10 * 2);
 }
 .custom-timer__number-button:nth-child(3) {
-  animation-delay: calc(var(--timing-base) / 10 * 3);
+  animation-delay: calc(var(--e-time-1) / 10 * 3);
 }
 .custom-timer__number-button:nth-child(4) {
-  animation-delay: calc(var(--timing-base) / 10 * 4);
+  animation-delay: calc(var(--e-time-1) / 10 * 4);
 }
 .custom-timer__number-button:nth-child(5) {
-  animation-delay: calc(var(--timing-base) / 10 * 5);
+  animation-delay: calc(var(--e-time-1) / 10 * 5);
 }
 .custom-timer__number-button:nth-child(6) {
-  animation-delay: calc(var(--timing-base) / 10 * 6);
+  animation-delay: calc(var(--e-time-1) / 10 * 6);
 }
 .custom-timer__number-button:nth-child(7) {
-  animation-delay: calc(var(--timing-base) / 10 * 7);
+  animation-delay: calc(var(--e-time-1) / 10 * 7);
 }
 .custom-timer__number-button:nth-child(8) {
-  animation-delay: calc(var(--timing-base) / 10 * 8);
+  animation-delay: calc(var(--e-time-1) / 10 * 8);
 }
 .custom-timer__number-button:nth-child(9) {
-  animation-delay: calc(var(--timing-base) / 10 * 9);
+  animation-delay: calc(var(--e-time-1) / 10 * 9);
 }
 .custom-timer__number-button:nth-child(10) {
-  animation-delay: calc(var(--timing-base) / 10 * 10);
+  animation-delay: calc(var(--e-time-1) / 10 * 10);
 }
 
 .custom-timer--transition-out-left {
@@ -124,12 +117,12 @@
 
 .custom-timer__time-display {
   animation-direction: reverse;
-  animation-duration: var(--timing-base);
+  animation-duration: var(--e-time-1);
   animation-fill-mode: forwards;
   animation-name: slide-down;
-  animation-timing-function: var(--easing-standard);
+  animation-timing-function: var(--e-easing-standard);
   display: flex;
-  font-size: var(--font-size-large);
+  font-size: var(--e-font-size-2);
   justify-content: center;
-  margin: var(--spacing-base);
+  margin: var(--e-space-3);
 }

@@ -1,13 +1,13 @@
 .about {
-  animation-duration: var(--timing-base);
+  animation-duration: var(--e-time-1);
   animation-fill-mode: forwards;
-  animation-timing-function: var(--easing-standard);
+  animation-timing-function: var(--e-easing-standard);
 }
 
 .about__body {
-  animation-duration: var(--timing-base);
+  animation-duration: var(--e-time-1);
   animation-fill-mode: forwards;
-  animation-timing-function: var(--easing-standard);
+  animation-timing-function: var(--e-easing-standard);
 }
 
 .about--transition-in .about__body {
@@ -20,12 +20,6 @@
 }
 
 .about__link {
-  text-decoration: none;
-  font-weight: 800;
-  color: var(--white);
-}
-
-.about__paragraph {
-  font-size: var(--font-size-base);
-  margin: var(--spacing-base);
+  /* TODO */
+  color: var(--e-color-accent-less);
 }

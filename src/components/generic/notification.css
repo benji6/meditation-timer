@@ -1,20 +1,20 @@
+/* TODO: check this */
+
 .notification {
   align-items: center;
   background: rgba(0, 0, 0, 0.6);
   border-radius: 0.333rem;
-  bottom: calc(var(--spacing-base) - calc(var(--spacing-base) / 4));
+  bottom: calc(var(--e-space-3) - calc(var(--e-space-3) / 4));
   display: flex;
-  font-size: var(--font-size-base);
-  height: var(--cmp-icon-button-radius);
+  height: var(--e-space-5);
   justify-content: center;
-  left: var(--spacing-base);
+  left: var(--e-space-3);
   margin: 0 auto;
-  max-width: var(--cmp-home__timers-max-width);
-  padding: calc(var(--spacing-base) / 4);
+  padding: calc(var(--e-space-3) / 4);
   position: fixed;
-  right: var(--spacing-base);
+  right: var(--e-space-3);
   transform: translateY(8rem);
-  transition: transform var(--timing-fast) var(--easing-standard);
+  transition: transform var(--e-time-0) var(--e-easing-standard);
 }
 
 .notification--show {

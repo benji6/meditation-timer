@@ -3,11 +3,11 @@
   align-self: stretch;
   display: flex;
   justify-content: space-between;
-  padding: var(--spacing-base);
+  padding: var(--e-space-3);
 }
 
 .controls > :not(:last-child) {
-  margin-right: var(--spacing-base);
+  margin-right: var(--e-space-3);
 }
 
 .controls > :first-child:nth-last-child(1) {

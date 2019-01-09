@@ -1,46 +1,44 @@
 .icon-button {
+  --size: var(--e-space-5);
+
   -webkit-tap-highlight-color: transparent;
   align-items: center;
-  background: none;
   border-radius: 50%;
-  border: var(--border-width) solid var(--white);
-  cursor: pointer;
+  border: var(--e-border-width-0) solid var(--e-color-ground);
   display: flex;
-  height: var(--cmp-icon-button-radius);
+  height: var(--size);
   justify-content: center;
-  outline: 0;
-  padding: 0;
-  stroke: var(--white);
-  transition-duration: var(--timing-fast);
+  stroke: var(--e-color-ground);
+  transition-duration: var(--e-time-0);
   transition-property: background-color, box-shadow, stroke, transform;
-  transition-timing-function: var(--easing-standard);
-  width: var(--cmp-icon-button-radius);
+  transition-timing-function: var(--e-easing-standard);
+  width: var(--size);
 }
 @media (min-width: 768px) {
   .icon-button:focus,
   .icon-button:hover {
-    background-color: var(--white);
+    background-color: var(--e-color-ground);
     stroke: var(--blue-dark);
   }
 }
 
 .icon-button svg {
-  --radius: calc(var(--cmp-icon-button-radius) / 8 * 3);
+  --radius: calc(var(--size) / 8 * 3);
 
   fill: none;
   height: var(--radius);
   pointer-events: none; /* Fixes bug with silent button */
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-width: var(--border-width-thick);
+  stroke-width: var(--e-border-width-1);
   width: var(--radius);
 }
 
 .icon-button--slide-in {
   animation-direction: reverse;
-  animation-duration: var(--timing-base);
+  animation-duration: var(--e-time-1);
   animation-fill-mode: forwards;
   animation-name: slide-down;
-  animation-timing-function: var(--easing-standard);
+  animation-timing-function: var(--e-easing-standard);
   transform: translateY(100vh);
 }

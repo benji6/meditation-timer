@@ -8,5 +8,5 @@
     </linearGradient>
   </defs>
   <rect fill="url(#grad)" height="90" width="90" rx="30" x="5" y="5"/>
-  <circle fill="none" stroke="#fafeff" stroke-width="9" cx="50" cy="50" r="27"/>
+  <circle fill="none" stroke="#fcfcfd" stroke-width="9" cx="50" cy="50" r="27"/>
 </svg>

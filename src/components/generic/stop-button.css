@@ -1,3 +1,3 @@
 .stop-button {
-  animation-delay: calc(var(--timing-faster) * 3);
+  animation-delay: calc(var(--timing-delay) * 3);
 }

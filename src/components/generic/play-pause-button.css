@@ -1,19 +1,27 @@
 .play-pause-button {
-  animation-delay: var(--timing-faster);
+  animation-delay: var(--timing-delay);
 }
 
 .play-pause-button__pause .play-pause-button__play {
   display: block;
-  stroke-width: calc(var(--border-width) / 2);
+  stroke-width: calc(var(--e-border-width-0) / 2);
 }
 
-.play-pause-button--paused .play-pause-button__play { display: none; }
-.play-pause-button--paused .play-pause-button__pause { display: block; }
-.play-pause-button--playing .play-pause-button__pause { display: none; }
-.play-pause-button--playing  .play-pause-button__play { display: block; }
+.play-pause-button--paused .play-pause-button__play {
+  display: none;
+}
+.play-pause-button--paused .play-pause-button__pause {
+  display: block;
+}
+.play-pause-button--playing .play-pause-button__pause {
+  display: none;
+}
+.play-pause-button--playing .play-pause-button__play {
+  display: block;
+}
 
 .play-pause-button:disabled {
-  border-color: var(--gray);
+  border-color: var(--e-color-balance);
   box-shadow: none;
-  stroke: var(--gray);
+  stroke: var(--e-color-balance);
 }

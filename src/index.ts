@@ -1,3 +1,4 @@
+import 'eri/dist/index.css'
 import NoSleep from 'nosleep.js'
 import OfflinePluginRuntime from 'offline-plugin/runtime'
 import bell from './bell'
