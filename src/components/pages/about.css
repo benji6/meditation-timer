@@ -8,6 +8,7 @@
   animation-duration: var(--timing-base);
   animation-fill-mode: forwards;
   animation-timing-function: var(--easing-standard);
+  margin-top: var(--spacing-small);
 }
 
 .about--transition-in .about__body {
@@ -27,5 +28,5 @@
 
 .about__paragraph {
   font-size: var(--font-size-base);
-  margin: var(--spacing-base);
+  margin: 0.8em var(--spacing-base);
 }
