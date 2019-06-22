@@ -1,14 +1,14 @@
 .about {
-  animation-duration: var(--timing-base);
+  animation-duration: var(--e-time-1);
   animation-fill-mode: forwards;
-  animation-timing-function: var(--easing-standard);
+  animation-timing-function: var(--e-easing-standard);
 }
 
 .about__body {
-  animation-duration: var(--timing-base);
+  animation-duration: var(--e-time-1);
   animation-fill-mode: forwards;
-  animation-timing-function: var(--easing-standard);
-  margin-top: var(--spacing-small);
+  animation-timing-function: var(--e-easing-standard);
+  margin: var(--e-space-3) var(--e-space-1) 0;
 }
 
 .about--transition-in .about__body {
@@ -20,13 +20,7 @@
   animation-name: slide-right;
 }
 
-.about__link {
-  text-decoration: none;
-  font-weight: 800;
-  color: var(--white);
-}
-
-.about__paragraph {
-  font-size: var(--font-size-base);
-  margin: 0.8em var(--spacing-base);
+.about__link,
+.about__link:hover {
+  color: var(--e-color-ground-more);
 }

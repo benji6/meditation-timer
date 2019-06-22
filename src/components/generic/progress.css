@@ -16,7 +16,7 @@
 
 .progress__circle {
   fill: transparent;
-  stroke: var(--white);
+  stroke: var(--e-color-ground);
   stroke-width: 0.1;
 }
 .progress__circle--transitioning {
@@ -30,7 +30,7 @@
 }
 
 .progress__time {
-  font-feature-settings: "tnum";
+  font-feature-settings: 'tnum';
   font-size: 6rem;
   font-variant-numeric: tabular-nums;
 }

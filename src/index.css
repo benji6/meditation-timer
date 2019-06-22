@@ -3,20 +3,18 @@ html {
 }
 
 body {
-  color: var(--white);
-  cursor: default;
+  color: var(--e-color-ground);
   display: flex;
   flex-direction: column;
-  font-family: system-ui, sans-serif;
   height: 100%;
-  margin: 0;
   user-select: none;
 }
 
-.main {
+main {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  overflow: hidden;
   position: relative;
+  max-width: initial;
+  margin: initial;
 }

@@ -1,7 +1,7 @@
 .settings {
-  animation-duration: var(--timing-base);
+  animation-duration: var(--e-time-1);
   animation-fill-mode: forwards;
-  animation-timing-function: var(--easing-standard);
+  animation-timing-function: var(--e-easing-standard);
 }
 
 .settings--transition-in {
@@ -20,4 +20,8 @@
   position: absolute;
   top: calc(100% / 3);
   transform: translateY(-50%);
+}
+
+.settings__silent-msg {
+  margin-top: var(--e-space-0);
 }

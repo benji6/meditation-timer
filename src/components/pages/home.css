@@ -1,6 +1,6 @@
 .home {
-  animation-duration: var(--timing-base);
-  animation-timing-function: var(--easing-standard);
+  animation-duration: var(--e-time-1);
+  animation-timing-function: var(--e-easing-standard);
 }
 
 .home--transition-out-left {
@@ -16,7 +16,7 @@
 }
 
 .home__custom-timer-button {
-  animation-delay: var(--timing-base);
+  animation-delay: var(--e-time-1);
 }
 
 .home__timers {
@@ -25,54 +25,51 @@
   justify-content: space-around;
   margin: 0 auto;
   max-width: var(--cmp-home__timers-max-width);
-  padding: var(--spacing-base) var(--spacing-small) 0;
+  padding: var(--e-space-3) var(--e-space-1) 0;
 }
 
 .home__timer-button {
   animation-direction: reverse;
-  animation-duration: var(--timing-base);
+  animation-duration: var(--e-time-1);
   animation-fill-mode: forwards;
   animation-name: slide-up;
-  animation-timing-function: var(--easing-standard);
-  background: none;
+  animation-timing-function: var(--e-easing-standard);
   border-radius: 50%;
-  border: var(--border-width) solid var(--white);
-  color: var(--white);
-  cursor: pointer;
+  border: var(--e-border-width-1) solid var(--e-color-ground);
+  color: var(--e-color-ground);
   display: block;
   flex: 0 1 var(--cmp-home__timer-button-radius);
-  font-size: 1rem;
-  font-weight: bold;
+  font-weight: var(--e-font-weight-bold);
   height: var(--cmp-home__timer-button-radius);
-  margin: 0 var(--spacing-small) var(--spacing-base);
+  margin: 0 var(--e-space-1) var(--e-space-3);
   outline: 0;
   transform: translateY(-100vh);
-  transition: background-color var(--timing-base), box-shadow var(--timing-base),
-    color var(--timing-base);
+  transition: background-color var(--e-time-1), box-shadow var(--e-time-1),
+    color var(--e-time-1);
   -webkit-tap-highlight-color: transparent;
 }
 @media (min-width: 768px) {
   .home__timer-button:focus,
   .home__timer-button:hover {
-    background: var(--white);
-    color: var(--blue-dark);
+    background: var(--e-color-ground);
+    color: var(--e-color-theme-more);
   }
 }
 .home__timer-button:nth-child(1) {
-  animation-delay: calc(var(--timing-base) / 6);
+  animation-delay: calc(var(--e-time-1) / 6);
 }
 .home__timer-button:nth-child(2) {
-  animation-delay: calc(var(--timing-base) / 6 * 2);
+  animation-delay: calc(var(--e-time-1) / 6 * 2);
 }
 .home__timer-button:nth-child(3) {
-  animation-delay: calc(var(--timing-base) / 6 * 3);
+  animation-delay: calc(var(--e-time-1) / 6 * 3);
 }
 .home__timer-button:nth-child(4) {
-  animation-delay: calc(var(--timing-base) / 6 * 4);
+  animation-delay: calc(var(--e-time-1) / 6 * 4);
 }
 .home__timer-button:nth-child(5) {
-  animation-delay: calc(var(--timing-base) / 6 * 5);
+  animation-delay: calc(var(--e-time-1) / 6 * 5);
 }
 .home__timer-button:nth-child(6) {
-  animation-delay: calc(var(--timing-base) / 6 * 6);
+  animation-delay: calc(var(--e-time-1) / 6 * 6);
 }

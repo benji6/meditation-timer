@@ -1,51 +1,29 @@
 :root {
   --blue: hsl(233, 76%, 27%); /* (logo.svg) */
-  --blue-dark: hsl(
+  --e-color-theme-more: hsl(
     240,
     54%,
     11%
   ); /* background_color theme_color & (manifest, meta tag & logo.svg)*/
   --blue-light: hsl(195, 100%, 55%);
-  --gray: hsl(0, 0%, 43%);
   --green: hsl(145, 65%, 50%);
   --pink: hsl(315, 100%, 55%); /* (logo.svg) */
   --purple: hsl(258, 70%, 45%);
   --yellow: hsl(56, 100%, 63%);
   --red: hsl(0, 100%, 55%);
-  --white: hsl(192, 100%, 99%); /* (logo.svg) */
 
   --gradient-angle: 205deg;
 
-  --shadow-dark: rgba(0, 0, 0, 0.75);
-
-  --border-width: 0.175rem;
-  --border-width-thick: 3px;
-
-  --easing-standard: cubic-bezier(0.4, 0, 0.2, 1);
-
-  --font-size-base: 1.25rem;
-  --font-size-large: 1.5rem;
-
-  --spacing-base: 1.5rem;
-  --spacing-small: 0.5rem;
-
-  --timing-faster: 0.05s;
-  --timing-fast: 0.15s;
-  --timing-base: 0.3s;
-  --timing-slow: 1s;
-
-  --cmp-icon-button-radius: 4.5rem;
+  --cmp-icon-button-radius: 3.75em;
 
   --cmp-home__timer-button-radius: calc(var(--cmp-icon-button-radius) * 1.33);
   --cmp-home__timers-max-width: calc(
-    var(--cmp-home__timer-button-radius) * 3 + var(--spacing-small) * 11
+    var(--cmp-home__timer-button-radius) * 3 + var(--e-space-1) * 11
   );
 }
 
 @media (max-height: 26rem) {
   :root {
-    --spacing-base: 0.75rem;
-
-    --cmp-icon-button-radius: 3.33rem;
+    --cmp-icon-button-radius: 3em;
   }
 }

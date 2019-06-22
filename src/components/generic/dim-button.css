@@ -1,3 +1,3 @@
 .dim-button {
-  animation-delay: calc(var(--timing-faster) * 2);
+  animation-delay: calc(var(--e-time-0) * 2);
 }
