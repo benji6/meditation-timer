@@ -12,7 +12,7 @@
     "test:lint": "run-p test:lint:*",
     "test:lint:css": "stylelint src/**/*.css",
     "test:lint:ts": "tslint -c tslint.json 'src/**/*.ts'",
-    "test:format": "prettier --list-different \"src/**/*.ts\"",
+    "test:format": "prettier --check \"src/**/*.ts\"",
     "test:types": "tsc --noEmit"
   },
   "repository": {
