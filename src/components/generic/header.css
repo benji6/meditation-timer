@@ -37,7 +37,7 @@ header h1 {
 }
 
 .header__button svg {
-  --size: var(--e-space-4);
+  --size: calc(4em / 3);
 
   height: var(--size);
   width: var(--size);
