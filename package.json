@@ -29,7 +29,7 @@
     "awesome-typescript-loader": "^5.0.0",
     "babel-core": "^6.26.0",
     "clean-webpack-plugin": "^1.0.0",
-    "copy-webpack-plugin": "^4.3.0",
+    "copy-webpack-plugin": "^5.0.3",
     "css-loader": "^0.28.7",
     "favicons": "^5.1.1",
     "html-minifier": "^3.5.7",
