@@ -2513,9 +2513,9 @@ entities@^1.1.1, entities@~1.1.1:
   integrity sha512-f2LZMYl1Fzu7YSBKg+RoROelpOaNrcGmE9AZubeDfrCEia483oW4MI4VyFd5VNHIgQ/7qm1I0wUHK1eJnn2y2w==
 
 eri@^10.3.5:
-  version "10.3.5"
-  resolved "https://registry.yarnpkg.com/eri/-/eri-10.3.5.tgz#8277c871208b9cbd7cddcf1fa5744fabb7651207"
-  integrity sha512-G9TiOFCR4eXfs4qwMu4yyEEXZae3SvVVzE3n0cVger+8jLCutXeBd3quoIlqQ6IFs+1jQAVZhKy4Nractz3yXw==
+  version "10.9.2"
+  resolved "https://registry.yarnpkg.com/eri/-/eri-10.9.2.tgz#34fa3963f53eb6f6c9608bf5fa6eeb060e39f844"
+  integrity sha512-NcxIaxDTdf7f7V790Ye52we1ZMDisQLcMqJmEy1PnuEhnmbQRtRV+rDxz529nNg+fNICGeRZA7ZsqvXCALTbzQ==
   dependencies:
     react-transition-group "^4.1.1"
 
