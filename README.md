@@ -1,6 +1,7 @@
 # Meditate
 
 [![Build Status](https://travis-ci.org/benji6/meditation-timer.svg?branch=master)](https://travis-ci.org/benji6/meditation-timer)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/5b4f1df4-5a74-43ed-b198-30a81de24eb5/deploy-status)](https://app.netlify.com/sites/meditation-timer/deploys)
 
 ## About
 
