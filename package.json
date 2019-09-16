@@ -38,7 +38,7 @@
     "prettier": "^1.13.5",
     "style-loader": "^0.23.1",
     "stylelint": "^10.1.0",
-    "stylelint-config-recommended": "^2.2.0",
+    "stylelint-config-recommended": "^3.0.0",
     "tslint": "^5.18.0",
     "tslint-config-prettier": "^1.13.0",
     "tslint-eslint-rules": "^5.3.1",
