@@ -91,7 +91,7 @@ const startTimer = () => {
   requestAnimationFrame(renderLoop)
 }
 
-playPauseButton.onPlay = startTimer.bind(null)
+playPauseButton.onPlay = startTimer
 playPauseButton.onPause = stopTimer
 
 timer.onStop = navigateBack
@@ -102,7 +102,13 @@ const urlHash = (s: string) => {
   return s.slice(hashIndex + 1)
 }
 
-window.onhashchange = ({ newURL, oldURL }) => {
+window.onhashchange = ({
+  newURL,
+  oldURL,
+}: {
+  newURL: string | null
+  oldURL: string | null
+}) => {
   if (newURL === null || oldURL === null) return
 
   const newHash = urlHash(newURL)
