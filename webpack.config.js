@@ -1,4 +1,3 @@
-const CleanWebpackPlugin = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const minify = require('html-minifier').minify
@@ -88,7 +87,6 @@ const config = {
 }
 
 if (isProduction) {
-  config.plugins.unshift(new CleanWebpackPlugin('dist'))
   config.plugins.unshift(new MiniCssExtractPlugin({ filename: 'index.css' }))
   config.plugins.push(
     new OfflinePlugin({
