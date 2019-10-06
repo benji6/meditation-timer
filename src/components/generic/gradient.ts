@@ -1,6 +1,6 @@
 import './gradient.css'
 
-const gradientEl = document.querySelector('.gradient') as HTMLDivElement
+const gradientEl = document.querySelector<HTMLDivElement>('.gradient')!
 
 type GradientRange = 0 | 1 | 2 | 3 | 4
 
@@ -9,7 +9,7 @@ class Gradient {
     const newLayerEl = document.createElement('div')
     newLayerEl.classList.add('gradient__layer', `gradient__layer--${n}`)
     newLayerEl.addEventListener('animationend', () => {
-      ;(document.querySelector('.gradient__layer') as HTMLDivElement).remove()
+      document.querySelector<HTMLDivElement>('.gradient__layer')!.remove()
     })
     gradientEl.appendChild(newLayerEl)
   }

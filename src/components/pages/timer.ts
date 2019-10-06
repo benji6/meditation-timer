@@ -1,11 +1,12 @@
-import dimButton from '../generic/dimButton'
 import '../generic/dimmer-overlay.css'
 import gradient from '../generic/gradient'
 import playPauseButton from '../generic/playPauseButton'
 import { resetProgress } from '../generic/progress'
 import '../generic/progress.css'
-import stopButton from '../generic/stopButton'
 import './timer.css'
+
+const dimButtonEl = document.querySelector<HTMLButtonElement>('.dim-button')!
+const stopButtonEl = document.querySelector<HTMLButtonElement>('.stop-button')!
 
 const dimmerOverlayEl = document.querySelector(
   '.dimmer-overlay',
@@ -25,11 +26,11 @@ timerEl.addEventListener('animationend', () => {
 
 dimmerOverlayEl.onclick = () =>
   dimmerOverlayEl.classList.remove('dimmer-overlay--on')
-dimButton.onClick = () => dimmerOverlayEl.classList.add('dimmer-overlay--on')
+dimButtonEl.onclick = () => dimmerOverlayEl.classList.add('dimmer-overlay--on')
 
 class Timer {
   constructor() {
-    stopButton.onStop = () => this.onStop()
+    stopButtonEl.onclick = () => this.onStop()
   }
 
   public finish() {

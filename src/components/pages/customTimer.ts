@@ -2,19 +2,19 @@ import state from '../../state'
 import gradient from '../generic/gradient'
 import './custom-timer.css'
 
-const customTimerEl = document.querySelector('.custom-timer') as HTMLDivElement
-const deleteButtonEl = document.querySelector(
+const customTimerEl = document.querySelector<HTMLDivElement>('.custom-timer')!
+const deleteButtonEl = document.querySelector<HTMLButtonElement>(
   '.custom-timer__delete-button',
-) as HTMLButtonElement
-const numberButtonEls = document.querySelectorAll(
+)!
+const numberButtonEls = document.querySelectorAll<HTMLButtonElement>(
   '.custom-timer__number-button',
-) as NodeListOf<HTMLButtonElement>
-const startButtonEl = document.querySelector(
+)
+const startButtonEl = document.querySelector<HTMLButtonElement>(
   '.custom-timer__start-button',
-) as HTMLButtonElement
-const timeDisplayEl = document.querySelector(
+)!
+const timeDisplayEl = document.querySelector<HTMLOutputElement>(
   '.custom-timer__time-display',
-) as HTMLOutputElement
+)!
 
 const numberToText = (n: number): string => `${n < 600 ? '0' : ''}${n / 60}m`
 

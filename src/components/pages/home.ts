@@ -1,13 +1,13 @@
 import gradient from '../generic/gradient'
 import './home.css'
 
-const homeEl = document.querySelector('.home') as HTMLDivElement
-const customTimerButton = document.querySelector(
+const homeEl = document.querySelector<HTMLDivElement>('.home')!
+const customTimerButton = document.querySelector<HTMLButtonElement>(
   '.home__custom-timer-button',
-) as HTMLButtonElement
-const timerButtonEls = document.querySelectorAll(
+)!
+const timerButtonEls = document.querySelectorAll<HTMLButtonElement>(
   '.home__timer-button',
-) as NodeListOf<HTMLButtonElement>
+)
 
 homeEl.addEventListener('animationend', () => {
   const { classList } = homeEl
