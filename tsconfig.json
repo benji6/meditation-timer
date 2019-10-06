@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "module": "ES2015",
     "moduleResolution": "Node",
@@ -8,8 +7,5 @@
     "strict": true,
     "target": "es5"
   },
-  "typeRoots": [
-    "./src/typings",
-    "node_modules/@types"
-  ]
+  "typeRoots": ["./src/typings", "node_modules/@types"]
 }
