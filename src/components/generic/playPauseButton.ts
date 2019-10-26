@@ -1,8 +1,8 @@
 import './play-pause-button.css'
 
-const playPauseEl = document.querySelector(
+const playPauseEl = document.querySelector<HTMLButtonElement>(
   '.play-pause-button',
-) as HTMLButtonElement
+)!
 
 class PlayPauseButton {
   private isPaused: boolean

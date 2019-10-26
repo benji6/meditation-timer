@@ -1,12 +1,12 @@
 import state, { ProgressDisplay } from '../../state'
 
-const progressEl = document.querySelector('.progress') as HTMLDivElement
-const meterEl = document.querySelector('.progress__meter') as SVGElement
-const circleEl = document.querySelector('.progress__circle') as SVGCircleElement
-const circleBackgroundEl = document.querySelector(
+const progressEl = document.querySelector<HTMLDivElement>('.progress')!
+const meterEl = document.querySelector<SVGElement>('.progress__meter')!
+const circleEl = document.querySelector<SVGCircleElement>('.progress__circle')!
+const circleBackgroundEl = document.querySelector<SVGCircleElement>(
   '.progress__circle-background',
-) as SVGCircleElement
-const timeEl = document.querySelector('.progress__time') as HTMLDivElement
+)!
+const timeEl = document.querySelector<HTMLDivElement>('.progress__time')!
 
 const radius = 1 / 3
 const circumference = 2 * radius * Math.PI

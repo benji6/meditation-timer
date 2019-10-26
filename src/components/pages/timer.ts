@@ -8,10 +8,10 @@ import './timer.css'
 const dimButtonEl = document.querySelector<HTMLButtonElement>('.dim-button')!
 const stopButtonEl = document.querySelector<HTMLButtonElement>('.stop-button')!
 
-const dimmerOverlayEl = document.querySelector(
+const dimmerOverlayEl = document.querySelector<HTMLDivElement>(
   '.dimmer-overlay',
-) as HTMLDivElement
-const timerEl = document.querySelector('.timer') as HTMLDivElement
+)!
+const timerEl = document.querySelector<HTMLDivElement>('.timer')!
 
 timerEl.addEventListener('animationend', () => {
   if (timerEl.classList.contains('timer--transition-out')) {

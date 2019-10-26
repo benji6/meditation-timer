@@ -2,11 +2,11 @@ import share from '../../share'
 import gradient from '../generic/gradient'
 import './about.css'
 
-const aboutEl = document.querySelector('.about') as HTMLDivElement
-const notificationEl = document.querySelector('.notification') as HTMLDivElement
-const shareButtonEl = document.querySelector(
+const aboutEl = document.querySelector<HTMLDivElement>('.about')!
+const notificationEl = document.querySelector<HTMLDivElement>('.notification')!
+const shareButtonEl = document.querySelector<HTMLButtonElement>(
   '.about__share-button',
-) as HTMLButtonElement
+)!
 
 shareButtonEl.onclick = () => {
   share({

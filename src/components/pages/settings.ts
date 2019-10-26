@@ -2,19 +2,19 @@ import state from '../../state'
 import gradient from '../generic/gradient'
 import './settings.css'
 
-const settingsEl = document.querySelector('.settings') as HTMLDivElement
-const toggleSilentButton = document.querySelector(
+const settingsEl = document.querySelector<HTMLDivElement>('.settings')!
+const toggleSilentButton = document.querySelector<HTMLButtonElement>(
   '.toggle-silent-button',
-) as HTMLButtonElement
-const noisyEl = document.querySelector(
+)!
+const noisyEl = document.querySelector<SVGElement>(
   '.toggle-silent-button__noisy',
-) as SVGElement
-const silentEl = document.querySelector(
+)!
+const silentEl = document.querySelector<SVGElement>(
   '.toggle-silent-button__silent',
-) as SVGElement
-const silentMsgEl = document.querySelector(
+)!
+const silentMsgEl = document.querySelector<HTMLParagraphElement>(
   '.settings__silent-msg',
-) as HTMLParagraphElement
+)!
 
 const silentOffMsg = 'Silent mode is off'
 const silentOnMsg = 'Silent mode is on'
