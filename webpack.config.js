@@ -1,8 +1,10 @@
+const path = require('path')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const minify = require('html-minifier').minify
 const OfflinePlugin = require('offline-plugin')
-const path = require('path')
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin')
 
 const htmlMinifierOpts = {
   collapseBooleanAttributes: true,
@@ -17,16 +19,6 @@ const htmlMinifierOpts = {
 
 const isProduction = process.env.NODE_ENV === 'production'
 
-const cssRuleUse = isProduction
-  ? [
-      MiniCssExtractPlugin.loader,
-      {
-        loader: 'css-loader',
-        options: { minimize: true },
-      },
-    ]
-  : ['style-loader', 'css-loader']
-
 const config = {
   devServer: {
     contentBase: path.join(__dirname, 'src'),
@@ -36,13 +28,19 @@ const config = {
     rules: [
       {
         test: /\.css$/,
-        use: cssRuleUse,
+        use: [
+          isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
+          'css-loader',
+        ],
       },
       {
         loader: 'awesome-typescript-loader',
         test: /\.ts$/,
       },
     ],
+  },
+  optimization: {
+    minimizer: [new TerserPlugin(), new OptimizeCSSAssetsPlugin()],
   },
   output: {
     filename: 'index.js',
