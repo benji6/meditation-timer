@@ -1,0 +1,10 @@
+*.*ignore
+*.*rc
+*.ico
+*.json
+*.lock
+*.mp3
+*.png
+*.svg
+*.toml
+dist

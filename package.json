@@ -5,14 +5,14 @@
   "main": "index.js",
   "scripts": {
     "build": "rm -rf build && NODE_ENV=production webpack",
-    "format": "prettier --write 'src/**/*.ts'",
+    "format": "prettier --write '**/*'",
     "icons": "node scripts/icons",
     "start": "webpack-dev-server --hot --open",
     "test": "run-p test:*",
     "test:lint": "run-p test:lint:*",
     "test:lint:css": "stylelint src/**/*.css",
     "test:lint:ts": "tslint -c tslint.json 'src/**/*.ts'",
-    "test:format": "prettier --check 'src/**/*.ts'",
+    "test:format": "prettier --check '**/*'",
     "test:types": "tsc --noEmit"
   },
   "repository": {
