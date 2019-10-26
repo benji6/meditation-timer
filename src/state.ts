@@ -1,15 +1,13 @@
-/* tslint:disable variable-name */
-
 export enum ProgressDisplay {
   digital,
   radial,
 }
 
 class State {
-  public displayTime: number = 0
-  public customTimerTime: number = 0
-  public timerActive: boolean = false
-  public totalTime: number = 0
+  public displayTime = 0
+  public customTimerTime = 0
+  public timerActive = false
+  public totalTime = 0
   public progressDisplay: ProgressDisplay = ProgressDisplay.radial
   private _isSilent: boolean = localStorage.isSilent === 'true'
 

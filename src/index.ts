@@ -26,38 +26,8 @@ import './keyframes.css'
 
 import './index.css'
 
-const navigateBack = history.back.bind(history)
-
-header.onClickAbout = () => {
-  if (location.hash === '#custom-timer') location.replace('#about')
-  else location.hash = 'about'
-}
-header.onClickHome = navigateBack
-header.onClickSettings = () => {
-  if (location.hash === '#custom-timer') location.replace('#settings')
-  else location.hash = 'settings'
-}
-home.onClickCustomTimerButton = () => (location.hash = 'custom-timer')
-home.onClickTimerButton = (t: number) => {
-  state.displayTime = state.totalTime = t
-  location.hash = 'timer'
-  startTimer()
-}
-customTimer.onStart = () => {
-  state.displayTime = state.totalTime = state.customTimerTime
-  location.replace('#timer')
-  startTimer()
-}
-
-interface IProcess {
-  env: {
-    NODE_ENV: string
-  }
-}
-
-declare var process: IProcess
-
 const noSleep = new NoSleep()
+const navigateBack = history.back.bind(history)
 
 const stopTimer = () => {
   state.timerActive = false
@@ -92,6 +62,35 @@ const startTimer = () => {
 
   requestAnimationFrame(renderLoop)
 }
+
+header.onClickAbout = () => {
+  if (location.hash === '#custom-timer') location.replace('#about')
+  else location.hash = 'about'
+}
+header.onClickHome = navigateBack
+header.onClickSettings = () => {
+  if (location.hash === '#custom-timer') location.replace('#settings')
+  else location.hash = 'settings'
+}
+home.onClickCustomTimerButton = () => (location.hash = 'custom-timer')
+home.onClickTimerButton = (t: number) => {
+  state.displayTime = state.totalTime = t
+  location.hash = 'timer'
+  startTimer()
+}
+customTimer.onStart = () => {
+  state.displayTime = state.totalTime = state.customTimerTime
+  location.replace('#timer')
+  startTimer()
+}
+
+interface IProcess {
+  env: {
+    NODE_ENV: string
+  }
+}
+
+declare let process: IProcess
 
 playPauseButton.onPlay = startTimer
 playPauseButton.onPause = stopTimer

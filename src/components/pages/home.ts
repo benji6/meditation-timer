@@ -68,7 +68,7 @@ class Home {
   public onClickCustomTimerButton() {
     // empty
   }
-  public onClickTimerButton(t: number) {
+  public onClickTimerButton(_: number) {
     // empty
   }
 }
