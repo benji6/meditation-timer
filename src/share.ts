@@ -1,3 +1,20 @@
+interface INavigator extends Navigator {
+  share?: (
+    options:
+      | {
+          text: string
+        }
+      | {
+          title: string
+        }
+      | {
+          url: string
+        },
+  ) => Promise<void>
+}
+
+const nav = navigator as INavigator
+
 interface IShareOptions {
   onCopy: () => void
   title: string
@@ -5,29 +22,15 @@ interface IShareOptions {
   url: string
 }
 
-type NavigatorShare = (options: IShareOptions) => Promise<{}>
-
-interface INavigator {
-  share?: NavigatorShare
-}
-
-const nav = navigator as INavigator
-
-export const shareAvailable = true
-
 export default (options: IShareOptions) => {
-  if (nav.share !== undefined) {
-    nav.share(options)
-    return
-  }
+  if (nav.share) return nav.share(options)
 
   try {
-    const copy = document.createElement('input')
-    copy.value = options.url
-    document.body.appendChild(copy)
-    copy.select()
+    const inputElement = document.createElement('input')
+    inputElement.value = options.url
+    document.documentElement.appendChild(inputElement).select()
     document.execCommand('copy')
-    document.body.removeChild(copy)
+    document.documentElement.removeChild(inputElement)
     options.onCopy()
   } catch (e) {
     prompt('Copy this link: ', options.url)

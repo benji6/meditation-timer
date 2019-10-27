@@ -18,7 +18,7 @@ shareButtonEl.onclick = () => {
       )
     },
     title: document.title,
-    url: location.host,
+    url: location.origin,
   })
 }
 

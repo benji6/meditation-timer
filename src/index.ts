@@ -21,9 +21,7 @@ import settings from './components/pages/settings'
 import timer from './components/pages/timer'
 import state from './state'
 import './vars.css'
-
 import './keyframes.css'
-
 import './index.css'
 
 const noSleep = new NoSleep()
