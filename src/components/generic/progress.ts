@@ -1,4 +1,9 @@
-import state, { ProgressDisplay } from '../../state'
+enum ProgressDisplay {
+  digital,
+  radial,
+}
+
+let progressDisplay: ProgressDisplay = ProgressDisplay.radial
 
 const progressEl = document.querySelector<HTMLDivElement>('.progress')!
 const meterEl = document.querySelector<SVGElement>('.progress__meter')!
@@ -32,15 +37,15 @@ export const resetProgress = () => {
 }
 
 progressEl.onclick = () => {
-  if (state.progressDisplay === ProgressDisplay.digital) {
-    state.progressDisplay = ProgressDisplay.radial
+  if (progressDisplay === ProgressDisplay.digital) {
+    progressDisplay = ProgressDisplay.radial
     timeEl.remove()
     progressEl.appendChild(meterEl)
     return
   }
   meterEl.remove()
   progressEl.appendChild(timeEl)
-  state.progressDisplay = ProgressDisplay.digital
+  progressDisplay = ProgressDisplay.digital
 }
 
 resetProgress()

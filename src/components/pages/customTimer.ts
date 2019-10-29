@@ -1,4 +1,3 @@
-import state from '../../state'
 import gradient from '../generic/gradient'
 import './custom-timer.css'
 
@@ -18,28 +17,23 @@ const timeDisplayEl = document.querySelector<HTMLOutputElement>(
 
 const numberToText = (n: number): string => `${n < 600 ? '0' : ''}${n / 60}m`
 
+let customTimerTime = 0
+
 const handleNumberInput = (n: number): void => {
   if (n !== 0) deleteButtonEl.disabled = startButtonEl.disabled = false
-  const { customTimerTime } = state
-
   if (customTimerTime >= 600) return
-
-  state.customTimerTime = customTimerTime * 10 + n * 60
-
-  timeDisplayEl.value = numberToText(state.customTimerTime)
+  customTimerTime = customTimerTime * 10 + n * 60
+  timeDisplayEl.value = numberToText(customTimerTime)
 }
 
 const handleBackspace = () => {
-  const { customTimerTime } = state
-
   if (customTimerTime < 600) {
-    state.customTimerTime = 0
+    customTimerTime = 0
     deleteButtonEl.disabled = startButtonEl.disabled = true
   } else {
-    state.customTimerTime = Math.floor(customTimerTime / 600) * 60
+    customTimerTime = Math.floor(customTimerTime / 600) * 60
   }
-
-  timeDisplayEl.value = numberToText(state.customTimerTime)
+  timeDisplayEl.value = numberToText(customTimerTime)
 }
 
 deleteButtonEl.onclick = handleBackspace
@@ -58,7 +52,7 @@ customTimerEl.addEventListener('animationend', () => {
     customTimerEl.classList.contains('custom-timer--transition-out-right') ||
     customTimerEl.classList.contains('custom-timer--transition-out-zoom')
   ) {
-    timeDisplayEl.value = numberToText((state.customTimerTime = 0))
+    timeDisplayEl.value = numberToText((customTimerTime = 0))
     deleteButtonEl.disabled = startButtonEl.disabled = true
     customTimerEl.classList.add('page--hidden')
     customTimerEl.classList.remove('custom-timer--transition-out-left')
@@ -78,6 +72,10 @@ let isListeningToKeys = false
 class CustomTimer {
   constructor() {
     startButtonEl.onclick = () => this.onStart()
+  }
+
+  public get time(): number {
+    return customTimerTime
   }
 
   public transitionIn() {

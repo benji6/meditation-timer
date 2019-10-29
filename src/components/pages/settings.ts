@@ -1,4 +1,4 @@
-import state from '../../state'
+import storage from '../../storage'
 import gradient from '../generic/gradient'
 import './settings.css'
 
@@ -19,7 +19,7 @@ const silentMsgEl = document.querySelector<HTMLParagraphElement>(
 const silentOffMsg = 'Silent mode is off'
 const silentOnMsg = 'Silent mode is on'
 
-if (state.isSilent) {
+if (storage.isSilent) {
   noisyEl.remove()
   silentMsgEl.textContent = silentOnMsg
 } else {
@@ -28,7 +28,7 @@ if (state.isSilent) {
 }
 
 toggleSilentButton.onclick = () => {
-  const { isSilent } = state
+  const { isSilent } = storage
   if (isSilent) {
     silentEl.remove()
     toggleSilentButton.appendChild(noisyEl)
@@ -38,7 +38,7 @@ toggleSilentButton.onclick = () => {
     toggleSilentButton.appendChild(silentEl)
     silentMsgEl.textContent = silentOnMsg
   }
-  state.isSilent = !isSilent
+  storage.isSilent = !isSilent
 }
 
 settingsEl.addEventListener('animationend', () => {

@@ -1,4 +1,4 @@
-import state from './state'
+import storage from './storage'
 
 const audioContext = typeof AudioContext !== 'undefined' && new AudioContext()
 
@@ -12,7 +12,7 @@ let bufferSource: AudioBufferSourceNode | null = null
 
 class Bell {
   public start() {
-    if (!state.isSilent && audioContext && bufferPromise) {
+    if (!storage.isSilent && audioContext && bufferPromise) {
       bufferPromise.then((buffer: AudioBuffer) => {
         this.stop()
         bufferSource = audioContext.createBufferSource()
