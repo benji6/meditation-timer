@@ -41,7 +41,7 @@
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "prettier": "^1.13.5",
     "style-loader": "^1.0.0",
-    "stylelint": "^11.0.0",
+    "stylelint": "^12.0.0",
     "stylelint-config-recommended": "^3.0.0",
     "terser-webpack-plugin": "^2.2.1",
     "typescript": "^3.6.3",
