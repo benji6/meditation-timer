@@ -9,6 +9,7 @@
     "icons": "node scripts/icons",
     "start": "webpack-dev-server --hot --open",
     "test": "run-p test:*",
+    "test:audit": "yarn audit --level high || [ $? -lt 8 ]",
     "test:lint": "run-p test:lint:*",
     "test:lint:css": "stylelint src/**/*.css",
     "test:lint:ts": "eslint --ext js,ts .",
