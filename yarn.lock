@@ -2604,10 +2604,10 @@ entities@^2.0.0:
   resolved "https://registry.yarnpkg.com/entities/-/entities-2.0.0.tgz#68d6084cab1b079767540d80e56a39b423e4abf4"
   integrity sha512-D9f7V0JSRwIxlRI2mjMqufDrRDnx8p+eEOz7aUM9SuvF8gsBzra0/6tbjl1m8eQHrZlYj6PxqE00hZ1SAIKPLw==
 
-eri@12.3.0:
-  version "12.3.0"
-  resolved "https://registry.yarnpkg.com/eri/-/eri-12.3.0.tgz#21fea9fe1c791dca5f2e062b20a86bde988ab370"
-  integrity sha512-qpLIZpIWmycZxLZjEGppOzBm36LOTXjDIknjAyW7EYTwVnlf0flE7vd7kwQB3eAt3D1RUkBywH4mus5F4v26ug==
+eri@12.4.1:
+  version "12.4.1"
+  resolved "https://registry.yarnpkg.com/eri/-/eri-12.4.1.tgz#8d9c73913ea098346d219241341ad0a8f4411187"
+  integrity sha512-FExvcq1DcO8pbbdgOZ0dss01h4QNve+qnMn35YM0oZ0F98pQ0MUOIZC4nnuxPjuNiFVmtB8nQ4jKYEhgdBzxJA==
   dependencies:
     react-transition-group "^4.1.1"
 
