@@ -9,6 +9,7 @@
   animation-fill-mode: forwards;
   animation-timing-function: var(--e-easing-standard);
   margin: var(--e-space-3) var(--e-space-1) 0;
+  max-width: 32rem;
 }
 
 .about--transition-in .about__body {
