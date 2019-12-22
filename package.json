@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "rm -rf build && NODE_ENV=production webpack",
+    "build": "rm -rf dist && mkdir dist && run-p build:*",
+    "build:robots": "touch dist/robots.txt",
+    "build:webpack": "NODE_ENV=production webpack",
     "format": "yarn test:lint:css --fix && yarn test:lint:ts --fix && prettier --write '**/*'",
     "icons": "node scripts/icons",
     "start": "webpack-dev-server --hot --open",
