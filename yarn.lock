@@ -524,15 +524,6 @@
     regexpp "^3.0.0"
     tsutils "^3.17.1"
 
-"@typescript-eslint/experimental-utils@2.16.0":
-  version "2.16.0"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/experimental-utils/-/experimental-utils-2.16.0.tgz#bba65685728c532e0ddc811a0376e8d38e671f77"
-  integrity sha512-bXTmAztXpqxliDKZgvWkl+5dHeRN+jqXVZ16peKKFzSXVzT6mz8kgBpHiVzEKO2NZ8OCU7dG61K9sRS/SkUUFQ==
-  dependencies:
-    "@types/json-schema" "^7.0.3"
-    "@typescript-eslint/typescript-estree" "2.16.0"
-    eslint-scope "^5.0.0"
-
 "@typescript-eslint/experimental-utils@2.17.0":
   version "2.17.0"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/experimental-utils/-/experimental-utils-2.17.0.tgz#12ed4a5d656e02ff47a93efc7d1ce1b8f1242351"
@@ -551,19 +542,6 @@
     "@typescript-eslint/experimental-utils" "2.17.0"
     "@typescript-eslint/typescript-estree" "2.17.0"
     eslint-visitor-keys "^1.1.0"
-
-"@typescript-eslint/typescript-estree@2.16.0":
-  version "2.16.0"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/typescript-estree/-/typescript-estree-2.16.0.tgz#b444943a76c716ed32abd08cbe96172d2ca0ab75"
-  integrity sha512-hyrCYjFHISos68Bk5KjUAXw0pP/455qq9nxqB1KkT67Pxjcfw+r6Yhcmqnp8etFL45UexCHUMrADHH7dI/m2WQ==
-  dependencies:
-    debug "^4.1.1"
-    eslint-visitor-keys "^1.1.0"
-    glob "^7.1.6"
-    is-glob "^4.0.1"
-    lodash "^4.17.15"
-    semver "^6.3.0"
-    tsutils "^3.17.1"
 
 "@typescript-eslint/typescript-estree@2.17.0":
   version "2.17.0"
@@ -2653,10 +2631,10 @@ entities@^2.0.0:
   resolved "https://registry.yarnpkg.com/entities/-/entities-2.0.0.tgz#68d6084cab1b079767540d80e56a39b423e4abf4"
   integrity sha512-D9f7V0JSRwIxlRI2mjMqufDrRDnx8p+eEOz7aUM9SuvF8gsBzra0/6tbjl1m8eQHrZlYj6PxqE00hZ1SAIKPLw==
 
-eri@12.4.7:
-  version "12.4.7"
-  resolved "https://registry.yarnpkg.com/eri/-/eri-12.4.7.tgz#7d82a7bfb1d29342b388393dda2d9cd9f7b92a97"
-  integrity sha512-m+YwSF12wwSVBiQxCKDd0stOMRzaqfKJFNfyY0wb9ncTn+vY0PXL6zT+SZ9OFRi6nru/xE78eQKbD80vO23VhA==
+eri@12.5.0:
+  version "12.5.0"
+  resolved "https://registry.yarnpkg.com/eri/-/eri-12.5.0.tgz#4a39540931ccda7937298697a397bcefb8112dc4"
+  integrity sha512-WDom+QsLK2H5VXd9WvioPpXTNpbzat//KBMUzgpV8KG5dkJvT7CtAFYg/x1thFYDlkg6sgZzVzMi+2ISnbXsKw==
   dependencies:
     react-transition-group "^4.1.1"
 
