@@ -1,0 +1,22 @@
+:root {
+  --time-base-value: 0.09s;
+  --time-scale-ratio: 2.5;
+
+  --time-0: var(--time-base-value);
+  --time-1: calc(var(--time-0) * var(--time-scale-ratio));
+  --time-2: calc(var(--time-1) * var(--time-scale-ratio));
+}
+
+@media (min-width: 500px) {
+  :root {
+    /* Do not calc() this because it is read from a script */
+    --time-0: 0.1s;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    /* Do not calc() this because it is read from a script */
+    --time-0: 0.11s;
+  }
+}

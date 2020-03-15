@@ -1,0 +1,20 @@
+:root {
+  --theme-hue: 210;
+  --gray-saturation: 5%;
+
+  --color-balance: hsl(var(--theme-hue), var(--gray-saturation), 45%);
+  --color-ground: hsl(var(--theme-hue), var(--gray-saturation), 95%);
+  --color-ground-more: hsl(var(--theme-hue), var(--gray-saturation), 100%);
+
+  /* background_color theme_color & (manifest, meta tag & logo.svg)*/
+  --color-blue-dark: hsl(240, 54%, 11%);
+  --color-blue: hsl(233, 76%, 27%); /* (logo.svg) */
+  --color-blue-light: hsl(195, 100%, 55%);
+  --color-green: hsl(145, 65%, 50%);
+  --color-pink: hsl(315, 100%, 55%); /* (logo.svg) */
+  --color-purple: hsl(258, 70%, 45%);
+  --color-yellow: hsl(56, 100%, 63%);
+  --color-red: hsl(0, 100%, 55%);
+
+  --gradient-angle: 205deg;
+}

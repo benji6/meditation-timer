@@ -2,18 +2,18 @@
   align-items: center;
   background: rgba(0, 0, 0, 0.6);
   border-radius: 0.333rem;
-  bottom: calc(var(--e-space-3) - calc(var(--e-space-3) / 4));
+  bottom: calc(var(--space-3) - var(--space-3) / 4);
   display: flex;
   height: var(--cmp-icon-button-radius);
   justify-content: center;
-  left: var(--e-space-3);
+  left: var(--space-3);
   margin: 0 auto;
   max-width: var(--cmp-home__timers-max-width);
-  padding: calc(var(--e-space-3) / 4);
+  padding: calc(var(--space-3) / 4);
   position: fixed;
-  right: var(--e-space-3);
+  right: var(--space-3);
   transform: translateY(8rem);
-  transition: transform var(--e-time-0) var(--e-easing-standard);
+  transition: transform var(--time-0) var(--easing-standard);
 }
 
 .notification--show {

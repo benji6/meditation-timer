@@ -1,5 +1,3 @@
-import 'eri/dist/index.css'
-
 import OfflinePluginRuntime from 'offline-plugin/runtime'
 import './components/generic/controls.css'
 import './components/generic/dim-button.css'
@@ -13,9 +11,15 @@ import customTimer from './components/pages/customTimer'
 import home from './components/pages/home'
 import timer from './components/pages/timer'
 import stateMachine from './stateMachine'
-import './vars.css'
+import './vars/border.css'
+import './vars/color.css'
+import './vars/component.css'
+import './vars/easing.css'
+import './vars/space.css'
+import './vars/time.css'
+import './vars/typography.css'
 import './keyframes.css'
-import './index.css'
+import './global.css'
 
 interface IProcess {
   env: {

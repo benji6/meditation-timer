@@ -16,7 +16,7 @@
 
 .progress__circle {
   fill: transparent;
-  stroke: var(--e-color-ground);
+  stroke: var(--color-ground);
   stroke-width: 0.1;
 }
 .progress__circle--transitioning {

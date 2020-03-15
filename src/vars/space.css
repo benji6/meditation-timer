@@ -1,0 +1,14 @@
+:root {
+  --space-scale-ratio: 1.5;
+  --space-0: calc(1em / 3);
+  --space-1: calc(var(--space-0) * var(--space-scale-ratio));
+  --space-2: calc(var(--space-1) * var(--space-scale-ratio));
+  --space-3: calc(var(--space-2) * var(--space-scale-ratio));
+  --max-width: 32rem;
+}
+
+@media (max-width: 500px) {
+  :root {
+    --max-width: 100vw;
+  }
+}

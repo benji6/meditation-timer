@@ -1,20 +1,33 @@
-header {
-  padding-bottom: var(--e-space-2);
-  padding-top: var(--e-space-2);
+.header {
+  --box-shadow-color: hsla(var(--theme-hue), var(--gray-saturation), 10%, 0.18);
+
+  background: var(--color-blue-dark);
+  box-shadow: 0 0 3px var(--box-shadow-color), 0 2px 4px var(--box-shadow-color),
+    0 4px 5px var(--box-shadow-color), 0 6px 6px var(--box-shadow-color);
+  position: relative;
+  padding: var(--space-2) calc((100% - var(--max-width)) / 2 - var(--space-2));
 }
 
-header h1 {
-  font-size: var(--e-font-size-3);
+.header h1 {
+  font-size: var(--font-size-2);
+  margin: 0;
+}
+
+.header > div {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 var(--space-2);
 }
 
 .header__button {
   -webkit-tap-highlight-color: transparent;
   margin: 0 1rem;
   outline: 0;
-  stroke: var(--e-color-ground);
-  transition-duration: var(--e-time-0);
+  stroke: var(--color-ground);
+  transition-duration: var(--time-0);
   transition-property: opacity, transform;
-  transition-timing-function: var(--e-easing-standard);
+  transition-timing-function: var(--easing-standard);
 }
 @media (min-width: 768px) {
   .header__button:focus,
@@ -24,7 +37,7 @@ header h1 {
 }
 
 .header__button--delay {
-  transition-delay: var(--e-time-0);
+  transition-delay: var(--time-0);
 }
 
 .header__button:disabled {

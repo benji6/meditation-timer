@@ -1,7 +1,7 @@
 .gradient__layer {
-  animation-duration: var(--e-time-2);
+  animation-duration: var(--time-2);
   animation-name: fade-in;
-  animation-timing-function: var(--e-easing-standard);
+  animation-timing-function: var(--easing-standard);
   bottom: 0;
   left: 0;
   position: absolute;
@@ -17,39 +17,39 @@
 .gradient__layer--0 {
   background-image: linear-gradient(
     var(--gradient-angle),
-    var(--blue-light),
-    var(--pink)
+    var(--color-blue-light),
+    var(--color-pink)
   );
 }
 
 .gradient__layer--1 {
   background-image: linear-gradient(
     var(--gradient-angle),
-    var(--blue),
-    var(--e-color-theme-more)
+    var(--color-blue),
+    var(--color-blue-dark)
   );
 }
 
 .gradient__layer--2 {
   background-image: linear-gradient(
     var(--gradient-angle),
-    var(--purple),
-    var(--red)
+    var(--color-purple),
+    var(--color-red)
   );
 }
 
 .gradient__layer--3 {
   background-image: linear-gradient(
     var(--gradient-angle),
-    var(--green),
-    var(--purple)
+    var(--color-green),
+    var(--color-purple)
   );
 }
 
 .gradient__layer--4 {
   background-image: linear-gradient(
     var(--gradient-angle),
-    var(--pink),
-    var(--yellow)
+    var(--color-pink),
+    var(--color-yellow)
   );
 }

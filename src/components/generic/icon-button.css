@@ -2,22 +2,22 @@
   -webkit-tap-highlight-color: transparent;
   align-items: center;
   border-radius: 50%;
-  border: var(--e-border-width-1) solid var(--e-color-ground);
+  border: var(--border-width-1) solid var(--color-ground);
   display: flex;
   height: var(--cmp-icon-button-radius);
   justify-content: center;
   outline: 0;
-  stroke: var(--e-color-ground);
-  transition-duration: var(--e-time-0);
+  stroke: var(--color-ground);
+  transition-duration: var(--time-0);
   transition-property: background-color, box-shadow, stroke, transform;
-  transition-timing-function: var(--e-easing-standard);
+  transition-timing-function: var(--easing-standard);
   width: var(--cmp-icon-button-radius);
 }
 @media (min-width: 768px) {
   .icon-button:focus,
   .icon-button:hover {
-    background-color: var(--e-color-ground);
-    stroke: var(--e-color-theme-more);
+    background-color: var(--color-ground);
+    stroke: var(--color-blue-dark);
   }
 }
 
@@ -29,15 +29,15 @@
   pointer-events: none; /* Fixes bug with silent button */
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-width: var(--e-border-width-1);
+  stroke-width: var(--border-width-1);
   width: var(--radius);
 }
 
 .icon-button--slide-in {
   animation-direction: reverse;
-  animation-duration: var(--e-time-1);
+  animation-duration: var(--time-1);
   animation-fill-mode: forwards;
   animation-name: slide-down;
-  animation-timing-function: var(--e-easing-standard);
+  animation-timing-function: var(--easing-standard);
   transform: translateY(100vh);
 }

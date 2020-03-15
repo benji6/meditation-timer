@@ -22,9 +22,9 @@ let isTransitioning = true
 
 const getCssTime = (s: string): number => parseFloat(getCssVar(s)) * 1000
 
-const aboutTransitionTime = (): number => getCssTime('--e-time-1') * 2
-const settingsTransitionTime = (): number => getCssTime('--e-time-1')
-const homeTransitionTime = (): number => getCssTime('--e-time-1') * 2
+const aboutTransitionTime = (): number => getCssTime('--time-1') * 2
+const settingsTransitionTime = (): number => getCssTime('--time-1')
+const homeTransitionTime = (): number => getCssTime('--time-1') * 2
 
 class Header {
   constructor() {

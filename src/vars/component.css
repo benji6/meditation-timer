@@ -1,0 +1,14 @@
+:root {
+  --cmp-icon-button-radius: 3.75em;
+
+  --cmp-home__timer-button-radius: calc(var(--cmp-icon-button-radius) * 1.33);
+  --cmp-home__timers-max-width: calc(
+    var(--cmp-home__timer-button-radius) * 3 + var(--space-1) * 11
+  );
+}
+
+@media (max-height: 26rem) {
+  :root {
+    --cmp-icon-button-radius: 3em;
+  }
+}

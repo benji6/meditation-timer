@@ -1,0 +1,9 @@
+:root {
+  --font-size-scale-ratio: calc(4 / 3);
+  --font-size-0: calc(1rem + 0.25vmin);
+  --font-size-1: calc(var(--font-size-0) * var(--font-size-scale-ratio));
+  --font-size-2: calc(var(--font-size-1) * var(--font-size-scale-ratio));
+  --font-weight-bold: 700;
+  --font-weight-normal: 400;
+  --line-height: 1.25;
+}

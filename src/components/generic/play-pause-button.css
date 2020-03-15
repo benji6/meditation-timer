@@ -1,10 +1,10 @@
 .play-pause-button {
-  animation-delay: var(--e-time-0);
+  animation-delay: var(--time-0);
 }
 
 .play-pause-button__pause .play-pause-button__play {
   display: block;
-  stroke-width: var(--e-border-width-0);
+  stroke-width: var(--border-width-0);
 }
 
 .play-pause-button--paused .play-pause-button__play,
@@ -17,7 +17,7 @@
 }
 
 .play-pause-button:disabled {
-  border-color: var(--e-color-balance);
+  border-color: var(--color-balance);
   box-shadow: none;
-  stroke: var(--e-color-balance);
+  stroke: var(--color-balance);
 }

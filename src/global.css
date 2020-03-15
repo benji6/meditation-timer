@@ -1,0 +1,80 @@
+html {
+  color: var(--color-ground);
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: var(--font-weight-normal);
+  height: 100%;
+  line-height: var(--line-height);
+  transition-duration: var(--time-0);
+  transition-property: background-color, color;
+  transition-timing-function: var(--easing-standard);
+  user-select: none;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-size: var(--font-size-0);
+  height: 100%;
+  margin: 0;
+}
+
+a {
+  transition-duration: var(--time-0);
+  transition-property: text-decoration-color;
+  transition-timing-function: var(--easing-standard);
+}
+
+a:focus {
+  text-decoration-color: transparent;
+}
+
+a:hover {
+  text-decoration-color: transparent;
+}
+
+a:active {
+  text-decoration-color: transparent;
+}
+
+a::-moz-focus-inner {
+  border: none;
+}
+
+button {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  padding: 0;
+}
+
+button::-moz-focus-inner {
+  border: none;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+p {
+  --font-margin-paragraph: var(--space-2) 0;
+
+  margin: var(--font-margin-paragraph);
+  margin-top: 0;
+}
+
+p + p {
+  margin: var(--font-margin-paragraph);
+}
