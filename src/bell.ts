@@ -5,8 +5,8 @@ const audioContext = typeof AudioContext !== 'undefined' && new AudioContext()
 const bufferPromise =
   audioContext &&
   fetch('assets/meditation-bell.mp3')
-    .then(response => response.arrayBuffer())
-    .then(data => audioContext.decodeAudioData(data))
+    .then((response) => response.arrayBuffer())
+    .then((data) => audioContext.decodeAudioData(data))
 
 let bufferSource: AudioBufferSourceNode | null = null
 

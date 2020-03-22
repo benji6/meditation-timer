@@ -43,7 +43,7 @@ favicons(source, configuration, (err, response) => {
       fs.writeFile(
         path.join(__dirname, '..', 'src', 'assets', 'icons', name),
         contents,
-        err => {
+        (err) => {
           if (err) throw err
         },
       ),

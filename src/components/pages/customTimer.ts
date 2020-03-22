@@ -110,7 +110,7 @@ class CustomTimer {
 
 const customTimer = new CustomTimer()
 
-document.onkeydown = e => {
+document.onkeydown = (e) => {
   if (!isListeningToKeys) return
   const { keyCode } = e
   if (keyCode >= 48 && keyCode <= 57) {

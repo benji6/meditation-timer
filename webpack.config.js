@@ -58,7 +58,7 @@ const config = {
       },
       {
         from: 'src/index.html',
-        transform: content =>
+        transform: (content) =>
           isProduction
             ? minify(
                 content
@@ -73,7 +73,7 @@ const config = {
       },
       {
         from: 'src/manifest.json',
-        transform: content =>
+        transform: (content) =>
           isProduction
             ? JSON.stringify(JSON.parse(content.toString()))
             : content,
