@@ -24,6 +24,10 @@ a {
   transition-timing-function: var(--easing-standard);
 }
 
+a::-moz-focus-inner {
+  border: none;
+}
+
 a:focus {
   text-decoration-color: transparent;
 }
@@ -34,10 +38,6 @@ a:hover {
 
 a:active {
   text-decoration-color: transparent;
-}
-
-a::-moz-focus-inner {
-  border: none;
 }
 
 button {
