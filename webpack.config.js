@@ -47,38 +47,40 @@ const config = {
     filename: "index.js",
   },
   plugins: [
-    new CopyWebpackPlugin([
-      {
-        from: "src/assets",
-        to: "assets",
-        transform: (content, path) =>
-          isProduction && path.endsWith(".svg")
-            ? minify(content.toString(), htmlMinifierOpts)
-            : content,
-      },
-      {
-        from: "src/index.html",
-        transform: (content) =>
-          isProduction
-            ? minify(
-                content
-                  .toString()
-                  .replace(
-                    "<!-- css-tag -->",
-                    '<link href="index.css" rel="stylesheet">'
-                  ),
-                htmlMinifierOpts
-              )
-            : content,
-      },
-      {
-        from: "src/manifest.json",
-        transform: (content) =>
-          isProduction
-            ? JSON.stringify(JSON.parse(content.toString()))
-            : content,
-      },
-    ]),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: "src/assets",
+          to: "assets",
+          transform: (content, path) =>
+            isProduction && path.endsWith(".svg")
+              ? minify(content.toString(), htmlMinifierOpts)
+              : content,
+        },
+        {
+          from: "src/index.html",
+          transform: (content) =>
+            isProduction
+              ? minify(
+                  content
+                    .toString()
+                    .replace(
+                      "<!-- css-tag -->",
+                      '<link href="index.css" rel="stylesheet">'
+                    ),
+                  htmlMinifierOpts
+                )
+              : content,
+        },
+        {
+          from: "src/manifest.json",
+          transform: (content) =>
+            isProduction
+              ? JSON.stringify(JSON.parse(content.toString()))
+              : content,
+        },
+      ],
+    }),
   ],
   resolve: {
     extensions: [".js", ".json", ".ts"],

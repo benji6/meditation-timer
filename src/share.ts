@@ -1,20 +1,3 @@
-interface INavigator extends Navigator {
-  share?: (
-    options:
-      | {
-          text: string;
-        }
-      | {
-          title: string;
-        }
-      | {
-          url: string;
-        }
-  ) => Promise<void>;
-}
-
-const nav = navigator as INavigator;
-
 interface IShareOptions {
   onCopy: () => void;
   title: string;
@@ -23,7 +6,7 @@ interface IShareOptions {
 }
 
 export default (options: IShareOptions) => {
-  if (nav.share) return nav.share(options);
+  if (navigator.share) return navigator.share(options);
 
   try {
     const inputElement = document.createElement("input");
