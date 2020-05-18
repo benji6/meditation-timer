@@ -29,6 +29,8 @@
 }
 
 .home__timer-button {
+  --animation-delay-base: calc(var(--time-1) / 9);
+
   animation-direction: reverse;
   animation-duration: var(--time-1);
   animation-fill-mode: forwards;
@@ -56,20 +58,29 @@
   }
 }
 .home__timer-button:nth-child(1) {
-  animation-delay: calc(var(--time-1) / 6);
+  animation-delay: var(--animation-delay);
 }
 .home__timer-button:nth-child(2) {
-  animation-delay: calc(var(--time-1) / 6 * 2);
+  animation-delay: calc(var(--animation-delay-base) * 2);
 }
 .home__timer-button:nth-child(3) {
-  animation-delay: calc(var(--time-1) / 6 * 3);
+  animation-delay: calc(var(--animation-delay-base) * 3);
 }
 .home__timer-button:nth-child(4) {
-  animation-delay: calc(var(--time-1) / 6 * 4);
+  animation-delay: calc(var(--animation-delay-base) * 4);
 }
 .home__timer-button:nth-child(5) {
-  animation-delay: calc(var(--time-1) / 6 * 5);
+  animation-delay: calc(var(--animation-delay-base) * 5);
 }
 .home__timer-button:nth-child(6) {
-  animation-delay: calc(var(--time-1) / 6 * 6);
+  animation-delay: calc(var(--animation-delay-base) * 6);
+}
+.home__timer-button:nth-child(7) {
+  animation-delay: calc(var(--animation-delay-base) * 7);
+}
+.home__timer-button:nth-child(8) {
+  animation-delay: calc(var(--animation-delay-base) * 8);
+}
+.home__timer-button:nth-child(9) {
+  animation-delay: calc(var(--animation-delay-base) * 9);
 }
