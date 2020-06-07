@@ -17,14 +17,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/benji6/meditate.git"
+    "url": "git+https://github.com/benji6/meditation-timer.git"
   },
   "author": "Ben Hall",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/benji6/meditate/issues"
+    "url": "https://github.com/benji6/meditation-timer/issues"
   },
-  "homepage": "https://github.com/benji6/meditate#readme",
+  "homepage": "https://github.com/benji6/meditation-timer#readme",
   "devDependencies": {
     "awesome-typescript-loader": "^5.0.0",
     "babel-core": "^6.26.0",
