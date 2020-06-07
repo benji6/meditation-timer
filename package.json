@@ -13,7 +13,6 @@
     "test": "run-p test:*",
     "test:audit": "yarn audit --level high || [ $? -lt 8 ]",
     "test:lint": "run-p test:lint:*",
-    "test:lint:css": "stylelint '**/*.css'",
     "test:lint:scripts": "eslint --ext js,ts .",
     "test:format": "prettier --check '**/*'",
     "test:types": "tsc --noEmit"
@@ -44,8 +43,6 @@
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "prettier": "^2.0.1",
     "style-loader": "^1.2.1",
-    "stylelint": "^13.0.0",
-    "stylelint-config-recommended": "^3.0.0",
     "terser-webpack-plugin": "^3.0.0",
     "typescript": "^3.6.3",
     "uglifyjs-webpack-plugin": "^2.1.3",
