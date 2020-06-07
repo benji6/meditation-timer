@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-use-before-define */
 import NoSleep from "nosleep.js";
 import playPauseButton from "./components/generic/playPauseButton";
 import { setProgress } from "./components/generic/progress";
@@ -14,7 +13,6 @@ import customTimer, {
 
 const noSleep = new NoSleep();
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type UnionToIntersection<U> = (U extends any ? (k: U) => void : never) extends (
   k: infer I
 ) => void
