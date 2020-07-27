@@ -2573,9 +2573,9 @@ fastq@^1.6.0:
     reusify "^1.0.4"
 
 favicons@^6.0.0:
-  version "6.1.0"
-  resolved "https://registry.yarnpkg.com/favicons/-/favicons-6.1.0.tgz#aaae4045fe5251e76cb7f356a4a74f3e222a048d"
-  integrity sha512-1V1N52yZY89SSZKiuTmtojfMMV7ddn2KJr9pvDZNnwxCd7Iej8pvt3NFn43mOh+6R5UYr7dgyn1LNTE8f024xg==
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/favicons/-/favicons-6.2.0.tgz#835e0c3b0110db89048ef17999c2f4e42a6ff2ff"
+  integrity sha512-KshoA1p51g9NcQ8BaqETExA4PVBc69xoUELC28UA0BM6gAuoRx8f4jvVYwclVjTuL5AJk9NlRXAqQWq1qIpzVA==
   dependencies:
     clone "^2.1.2"
     colors "^1.4.0"
