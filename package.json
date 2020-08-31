@@ -11,7 +11,7 @@
     "icons": "node scripts/icons",
     "start": "webpack-dev-server --hot --open",
     "test": "run-p test:*",
-    "test:audit": "yarn audit --level high || [ $? -lt 8 ]",
+    "test:audit": "yarn audit --level critical || [ $? -lt 16 ]",
     "test:format": "prettier --check '**/*'",
     "test:types": "tsc --noEmit"
   },
