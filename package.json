@@ -4,12 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "rm -rf dist && mkdir dist && run-p build:*",
+    "build": "rm -rf dist && mkdir dist && run-p build:* && node scripts/injectCacheList",
+    "build:parcel": "CACHE_LIST=CACHE_LIST parcel build --no-source-maps src/index.html",
     "build:robots": "touch dist/robots.txt",
-    "build:webpack": "NODE_ENV=production webpack",
-    "format": "prettier --write '**/*'",
+    "fmt": "prettier --write '**/*'",
     "icons": "node scripts/icons",
-    "start": "webpack-dev-server --hot --open",
+    "start": "parcel src/index.html --open",
     "test": "run-p test:*",
     "test:audit": "yarn audit --level critical || [ $? -lt 16 ]",
     "test:format": "prettier --check '**/*'",
@@ -25,27 +25,18 @@
     "url": "https://github.com/benji6/meditation-timer/issues"
   },
   "homepage": "https://github.com/benji6/meditation-timer#readme",
-  "devDependencies": {
-    "awesome-typescript-loader": "^5.0.0",
-    "babel-core": "^6.26.0",
-    "copy-webpack-plugin": "^6.1.0",
-    "css-loader": "^4.2.2",
-    "favicons": "^6.0.0",
-    "html-minifier": "^4.0.0",
-    "mini-css-extract-plugin": "^0.11.0",
-    "npm-run-all": "^4.1.3",
-    "optimize-css-assets-webpack-plugin": "^5.0.4",
-    "prettier": "^2.1.1",
-    "style-loader": "^1.2.1",
-    "terser-webpack-plugin": "^4.1.0",
-    "typescript": "^4.0.2",
-    "uglifyjs-webpack-plugin": "^2.1.3",
-    "webpack": "^4.6.0",
-    "webpack-cli": "^3.0.8",
-    "webpack-dev-server": "^3.1.3"
-  },
+  "browserslist": [
+    ">1.25%"
+  ],
   "dependencies": {
-    "nosleep.js": "^0.12.0",
-    "offline-plugin": "^5.0.2"
+    "nosleep.js": "^0.12.0"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.16",
+    "favicons": "^6.0.0",
+    "npm-run-all": "^4.1.3",
+    "parcel-bundler": "^1.12.4",
+    "prettier": "^2.1.1",
+    "typescript": "^4.0.2"
   }
 }

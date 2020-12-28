@@ -1,10 +1,11 @@
 import storage from "./storage";
 
+const meditationBellUri = require("./assets/meditation-bell.mp3");
 const audioContext = typeof AudioContext !== "undefined" && new AudioContext();
 
 const bufferPromise =
   audioContext &&
-  fetch("assets/meditation-bell.mp3")
+  fetch(meditationBellUri)
     .then((response) => response.arrayBuffer())
     .then((data) => audioContext.decodeAudioData(data));
 

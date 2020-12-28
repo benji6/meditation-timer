@@ -1,4 +1,3 @@
-import OfflinePluginRuntime from "offline-plugin/runtime";
 import "./components/generic/controls.css";
 import "./components/generic/dim-button.css";
 import header from "./components/generic/header";
@@ -54,4 +53,5 @@ window.onhashchange = ({
 if (location.href.includes("#"))
   history.replaceState("", document.title, location.pathname);
 
-if (process.env.NODE_ENV === "production") OfflinePluginRuntime.install();
+if (process.env.NODE_ENV === "production" && navigator.serviceWorker)
+  navigator.serviceWorker.register("service-worker.ts");

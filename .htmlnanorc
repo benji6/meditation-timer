@@ -1,0 +1,5 @@
+{
+  "minifySvg": {
+    "plugins": [{ "removeHiddenElems": false }]
+  }
+}
