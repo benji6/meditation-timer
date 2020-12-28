@@ -5,7 +5,7 @@
 
 ## About
 
-Meditate is a free and open source web app that allows you to time your meditations. It's simple to use, works offline and aims to be the perfect aide for your meditation practice!
+Meditate is a free and open source meditation timer. It's simple to use, works offline and aims to be the perfect aide for your meditation practice!
 
 It can be found here: https://meditation-timer.link
 
