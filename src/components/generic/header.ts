@@ -1,9 +1,8 @@
 import { getCssVar } from "../../utils";
 import "./header.css";
 
-const buttonEls = document.querySelectorAll<HTMLButtonElement>(
-  ".header__button"
-);
+const buttonEls =
+  document.querySelectorAll<HTMLButtonElement>(".header__button");
 
 const aboutButtonEl = buttonEls[1];
 const settingsButtonEl = buttonEls[0];

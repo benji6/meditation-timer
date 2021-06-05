@@ -8,9 +8,8 @@ import "./timer.css";
 const dimButtonEl = document.querySelector<HTMLButtonElement>(".dim-button")!;
 const stopButtonEl = document.querySelector<HTMLButtonElement>(".stop-button")!;
 
-const dimmerOverlayEl = document.querySelector<HTMLDivElement>(
-  ".dimmer-overlay"
-)!;
+const dimmerOverlayEl =
+  document.querySelector<HTMLDivElement>(".dimmer-overlay")!;
 const timerEl = document.querySelector<HTMLDivElement>(".timer")!;
 
 timerEl.addEventListener("animationend", () => {
